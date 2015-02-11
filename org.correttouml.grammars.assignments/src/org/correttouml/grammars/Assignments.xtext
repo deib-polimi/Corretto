@@ -1,0 +1,29 @@
+grammar org.correttouml.grammars.Assignments with org.eclipse.xtext.common.Terminals
+
+generate assignments "http://www.correttouml.org/grammars/Assignments"
+
+/*
+ * Right now an assignment can only be an arithmetic expression
+ * THis is not completely true because actually we can assign the value
+ * of a boolean variable, or a boolean expression to another boolean variable
+ * e.g. bool_var= bool_A && bool_B
+ * This is left to future development
+ */
+
+Model:
+	assignment=ASSIGNMENT;
+	
+ASSIGNMENT:
+	variable=ID "=" expression=EXPRESSION
+;
+
+EXPRESSION:
+	firstTerm=TERM operator=OPERATOR secondTerm=TERM | alone=TERM
+;
+
+TERM:
+	variable=ID | constant=INT
+;
+
+terminal OPERATOR:
+	('-' | '+' | '*');

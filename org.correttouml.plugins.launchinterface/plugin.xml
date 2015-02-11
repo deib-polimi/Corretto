@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+>
+
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="org.correttouml.plugins.launchinterface.launching.MadesVerificationLaunchConfigurationDelegate"
+            id="org.correttouml.plugins.launchinterface.launching.MadesVerificationLaunchConfigurationDelegate"
+            modes="run,debug"
+            name="Corretto UML">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="org.correttouml.plugins.launchinterface.launching.AbstractLaunchConfigurationTabGroupMadesVerification"
+            id="org.correttouml.plugins.launchinterface.launching.AbstractLaunchConfigurationTabGroupMadesVerification"
+            type="org.correttouml.plugins.launchinterface.launching.MadesVerificationLaunchConfigurationDelegate">
+      </launchConfigurationTabGroup>
+   </extension>
+</plugin>

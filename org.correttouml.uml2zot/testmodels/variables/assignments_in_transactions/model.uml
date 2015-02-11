@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CorrettoUML.Time="http:///CorrettoUML/Time.ecore" xmlns:CorrettoUML.VerificationTags="http:///CorrettoUML/VerificationTags.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///CorrettoUML/Properties.ecore pathmap://resources/model.profile.uml#_e595B4JmEeK0gIgXi94_dg http:///CorrettoUML/Time.ecore pathmap://resources/model.profile.uml#_e5944YJmEeK0gIgXi94_dg http:///CorrettoUML/VerificationTags.ecore pathmap://resources/model.profile.uml#_e5949YJmEeK0gIgXi94_dg">
+  <uml:Model xmi:id="_e630wD7vEeKZLK_46y7FPg" name="model">
+    <packageImport xmi:id="_JVsmoD7wEeKZLK_46y7FPg">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_hjO-ID7vEeKZLK_46y7FPg" name="System">
+      <packagedElement xmi:type="uml:Class" xmi:id="_lkAr8D7vEeKZLK_46y7FPg" name="Sender"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_pr2rED7vEeKZLK_46y7FPg" name="Receiver" classifierBehavior="_grsnQD7xEeKZLK_46y7FPg">
+        <ownedAttribute xmi:id="_snayYD7xEeKZLK_46y7FPg" name="rec_attribute" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_s68yYD7xEeKZLK_46y7FPg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_s69ZcD7xEeKZLK_46y7FPg" value="1"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_4MISMGljEeKPbpNQZlLmNQ" name=""/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_grsnQD7xEeKZLK_46y7FPg" name="StateMachine1">
+          <region xmi:id="_h_WAcD7xEeKZLK_46y7FPg" name="Region1">
+            <transition xmi:id="_kl5zAD7xEeKZLK_46y7FPg" name="Transition0" source="_idU88D7xEeKZLK_46y7FPg" target="_i5CBgD7xEeKZLK_46y7FPg"/>
+            <transition xmi:id="_mIHzsD7xEeKZLK_46y7FPg" name="@rec_op.call / rec_attribute=rec_op_param" source="_i5CBgD7xEeKZLK_46y7FPg" target="_i5CBgD7xEeKZLK_46y7FPg"/>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_idU88D7xEeKZLK_46y7FPg" name="Initial0"/>
+            <subvertex xmi:type="uml:State" xmi:id="_i5CBgD7xEeKZLK_46y7FPg" name="State0"/>
+          </region>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_C32ZcD7wEeKZLK_46y7FPg" name="rec_op">
+          <ownedParameter xmi:id="_L82PED7wEeKZLK_46y7FPg" name="rec_op_param">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_q6oLUD7vEeKZLK_46y7FPg" name="sender_receiver_1" memberEnd="_q6oLUT7vEeKZLK_46y7FPg _q6nkQD7vEeKZLK_46y7FPg">
+        <ownedEnd xmi:id="_q6oLUT7vEeKZLK_46y7FPg" name="sender" type="_lkAr8D7vEeKZLK_46y7FPg" association="_q6oLUD7vEeKZLK_46y7FPg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_q6oLUj7vEeKZLK_46y7FPg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_q6oLUz7vEeKZLK_46y7FPg" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="_q6nkQD7vEeKZLK_46y7FPg" name="receiver" type="_pr2rED7vEeKZLK_46y7FPg" association="_q6oLUD7vEeKZLK_46y7FPg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_q6nkQT7vEeKZLK_46y7FPg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_q6nkQj7vEeKZLK_46y7FPg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_xem1sD7vEeKZLK_46y7FPg" name="s" classifier="_lkAr8D7vEeKZLK_46y7FPg">
+        <slot xmi:id="_3RI1AD7vEeKZLK_46y7FPg" definingFeature="_q6nkQD7vEeKZLK_46y7FPg">
+          <value xmi:type="uml:InstanceValue" xmi:id="_3RI1AT7vEeKZLK_46y7FPg" name="InstanceValue0" type="_pr2rED7vEeKZLK_46y7FPg" instance="_yWijQD7vEeKZLK_46y7FPg"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_yWijQD7vEeKZLK_46y7FPg" name="r" classifier="_pr2rED7vEeKZLK_46y7FPg"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_3QRSUD7vEeKZLK_46y7FPg" name="InstanceSpecification0" classifier="_q6oLUD7vEeKZLK_46y7FPg">
+        <eAnnotations xmi:id="_3RHm4D7vEeKZLK_46y7FPg" source="InstanceEnd" references="_xem1sD7vEeKZLK_46y7FPg _yWijQD7vEeKZLK_46y7FPg"/>
+        <slot xmi:id="_3RIN8D7vEeKZLK_46y7FPg" definingFeature="_q6oLUT7vEeKZLK_46y7FPg">
+          <value xmi:type="uml:InstanceValue" xmi:id="_3RIN8T7vEeKZLK_46y7FPg" name="InstanceValue0" type="_lkAr8D7vEeKZLK_46y7FPg" instance="_xem1sD7vEeKZLK_46y7FPg"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Activity" xmi:id="_5cAKED7vEeKZLK_46y7FPg" name="Activity1" node="_8-1XoD7vEeKZLK_46y7FPg _RosiID7xEeKZLK_46y7FPg _YrBVYD7xEeKZLK_46y7FPg">
+        <edge xmi:type="uml:ControlFlow" xmi:id="_aqFDED7xEeKZLK_46y7FPg" name="ControlFlow1" source="_8-1XoD7vEeKZLK_46y7FPg" target="_YrBVYD7xEeKZLK_46y7FPg">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_aqGRMD7xEeKZLK_46y7FPg" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_aqGRMT7xEeKZLK_46y7FPg"/>
+        </edge>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_bhOGcD7xEeKZLK_46y7FPg" name="ControlFlow2" source="_YrBVYD7xEeKZLK_46y7FPg" target="_RosiID7xEeKZLK_46y7FPg">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_bhP7oD7xEeKZLK_46y7FPg" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_bhQisD7xEeKZLK_46y7FPg"/>
+        </edge>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_d6x-0D7xEeKZLK_46y7FPg" name="ControlFlow3" source="_RosiID7xEeKZLK_46y7FPg" target="_YrBVYD7xEeKZLK_46y7FPg">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_d6yl4D7xEeKZLK_46y7FPg" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_d6zM8D7xEeKZLK_46y7FPg"/>
+        </edge>
+        <node xmi:type="uml:InitialNode" xmi:id="_8-1XoD7vEeKZLK_46y7FPg" name="InitialNode1" outgoing="_aqFDED7xEeKZLK_46y7FPg"/>
+        <node xmi:type="uml:CallBehaviorAction" xmi:id="_RosiID7xEeKZLK_46y7FPg" name="CallBehaviorAction1" outgoing="_d6x-0D7xEeKZLK_46y7FPg" incoming="_bhOGcD7xEeKZLK_46y7FPg" behavior="_A7Fx0D7wEeKZLK_46y7FPg"/>
+        <node xmi:type="uml:MergeNode" xmi:id="_YrBVYD7xEeKZLK_46y7FPg" name="MergeNode1" outgoing="_bhOGcD7xEeKZLK_46y7FPg" incoming="_aqFDED7xEeKZLK_46y7FPg _d6x-0D7xEeKZLK_46y7FPg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_A7Fx0D7wEeKZLK_46y7FPg" name="SendData">
+        <ownedComment xmi:id="_iTgAoD7zEeKZLK_46y7FPg">
+          <body> @SendData.end - @SendData.start == 5</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_v5El0D7wEeKZLK_46y7FPg" name="data">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_ccq3gD7wEeKZLK_46y7FPg" name="MessageSend" covered="_ByX_ID7wEeKZLK_46y7FPg" message="_ccpCUD7wEeKZLK_46y7FPg"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_ccrekD7wEeKZLK_46y7FPg" name="MessageRecv" covered="_CH-bsD7wEeKZLK_46y7FPg" message="_ccpCUD7wEeKZLK_46y7FPg"/>
+        <lifeline xmi:id="_ByX_ID7wEeKZLK_46y7FPg" name="s:Sender" coveredBy="_ccq3gD7wEeKZLK_46y7FPg">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_VDBwcD7wEeKZLK_46y7FPg" name="" instance="_xem1sD7vEeKZLK_46y7FPg"/>
+        </lifeline>
+        <lifeline xmi:id="_CH-bsD7wEeKZLK_46y7FPg" name="r:Receiver" coveredBy="_ccrekD7wEeKZLK_46y7FPg">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_YU6X8D7wEeKZLK_46y7FPg" name="" instance="_yWijQD7vEeKZLK_46y7FPg"/>
+        </lifeline>
+        <message xmi:id="_ccpCUD7wEeKZLK_46y7FPg" name="rec_op" messageSort="asynchCall" receiveEvent="_ccrekD7wEeKZLK_46y7FPg" sendEvent="_ccq3gD7wEeKZLK_46y7FPg" signature="_C32ZcD7wEeKZLK_46y7FPg">
+          <argument xmi:type="uml:LiteralInteger" xmi:id="_F3dIsD7xEeKZLK_46y7FPg" name="data"/>
+        </message>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:id="_ay3msIskEeKq16zbeZ_Fpg">
+      <eAnnotations xmi:id="_ay74IIskEeKq16zbeZ_Fpg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://resources/model.profile.uml#_TgjsIIsjEeKKVfwHBkrs7w"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://resources/model.profile.uml#_DCylYIJgEeKaWIAr5_BKMw"/>
+    </profileApplication>
+  </uml:Model>
+  <CorrettoUML.VerificationTags:System xmi:id="__vvuID7xEeKZLK_46y7FPg" base_Package="_hjO-ID7vEeKZLK_46y7FPg"/>
+  <CorrettoUML.Time:TimeConstraint xmi:id="_jehCQD7zEeKZLK_46y7FPg" base_Comment="_iTgAoD7zEeKZLK_46y7FPg"/>
+</xmi:XMI>

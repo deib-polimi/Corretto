@@ -1,0 +1,47 @@
+grammar org.correttouml.grammars.BooleanExpressions with org.eclipse.xtext.common.Terminals
+
+hidden(WS, ML_COMMENT, SL_COMMENT)
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate booleanExpressions "http://www.correttouml.org/grammars/BooleanExpressions"
+
+Model: expression=booleanExpression;
+	
+booleanExpression:
+	("!!" notExpression=booleanExpression)
+	|
+	(orLeft=booleanTerm "||" orRight=booleanTerm)
+	|
+	(andLeft=booleanTerm "&&" andRight=booleanTerm)
+	| 
+	booleanTerm=booleanTerm;
+	
+booleanTerm:
+	TimeConstraint | BooleanVariable | VariableCondition
+;
+
+TimeConstraint:
+	('@' event2=Event '-' '@' event1=Event op=RELATIONS value=INT)
+;
+
+BooleanVariable:
+	variable = ID
+;
+
+VariableCondition:
+	'{' variable=ID  relation=RELATIONS value=INT '}'
+;
+
+Event:
+	(eventName=ID '.' eventExtension=EventExtensions) | (nowEvent ?= 'now') 
+;
+
+EventExtensions :
+	'exit' | 'enter' | 'start'  | 'end' | 'tick' | 'sig' | 'call' | 'send' | 'receive'
+;
+	
+terminal RELATIONS:
+	('<'| '>'| '==' | '<=' |'>=' | '!=')
+;	
+	

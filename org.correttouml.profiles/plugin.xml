@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping
+            source="pathmap://resources/"
+            target="platform:/plugin/org.correttouml.profiles/resources/">
+      </mapping>
+   </extension>
+   <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            name="Corretto Verification Profile"
+            path="pathmap://resources/model.profile.uml">
+      </profile>
+   </extension>
+
+</plugin>

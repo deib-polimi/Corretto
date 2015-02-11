@@ -1,0 +1,45 @@
+grammar org.correttouml.grammars.StateMachineActions with org.eclipse.xtext.common.Terminals
+
+hidden(WS, ML_COMMENT, SL_COMMENT)
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate stateMachineActions "http://www.correttouml.org/grammars/StateMachineActions"
+
+Model:
+	action=Action;
+	
+Action:
+	assignment=Assignment | eventAction=EventAction
+;
+
+/* 
+ * This is replicated in eu.mades.assignment because I did not found a way
+ * to make cross references between grammars
+ */
+Assignment:
+	leftvar=ID '=' expression=EXPRESSION
+;
+
+EXPRESSION:
+	firstTerm=TERM operator=OPERATOR secondTerm=TERM | alone=TERM
+;
+
+TERM:
+	variable=ID | constant=INT
+;
+
+terminal OPERATOR:
+	('-' | '+' | '*');
+
+EventAction:
+	'@' (eventName=ID ('(' parameters=Parameters ')')? '.' eventExtension=EventExtensions)
+;
+
+Parameters :
+	param=ID | param=ID ',' parameters=Parameters
+;
+
+EventExtensions :
+	'exit' | 'enter' | 'start'  | 'end' | 'tick' | 'sig' | 'call'
+;	
