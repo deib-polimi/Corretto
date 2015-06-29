@@ -109,7 +109,7 @@ public class STimeConstraint{
 			case LTE:{
 				if(mades_ti.isEvent2Now()){
 					//                	sem.addFormulae(new And(new WithinP(ev1, timeunits), new Since(new Not(ev1), ev1)));
-					sem.addFormulae(new WithinP_ii(ev1, timeunits-1));
+					sem.addFormulae(new WithinP_ii(ev1, timeunits));
 				}else{
 					//                	sem.addFormulae(new Iff(ev2, new And(new WithinP(ev1, timeunits), new Since(new And(new Not(ev2),new Not(ev1)), ev1))));
 					sem.addFormulae(new Since(new And(new Not(ev1), new Not(ev2)), new And(ev2, new WithinP_ii(ev1, timeunits))));
