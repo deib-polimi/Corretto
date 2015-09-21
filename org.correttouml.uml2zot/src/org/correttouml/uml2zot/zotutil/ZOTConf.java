@@ -6,6 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashSet;
 
+import org.correttouml.uml.MadesModel;
+import org.correttouml.uml2zot.UML2Zot;
 import org.correttouml.uml2zot.semantics.SMadesModel;
 import org.correttouml.uml2zot.semantics.util.bool.BooleanFormulae;
 
@@ -50,17 +52,16 @@ public class ZOTConf {
         this.timebound=timebound;
         declareAvailablePlugins();
     }
-
-    public void writeVerificationZOTFile(String filename) throws IOException, Exception {
+    
+    public void writeVerificationZOTFile(String filename, String modelStats) throws IOException, Exception {
         String sem=model.getSemantics();
     	String loadplugin = "(asdf:operate 'asdf:load-op '" + plugin + ")\n";
         String loadtrioutils = "(use-package :trio-utils)\n";
         String loadsatsolverinterface = "";
-        String definetimebound = "(defvar TSPACE " + timebound + ")\n;;Configuration: Combine = "+SMadesModel.staticConfig.combine+"; Loop = " +SMadesModel.staticConfig.loop+"; Choice = "+SMadesModel.staticConfig.what+";\n";
+        String definetimebound = "(defvar TSPACE " + timebound + ")\n";
         BooleanFormulae property_formulae=null;
         if (model.hasProperty()) property_formulae=model.getProperty();
         String ae2zotVariables = model.getVariableDeclarationsForae2zot();
-        String declarations = model.getDeclarations();
         String definemodel = "(defvar AX1 \n (&& \n" + sem + "\n)) ;;END AX1 \n\n\n";
         String smtsolverparameter = "";
 
@@ -105,8 +106,11 @@ public class ZOTConf {
             thesystem = thesystem + "(defvar the_system  (&& (yesterday (alwf AX1)) initAx ))";
         }
         thesystem = thesystem + "\n\n\n" + "(" + plugin + ":zot TSPACE (&& the_system) " + smtsolverparameter + " )";
-
-        String zot = ""
+        int arithVarsN=0;
+        for(org.correttouml.uml2zot.semantics.util.trio.TrioVar t: org.correttouml.uml2zot.semantics.util.trio.TrioVar.instances){
+			arithVarsN++;
+		}
+        String zot = modelStats + ";  " + Integer.toString(arithVarsN) + "\t:Number of arithmetic variables\n"
                 + ""
                 + loadplugin
                 + loadtrioutils
@@ -114,7 +118,8 @@ public class ZOTConf {
                 + ""
                 + definetimebound
                 + ""
-                + declarations
+                + ae2zotVariables
+                + ""
                 + definemodel
                 + property
                 + initaxiom
