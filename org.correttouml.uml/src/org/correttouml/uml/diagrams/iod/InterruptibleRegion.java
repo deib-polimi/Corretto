@@ -3,6 +3,7 @@ package org.correttouml.uml.diagrams.iod;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.correttouml.uml2zot.UML2Zot;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.uml2.uml.ActivityNode;
 import org.eclipse.uml2.uml.InterruptibleActivityRegion;
@@ -35,7 +36,7 @@ public class InterruptibleRegion {
 
 	public String getUMLId() {
 		String id=((XMLResource) this.uml_region.eResource()).getID(this.uml_region);
-		return id;
+		return UML2Zot.Utility.umlIDtoPrdID(id);
 	}
 	
 	//TODO: metodo equals e hashkey

@@ -19,7 +19,7 @@ public class SGuard {
             this.predicate=new Predicate();
         }
         // MR: modified to avoid "-"
-        predicate.setPredicateName("OBJ"+object.getName()+"_STD"+this.mades_guard.getTransition().getStateDiagram().getName()+"_TRANSITION"+this.mades_guard.getTransition().getUMLId().replace("-", "_")+"_GUARD");
+        predicate.setPredicateName("OBJ"+object.getName()+"_STD"+this.mades_guard.getTransition().getStateDiagram().getName()+"_TRANSITION"+this.mades_guard.getTransition().getUMLId()+"_GUARD");
         return predicate;
     }
 

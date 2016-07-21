@@ -1,6 +1,7 @@
 package org.correttouml.uml2zot.semantics.iod;
 
 import org.correttouml.uml.diagrams.iod.JoinNode;
+import org.correttouml.uml2zot.UML2Zot;
 import org.correttouml.uml2zot.semantics.util.trio.Predicate;
 
 

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.correttouml.uml.diagrams.expressions.PrimitiveType;
 import org.correttouml.uml.diagrams.sequencediagram.*;
+import org.correttouml.uml2zot.UML2Zot;
 import org.correttouml.uml2zot.semantics.SMadesModel;
 import org.correttouml.uml2zot.semantics.util.bool.*;
 import org.correttouml.uml2zot.semantics.util.fun.SomPIn_i;
@@ -115,7 +116,7 @@ public class SCF_Loop extends SCombinedFragment  implements SCombinedFragmentItf
 			f.addAll(new SLink_Pre_Post(this, config.loop).getFormulae());
 			// // order(CF_Loop_Start, CF_Loop_End, True, SD_Stop, True)
 			f.add(new SOrder(start, end, SD_Stop, true).getFun());
-// // if (config.combine == “ws”){
+// // if (config.combine == ï¿½wsï¿½){
 			if(config.loop == ConfigCombine.WS){
 				int n = getLifelines().size();
 				int min = getMINValue();
@@ -236,7 +237,7 @@ public class SCF_Loop extends SCombinedFragment  implements SCombinedFragmentItf
 				
 			}// end of "ws"
 			
-//			if (config.loop == “sync”){
+//			if (config.loop == ï¿½syncï¿½){
 			if (config.loop == ConfigCombine.SYNC) {
 				TrioVar counter = new TrioVar(getPredicate().getPredicateName() + "_Counter", PrimitiveType.INTEGER);
 				TrioVar.instances.add(counter);
@@ -280,7 +281,7 @@ public class SCF_Loop extends SCombinedFragment  implements SCombinedFragmentItf
 				f.add(new Implies(new And(opEnd, new GTE(new Plus(counter, one), min), new Not(getGuard())), end));
 //				(CF_Loop_Op_End && ((CF_Loop_C + 1) >= CF_Loop_Min) && CF_Loop_Guard) => ((next(CF_Loop_Op_Start) && !!CF_Loop_End) || (next(!!CF_Loop_Op_Start) && CF_Loop_End))
 				f.add(new Implies(new And(opEnd, new GTE(new Plus(counter, one), min), getGuard()), new Or(new And(new Next(opStart), new Not(end)), new And(new Next(new Not(opStart)), end))));
-//				If CF_Loop_Max != “*”
+//				If CF_Loop_Max != ï¿½*ï¿½
 				if (!getMAXName().equals("*")) {
 //				    (CF_Loop_Op_End && ((CF_Loop_C + 1) = CF_Loop_Max)) => CF_Loop_End
 					f.add(new Implies(new And(opEnd, new EQ(new Plus(counter, one), max)), end));

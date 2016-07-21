@@ -16,7 +16,7 @@ public class SExecutionOccurrenceEnd implements SInteractionFragment{
 	@Override
 	public Predicate getPredicate(){
 		//String umlid=mades_exoccEnd.getExecutionOccurrence().getUMLId().replace("-", "_");
-		String umlid=UML2Zot.Utility.umlIDtoPrdID(mades_exoccEnd.getExecutionOccurrence().getUMLId());
+		String umlid=mades_exoccEnd.getExecutionOccurrence().getUMLId();
 		return new Predicate("EXOCC"+umlid+"_END");
 	}
 

@@ -15,7 +15,7 @@ public class SExecutionOccurrenceStart implements SInteractionFragment{
 	
 	@Override
 	public Predicate getPredicate(){
-		String umlid=UML2Zot.Utility.umlIDtoPrdID(mades_exoccstart.getExecutionOccurrence().getUMLId());
+		String umlid=mades_exoccstart.getExecutionOccurrence().getUMLId();
 		return new Predicate("EXOCC"+umlid+"_START");
 	}
 	

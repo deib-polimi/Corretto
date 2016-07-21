@@ -20,7 +20,7 @@ public class SExecutionOccurrence {
 	
 	public Predicate getPredicate(){
 		//return new Predicate("EXOCC"+this.mades_exocc.getUMLId().replace("-", "_"));
-		return new Predicate("EXOCC"+ UML2Zot.Utility.umlIDtoPrdID(this.mades_exocc.getUMLId()));
+		return new Predicate("EXOCC"+ this.mades_exocc.getUMLId());
 	}
 
 	public String getSemantics() {

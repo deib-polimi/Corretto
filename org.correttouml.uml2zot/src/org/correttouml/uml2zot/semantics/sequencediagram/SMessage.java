@@ -2,6 +2,7 @@ package org.correttouml.uml2zot.semantics.sequencediagram;
 
 import org.correttouml.uml.diagrams.classdiagram.Clock;
 import org.correttouml.uml.diagrams.sequencediagram.*;
+import org.correttouml.uml2zot.UML2Zot;
 import org.correttouml.uml2zot.semantics.events.SClockTickEvent;
 import org.correttouml.uml2zot.semantics.util.bool.Iff;
 import org.correttouml.uml2zot.semantics.util.bool.Not;
@@ -26,8 +27,9 @@ public class SMessage {
 	
 	public Predicate getPredicate(){
 		//return new Predicate("MESSAGE"+this.mades_message.getUMLId().replace("-", "_"));
-//		return new Predicate("MESSAGE"+UML2Zot.Utility.umlIDtoPrdID(this.mades_message.getUMLId())); ////####uncomment me
-		return new Predicate(mades_message.getName());
+//		return new Predicate("MESSAGE"+UML2Zot.Utility.umlIDtoPrdID(this.mades_message.getUMLId()));
+		return new Predicate("MESSAGE" + mades_message.getName() + "$" + this.mades_message.getUMLId());
+//		return new Predicate(mades_message.getName());
 	}
 
 	public Predicate getmosPredicate(MessageOccurrenceSpecification mos){

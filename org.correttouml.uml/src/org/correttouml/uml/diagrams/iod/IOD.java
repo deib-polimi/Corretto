@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.correttouml.uml.MadesModel;
 import org.correttouml.uml.diagrams.expressions.ExpressionContext;
+import org.correttouml.uml2zot.UML2Zot;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.uml2.uml.Activity;
 import org.eclipse.uml2.uml.ActivityGroup;
@@ -58,7 +59,7 @@ public class IOD implements ExpressionContext{
 
 	public String getUMLId() {
 		String id=((XMLResource) this.uml_activity.eResource()).getID(uml_activity);
-		return id;
+		return UML2Zot.Utility.umlIDtoPrdID(id);
 	}
 
 	@Override

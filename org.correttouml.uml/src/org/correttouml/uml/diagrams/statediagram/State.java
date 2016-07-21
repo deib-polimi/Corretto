@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.correttouml.uml.diagrams.property.PTermElement;
+import org.correttouml.uml2zot.UML2Zot;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.uml2.uml.Constraint;
 
@@ -65,7 +66,7 @@ public class State implements PTermElement{
 	
 	public String getUMLId() {
 		String id=((XMLResource) this.uml_state.eResource()).getID(uml_state);
-		return id;
+		return UML2Zot.Utility.umlIDtoPrdID(id);
 	}
 		
 	@Override

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CorrettoUML.VerificationTags="http:///CorrettoUML/VerificationTags.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///CorrettoUML/VerificationTags.ecore ../../../../org.correttouml.profiles/resources/model.profile.uml#_YfVc14vzEeKLvcTv2F9FYg">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CorrettoUML.VerificationTags="http:///CorrettoUML/VerificationTags.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///CorrettoUML/VerificationTags.ecore ../../../../org.correttouml.profiles/resources/model.profile.uml#_YfVc14vzEeKLvcTv2F9FYg">
   <uml:Model xmi:id="_qlcOAL2tEeKKSenVvntNZQ" name="model">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_IFwqwL3OEeKKSenVvntNZQ">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
@@ -41,6 +41,12 @@
         </slot>
       </packagedElement>
       <packagedElement xmi:type="uml:Interaction" xmi:id="_Zc1R0L2uEeKKSenVvntNZQ" name="SD1">
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_agOogL2uEeKKSenVvntNZQ" name="l1" coveredBy="_hrOp0T1WEeOWO7QesXsWIQ _xjDWwT1ZEeOWO7QesXsWIQ _c5WboD7JEeOQ4-v7F3wgeQ _c5WboT7JEeOQ4-v7F3wgeQ _ernDcD7JEeOQ4-v7F3wgeQ _IrV_4T86EeOcwbX2FlX9XQ _jTT40j9BEeOcwbX2FlX9XQ _2Dkn8j9DEeOcwbX2FlX9XQ __8aZ4D-GEeO4CMWb0mJRVg __8aZ4T-GEeO4CMWb0mJRVg _GVGaQD-HEeO4CMWb0mJRVg">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_e1_H0L2uEeKKSenVvntNZQ" name="" instance="_Gkw_oL2uEeKKSenVvntNZQ"/>
+        </lifeline>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_a4xrYL2uEeKKSenVvntNZQ" name="l2" coveredBy="_hrOp0j1WEeOWO7QesXsWIQ _xjDWwj1ZEeOWO7QesXsWIQ _c5WboD7JEeOQ4-v7F3wgeQ _c5WboT7JEeOQ4-v7F3wgeQ _ernDcD7JEeOQ4-v7F3wgeQ _IrV_4j86EeOcwbX2FlX9XQ _jTT40T9BEeOcwbX2FlX9XQ _2Dkn8T9DEeOcwbX2FlX9XQ __8aZ4D-GEeO4CMWb0mJRVg __8aZ4T-GEeO4CMWb0mJRVg _GVGaQT-HEeO4CMWb0mJRVg">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_gv-vUL2uEeKKSenVvntNZQ" name="" instance="_I-AH4L2uEeKKSenVvntNZQ"/>
+        </lifeline>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_xjDWwT1ZEeOWO7QesXsWIQ" name="MessageSend1" covered="_agOogL2uEeKKSenVvntNZQ" message="_xjDWwD1ZEeOWO7QesXsWIQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_hrOp0T1WEeOWO7QesXsWIQ" name="MessageSend" covered="_agOogL2uEeKKSenVvntNZQ" message="_hrOp0D1WEeOWO7QesXsWIQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_xjDWwj1ZEeOWO7QesXsWIQ" name="MessageRecv1" covered="_a4xrYL2uEeKKSenVvntNZQ" message="_xjDWwD1ZEeOWO7QesXsWIQ"/>
@@ -49,28 +55,22 @@
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_2Dkn8j9DEeOcwbX2FlX9XQ" name="MessageRecv3" covered="_agOogL2uEeKKSenVvntNZQ" message="_2Dkn8D9DEeOcwbX2FlX9XQ"/>
         <fragment xmi:type="uml:CombinedFragment" xmi:id="_c5WboD7JEeOQ4-v7F3wgeQ" name="Alt1" covered="_a4xrYL2uEeKKSenVvntNZQ _agOogL2uEeKKSenVvntNZQ" interactionOperator="alt">
           <operand xmi:type="uml:InteractionOperand" xmi:id="_c5WboT7JEeOQ4-v7F3wgeQ" name="Op0" covered="_a4xrYL2uEeKKSenVvntNZQ _agOogL2uEeKKSenVvntNZQ">
-            <guard xmi:type="uml:InteractionConstraint" xmi:id="_7vqdMEppEeOt0Pk4D4ttRA" name="f"/>
             <fragment xmi:type="uml:CombinedFragment" xmi:id="__8aZ4D-GEeO4CMWb0mJRVg" name="opt1" covered="_a4xrYL2uEeKKSenVvntNZQ _agOogL2uEeKKSenVvntNZQ" interactionOperator="opt">
               <operand xmi:type="uml:InteractionOperand" xmi:id="__8aZ4T-GEeO4CMWb0mJRVg" name="Op0" covered="_a4xrYL2uEeKKSenVvntNZQ _agOogL2uEeKKSenVvntNZQ">
                 <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_GVGaQD-HEeO4CMWb0mJRVg" name="MessageSend" covered="_agOogL2uEeKKSenVvntNZQ" message="_GU8pQD-HEeO4CMWb0mJRVg"/>
                 <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_GVGaQT-HEeO4CMWb0mJRVg" name="MessageRecv" covered="_a4xrYL2uEeKKSenVvntNZQ" message="_GU8pQD-HEeO4CMWb0mJRVg"/>
               </operand>
             </fragment>
+            <guard xmi:type="uml:InteractionConstraint" xmi:id="_7vqdMEppEeOt0Pk4D4ttRA" name="f"/>
           </operand>
           <operand xmi:type="uml:InteractionOperand" xmi:id="_ernDcD7JEeOQ4-v7F3wgeQ" name="Op1" covered="_a4xrYL2uEeKKSenVvntNZQ _agOogL2uEeKKSenVvntNZQ">
-            <guard xmi:type="uml:InteractionConstraint" xmi:id="_KGZSMEpqEeOt0Pk4D4ttRA" name="t"/>
             <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_IrV_4T86EeOcwbX2FlX9XQ" name="Message0Send" covered="_agOogL2uEeKKSenVvntNZQ" message="_IrV_4D86EeOcwbX2FlX9XQ"/>
             <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_IrV_4j86EeOcwbX2FlX9XQ" name="Message0Recv" covered="_a4xrYL2uEeKKSenVvntNZQ" message="_IrV_4D86EeOcwbX2FlX9XQ"/>
+            <guard xmi:type="uml:InteractionConstraint" xmi:id="_KGZSMEpqEeOt0Pk4D4ttRA" name="t"/>
           </operand>
         </fragment>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_jTT40T9BEeOcwbX2FlX9XQ" name="MessageSend2" covered="_a4xrYL2uEeKKSenVvntNZQ" message="_jTT40D9BEeOcwbX2FlX9XQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_jTT40j9BEeOcwbX2FlX9XQ" name="MessageRecv2" covered="_agOogL2uEeKKSenVvntNZQ" message="_jTT40D9BEeOcwbX2FlX9XQ"/>
-        <lifeline xmi:type="uml:Lifeline" xmi:id="_agOogL2uEeKKSenVvntNZQ" name="l1" coveredBy="_hrOp0T1WEeOWO7QesXsWIQ _xjDWwT1ZEeOWO7QesXsWIQ _c5WboD7JEeOQ4-v7F3wgeQ _c5WboT7JEeOQ4-v7F3wgeQ _ernDcD7JEeOQ4-v7F3wgeQ _IrV_4T86EeOcwbX2FlX9XQ _jTT40j9BEeOcwbX2FlX9XQ _2Dkn8j9DEeOcwbX2FlX9XQ __8aZ4D-GEeO4CMWb0mJRVg __8aZ4T-GEeO4CMWb0mJRVg _GVGaQD-HEeO4CMWb0mJRVg">
-          <selector xmi:type="uml:InstanceValue" xmi:id="_e1_H0L2uEeKKSenVvntNZQ" name="" instance="_Gkw_oL2uEeKKSenVvntNZQ"/>
-        </lifeline>
-        <lifeline xmi:type="uml:Lifeline" xmi:id="_a4xrYL2uEeKKSenVvntNZQ" name="l2" coveredBy="_hrOp0j1WEeOWO7QesXsWIQ _xjDWwj1ZEeOWO7QesXsWIQ _c5WboD7JEeOQ4-v7F3wgeQ _c5WboT7JEeOQ4-v7F3wgeQ _ernDcD7JEeOQ4-v7F3wgeQ _IrV_4j86EeOcwbX2FlX9XQ _jTT40T9BEeOcwbX2FlX9XQ _2Dkn8T9DEeOcwbX2FlX9XQ __8aZ4D-GEeO4CMWb0mJRVg __8aZ4T-GEeO4CMWb0mJRVg _GVGaQT-HEeO4CMWb0mJRVg">
-          <selector xmi:type="uml:InstanceValue" xmi:id="_gv-vUL2uEeKKSenVvntNZQ" name="" instance="_I-AH4L2uEeKKSenVvntNZQ"/>
-        </lifeline>
         <message xmi:type="uml:Message" xmi:id="_hrOp0D1WEeOWO7QesXsWIQ" name="M1" messageSort="asynchCall" receiveEvent="_hrOp0j1WEeOWO7QesXsWIQ" sendEvent="_hrOp0T1WEeOWO7QesXsWIQ" signature="_nQZIUL2uEeKKSenVvntNZQ"/>
         <message xmi:type="uml:Message" xmi:id="_xjDWwD1ZEeOWO7QesXsWIQ" name="M0" messageSort="asynchCall" receiveEvent="_xjDWwj1ZEeOWO7QesXsWIQ" sendEvent="_xjDWwT1ZEeOWO7QesXsWIQ" signature="_nQZIUL2uEeKKSenVvntNZQ"/>
         <message xmi:type="uml:Message" xmi:id="_IrV_4D86EeOcwbX2FlX9XQ" name="M3" messageSort="asynchCall" receiveEvent="_IrV_4j86EeOcwbX2FlX9XQ" sendEvent="_IrV_4T86EeOcwbX2FlX9XQ" signature="_y9wTEL3JEeKKSenVvntNZQ"/>
@@ -87,8 +87,15 @@
           <subvertex xmi:type="uml:Pseudostate" xmi:id="_XZGtkKcJEeSkuKMGwntRTg" name="Initial0"/>
         </region>
       </packagedElement>
-      <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_OobQMKcLEeSkuKMGwntRTg">
-        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Oo4jMKcLEeSkuKMGwntRTg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_rVeCoE2YEea9ooQcV7ZonQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rVhF8E2YEea9ooQcV7ZonQ" source="PapyrusVersion">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rVhF8U2YEea9ooQcV7ZonQ" key="Version" value="0.0.10"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rVhF8k2YEea9ooQcV7ZonQ" key="Comment" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rVhF802YEea9ooQcV7ZonQ" key="Copyright" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rVhF9E2YEea9ooQcV7ZonQ" key="Date" value="2013-03-13"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rVhF9U2YEea9ooQcV7ZonQ" key="Author" value=""/>
+        </eAnnotations>
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rVfQwE2YEea9ooQcV7ZonQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
           <references xmi:type="ecore:EPackage" href="../../../../org.correttouml.profiles/resources/model.profile.uml#_YfVcwIvzEeKLvcTv2F9FYg"/>
         </eAnnotations>
         <appliedProfile xmi:type="uml:Profile" href="../../../../org.correttouml.profiles/resources/model.profile.uml#_DCylYIJgEeKaWIAr5_BKMw"/>
@@ -101,6 +108,5 @@
       <appliedProfile xmi:type="uml:Profile" href="pathmap://resources/model.profile.uml#_DCylYIJgEeKaWIAr5_BKMw"/>
     </profileApplication>
   </uml:Model>
-  <CorrettoUML.VerificationTags:System xmi:id="_95GQAL2tEeKKSenVvntNZQ" base_Package="_8jM0EL2tEeKKSenVvntNZQ"/>
-  <CorrettoUML.VerificationTags:System xmi:id="_yLybAKcLEeSkuKMGwntRTg" base_Package="_8jM0EL2tEeKKSenVvntNZQ"/>
+  <CorrettoUML.VerificationTags:System xmi:id="_r3sl8E2YEea9ooQcV7ZonQ" base_Package="_8jM0EL2tEeKKSenVvntNZQ"/>
 </xmi:XMI>

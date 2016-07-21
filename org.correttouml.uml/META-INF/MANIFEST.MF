@@ -25,3 +25,4 @@ Export-Package: org.correttouml.uml,
  org.correttouml.uml.diagrams.statediagram.triggers,
  org.correttouml.uml.diagrams.timeconstraints,
  org.correttouml.uml.helpers
+Import-Package: org.correttouml.uml2zot

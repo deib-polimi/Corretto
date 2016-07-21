@@ -5,6 +5,7 @@ import org.correttouml.uml.diagrams.expressions.AssignmentContext;
 import org.correttouml.uml.diagrams.statediagram.actions.Action;
 import org.correttouml.uml.diagrams.statediagram.actions.ActionFactory;
 import org.correttouml.uml.helpers.StDTransitionsParser;
+import org.correttouml.uml2zot.UML2Zot;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 
 public class Transition implements AssignmentContext{
@@ -34,7 +35,7 @@ public class Transition implements AssignmentContext{
 
 	public String getUMLId() {
 		String id=((XMLResource) this.uml_transition.eResource()).getID(uml_transition);
-		return id;
+		return "tttransition"+UML2Zot.Utility.umlIDtoPrdID(id);
 	}
 
 	public boolean hasTrigger() {

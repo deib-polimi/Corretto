@@ -39,8 +39,10 @@ public class ZOTConf {
 
         //supported plugins
         zotplugins.add("ae2zot");
+        zotplugins.add("ae2bvzot");
         zotplugins.add("eezot");
         zotplugins.add("meezot");
+        zotplugins.add("bvzot");
         zotplugins.add("smteezot");
         zotplugins.add("smtmeezot");
     }
@@ -61,6 +63,8 @@ public class ZOTConf {
         String definetimebound = "(defvar TSPACE " + timebound + ")\n";
         BooleanFormulae property_formulae=null;
         if (model.hasProperty()) property_formulae=model.getProperty();
+        String declarations= model.getDeclarations();
+        String defuns= model.getDefun();
         String ae2zotVariables = model.getVariableDeclarationsForae2zot();
         String definemodel = "(defvar AX1 \n (&& \n" + sem + "\n)) ;;END AX1 \n\n\n";
         String smtsolverparameter = "";
@@ -117,7 +121,7 @@ public class ZOTConf {
                 + loadsatsolverinterface
                 + ""
                 + definetimebound
-                + ""
+                + declarations
                 + ae2zotVariables
                 + ""
                 + definemodel

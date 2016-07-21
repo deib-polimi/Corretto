@@ -156,7 +156,7 @@ public class SampleTab extends AbstractLaunchConfigurationTab implements ModifyL
 		 * Add contents of solver combo depending on the contents of the plug-
 		 * in combo
 		 */
-		String items[] = { "eezot", "meezot", "smteezot", "smtmeezot", "ae2zot" };
+		String items[] = { "eezot", "meezot", "smteezot", "smtmeezot", "ae2zot", "bvzot", "ae2bvzot"};
 		plugin.setItems(items);
 		plugin.setText("plugin...");
 		plugin.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
@@ -255,7 +255,7 @@ public class SampleTab extends AbstractLaunchConfigurationTab implements ModifyL
 				String newItems[] = { "minisat" };
 				solver.setItems(newItems);
 			} else if (plugin.getText().equals("ae2zot")
-					|| plugin.getText().equals("smteezot")) {
+					|| plugin.getText().equals("smteezot") || plugin.getText().equals("ae2bvzot") || plugin.getText().equals("bvzot")) {
 				String newItems[] = { "yices", "z3" };
 				solver.setItems(newItems);
 			} else {

@@ -9,6 +9,7 @@ import org.correttouml.uml.diagrams.classdiagram.Clock;
 import org.correttouml.uml.diagrams.classdiagram.Operation;
 import org.correttouml.uml.diagrams.property.PTermElement;
 import org.correttouml.uml.helpers.UML2ModelHelper;
+import org.correttouml.uml2zot.UML2Zot;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.uml2.uml.InstanceSpecification;
@@ -109,19 +110,6 @@ public class Message implements PTermElement {
 
 	public String getUMLId() {
 		String id=((XMLResource) this.uml_message.eResource()).getID(uml_message);
-		return id;
+		return UML2Zot.Utility.umlIDtoPrdID(id);
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

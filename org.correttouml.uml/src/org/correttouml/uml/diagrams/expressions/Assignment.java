@@ -1,6 +1,7 @@
 package org.correttouml.uml.diagrams.expressions;
 
 import org.correttouml.uml.helpers.AssignmentParser;
+import org.correttouml.uml2zot.UML2Zot;
 
 public class Assignment {
 	
@@ -17,7 +18,8 @@ public class Assignment {
 	}
 
 	public String getUMLId() {
-		return this.context.getUMLId();
+//		return this.context.getUMLId();
+		return UML2Zot.Utility.umlIDtoPrdID(this.context.getUMLId());
 	}
 
 }

@@ -19,14 +19,16 @@ public class SMessageEnd implements SInteractionFragment, SEvent{
 	public Predicate getPredicate(Object... optObject) {
 		//return new Predicate("MESSAGE"+this.mades_messageEndEvent.getMessage().getUMLId().replace("-", "_")+"_End");
 //		return new Predicate("MESSAGE"+UML2Zot.Utility.umlIDtoPrdID(this.mades_messageEndEvent.getMessage().getUMLId())+"_End");////####uncomment me
-		return new Predicate(mades_messageEndEvent.getMessage().getName()+"_End");
+//		return new Predicate(mades_messageEndEvent.getMessage().getName()+"_End");
+		return new Predicate("MESSAGE" + mades_messageEndEvent.getMessage().getName() + "$" + this.mades_messageEndEvent.getMessage().getUMLId() + "_End");
 	}
 
 	@Override
 	public Predicate getPredicate() {
 		//return new Predicate("MESSAGE"+this.mades_messageEndEvent.getMessage().getUMLId().replace("-", "_")+"_End");
 //		return new Predicate("MESSAGE"+UML2Zot.Utility.umlIDtoPrdID(this.mades_messageEndEvent.getMessage().getUMLId())+"_End");////####uncomment me
-		return new Predicate(mades_messageEndEvent.getMessage().getName()+"_End");
+//		return new Predicate(mades_messageEndEvent.getMessage().getName()+"_End");
+		return new Predicate("MESSAGE" + mades_messageEndEvent.getMessage().getName() + "$" + this.mades_messageEndEvent.getMessage().getUMLId() + "_End");
 	}
 }
 

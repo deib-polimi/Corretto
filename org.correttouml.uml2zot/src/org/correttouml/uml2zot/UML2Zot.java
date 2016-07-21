@@ -38,20 +38,20 @@ public class UML2Zot {
 			 * which has to be reversible.
 			 * Mapping:
 			 * (A => A)
-			 * (a => ~A)
-			 * (~ => ~~)
-			 * (- => ~_)
+			 * (a => ^A)
+			 * (- => ^_)
+			 * (_ => _)
 			 */
 			String prdID = "";
 			for (char ch : umlID.toCharArray()) {
 				if ((ch >= 'A' && ch <= 'Z') || ch == '_')
 					prdID += ch;
 				else if (ch >= 'a' && ch <= 'z')
-					prdID += "~" + Character.toUpperCase(ch);
+					prdID += "^" + Character.toUpperCase(ch);
 				else if (ch == '-')
-					prdID += "~_";
-				else if (ch == '~')
-					prdID += "~~";
+					prdID += "^_";
+				else if (ch == '^')
+					prdID += "^^";
 			}
 			return prdID;
 		}
@@ -60,12 +60,10 @@ public class UML2Zot {
 			String umlID = "";
 			for (int i = 0; i < prdID.length(); i++) {
 				char ch = prdID.charAt(i);
-				if (ch != '~')
+				if (ch != '^')
 					umlID += ch;
 				else {
-					if (prdID.charAt(i + 1) == '~')
-						umlID += '~';
-					else if (prdID.charAt(i + 1) == '_')
+					if (prdID.charAt(i + 1) == '_')
 						umlID += '-';
 					else if (prdID.charAt(i + 1) >= 'A'
 							&& prdID.charAt(i + 1) <= 'Z')
@@ -154,7 +152,7 @@ public class UML2Zot {
 					for(org.correttouml.uml.diagrams.classdiagram.Object obj: c.getObjects()){
 						SState ss=new org.correttouml.uml2zot.semantics.statediagram.SState(s);
 						Predicate p=ss.getPredicate(obj);
-						out.write(p.getPredicateName()+","+s.getUMLId()+"\n");
+						out.write(p.getPredicateName()+"," + UML2Zot.Utility.prdIDtoUMLID(s.getUMLId())+"\n");
 						
 					}
 				}
@@ -169,7 +167,7 @@ public class UML2Zot {
 	
 	public void generateZOTFile(String zot_file){		
 		LOGGER.info("Build the ZOT file");
-		ZOTConf zot=new ZOTConf(100, "ae2zot", "z3", this.s_mades_model);
+		ZOTConf zot=new ZOTConf(30, "ae2bvzot", "z3", this.s_mades_model);
 		try {
 			zot.writeVerificationZOTFile(zot_file, getModelStatistics());
 		} catch (Exception e) {

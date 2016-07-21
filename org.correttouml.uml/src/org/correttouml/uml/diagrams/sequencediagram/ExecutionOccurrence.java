@@ -1,6 +1,7 @@
 package org.correttouml.uml.diagrams.sequencediagram;
 
 
+import org.correttouml.uml2zot.UML2Zot;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.uml2.uml.ExecutionSpecification;
 
@@ -26,7 +27,7 @@ public class ExecutionOccurrence {
 
 	public String getUMLId() {
 		String id=((XMLResource) this.uml_exocc.eResource()).getID(uml_exocc);
-		return id;
+		return UML2Zot.Utility.umlIDtoPrdID(id);
 	}
 	
 }

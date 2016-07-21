@@ -5,6 +5,7 @@ import org.correttouml.uml.diagrams.expressions.Assignment;
 import org.correttouml.uml.diagrams.expressions.ExpressionContext;
 import org.correttouml.uml.diagrams.expressions.Variable;
 import org.correttouml.uml.diagrams.expressions.VariableFactory;
+import org.correttouml.uml2zot.UML2Zot;
 import org.correttouml.uml2zot.semantics.util.bool.BooleanFormulae;
 import org.correttouml.uml2zot.semantics.util.trio.EQ;
 import org.correttouml.uml2zot.semantics.util.trio.Predicate;

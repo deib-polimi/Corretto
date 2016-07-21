@@ -75,9 +75,6 @@ public class Predicate implements Atom{
     
     @Override
     public String toString() {
-    	String s;
-//        if (predicatename.contains("_Start_Start"))////####del me
-//        	s= "ss";
     	return "(-P- " +predicatename+ ")";
     }
     

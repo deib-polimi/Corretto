@@ -49,7 +49,7 @@ public class SIOD {
 	
 	public Predicate getEndPredicate(){
 	//	return new Predicate("IOD"+mades_iod.getUMLId().replace("-", "_")+"_END");
-		return new Predicate("IOD"+ UML2Zot.Utility.umlIDtoPrdID(mades_iod.getUMLId()) + "_END");
+		return new Predicate("IOD"+mades_iod.getUMLId() + "_END");
 	}
 	
     private BooleanFormulae RC(Node curr, Node prec) {

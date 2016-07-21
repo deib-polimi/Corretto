@@ -1,5 +1,6 @@
 package org.correttouml.uml.diagrams.iod;
 
+import org.correttouml.uml2zot.UML2Zot;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.uml2.uml.ActivityEdge;
 
@@ -27,7 +28,7 @@ public class ControlFlow {
 	
 	public String getUMLId() {
 		String id=((XMLResource) this.uml_controlflow.eResource()).getID(uml_controlflow);
-		return id;
+		return UML2Zot.Utility.umlIDtoPrdID(id);
 	}
 	
 	@Override
