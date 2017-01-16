@@ -4,7 +4,7 @@ CorrettoUML
 _CorrettoUML_ is a prototype research tool developed at Politecnico di Milano to translate Corretto UML (C-UML) models into the <a href="http://risorse.dei.polimi.it/TRIO/">_TRIO_<a/> temporal logic formalism which is suitable to be formally verified using the <a href="https://github.com/fm-polimi/zot/">_Zot_<a/> bounded model/satisfiability checker. 
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/deib-polimi/Corretto/master/docs/images/Corretto_1.png" width="250"/> <img src="https://https://raw.githubusercontent.com/deib-polimi/Corretto/master/docs/images/Corretto_2.png" width="250"/>
+<img src="https://raw.githubusercontent.com/deib-polimi/Corretto/master/docs/images/Corretto_1.png" width="250"/> <img src="https://raw.githubusercontent.com/deib-polimi/Corretto/master/docs/images/Corretto_2.png" width="250"/>
 </p>
 
 Detailed description
@@ -12,7 +12,7 @@ Detailed description
 
 The following figure describea in more details how _Corretto_ works.
 <p align="center">
-<img src="https://https://raw.githubusercontent.com/deib-polimi/Corretto/master/docs/images/mvf_overview1.png" width="450" />
+<img src="https://raw.githubusercontent.com/deib-polimi/Corretto/master/docs/images/mvf_overview1.png" width="450" />
 </p>
 
 The user creates a C-UML models using <a href="http://www.eclipse.org/papyrus/">Papyrus</a>. Corretto supports both static and behavioral diagrams of different types. The different views communicates by means of a shared set of events enabling the possibility to define complex behaviors. Also, dedicated time concepts borrowed from <a href="http://www.omgmarte.org/">UML/MARTE</a> have been included to predicate on the time dimension of the system. The <a href="https://github.com/deib-polimi/Corretto/tree/master/docs/Metamodels.pdf">C-UML Superstructure Specification</a> presents the metamodels for C-UML models.
@@ -28,7 +28,7 @@ Once the user decides to run the formal verification, the C-UML models are first
 _Corretto_ automatically associate each element in the <a href="https://github.com/fm-polimi/zot/">_Zot_<a/> trace to its corresponding element in the C-UML model. Navigating the trace resume closely the debugging paradigm of well know programming languages. This is an example:
 
 <p align="center">
-<img src="https://https://raw.githubusercontent.com/deib-polimi/Corretto/master/docs/images/zotTraceability.png" width="450" />
+<img src="https://raw.githubusercontent.com/deib-polimi/Corretto/master/docs/images/zotTraceability.png" width="450" />
 </p>
 
 Experimental Evaluation
