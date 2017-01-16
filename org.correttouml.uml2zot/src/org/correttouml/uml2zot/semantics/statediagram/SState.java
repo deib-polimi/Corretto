@@ -85,7 +85,7 @@ public class SState {
         //Invariant
         if(state.hasInvariant()){
         	Invariant inv=state.getInvariant();
-            sem=sem+new SInvariant(inv).getSemantics(object)+"\n";
+            sem=sem+new SInvariant(inv).getSemantics(state, object)+"\n";
         }
         
         return sem;

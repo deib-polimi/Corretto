@@ -31,12 +31,14 @@ public class TrioVar implements Atom{
         return "(-V- " +varname+ ")";
     }
 
+	@Override
 	public boolean equals(Object object){
 		if(!(object instanceof TrioVar))return false;
 		TrioVar other=(TrioVar)object;
 		return this.getVariableName().equals(other.getVariableName());	
 	}
 
+	@Override
 	public int hashCode(){
 		return this.getVariableName().hashCode();
 	}

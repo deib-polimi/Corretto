@@ -24,7 +24,7 @@ public class And implements BooleanFormulae{
 
     public And(Collection<Predicate> pList) {
         for(Predicate p : pList)
-        	f.add((BooleanFormulae)p);
+        	f.add(p);
     }
     
     public void addFormulae(BooleanFormulae fIn) {

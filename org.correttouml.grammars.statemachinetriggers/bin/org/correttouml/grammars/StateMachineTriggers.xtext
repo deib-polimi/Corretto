@@ -21,11 +21,11 @@ Right:
 ;
 
 Event:
-	(eventName=ID '.' eventExtension=EventExtensions) | (nowEvent ?= 'now') 
+	(objName=ID '.')? (eventName=ID '.' eventExtension=EventExtensions) | (nowEvent ?= 'now') 
 ;
 
 EventExtensions :
-	'exit' | 'enter' | 'start'  | 'end' | 'tick' | 'sig' | 'call'
+	'exit' | 'enter' | 'start'  | 'end' | 'tick' | 'sig' | 'call' | 'reply' | 'adstart' | 'adend' | 'iodstart' | 'iodend'
 ;
 	
 terminal RELATIONS:

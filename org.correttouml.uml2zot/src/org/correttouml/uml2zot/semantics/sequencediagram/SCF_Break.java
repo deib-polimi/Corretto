@@ -1,6 +1,7 @@
 package org.correttouml.uml2zot.semantics.sequencediagram;
 
 import java.util.ArrayList;
+
 import org.correttouml.uml.diagrams.sequencediagram.CF_Break;
 import org.correttouml.uml.diagrams.sequencediagram.CombinedFragment;
 import org.correttouml.uml.diagrams.sequencediagram.CombinedFragmentFactory;
@@ -18,12 +19,10 @@ import org.eclipse.uml2.uml.Interaction;
 public class SCF_Break extends SCombinedFragment implements SCombinedFragmentItf{
 	//[documentation]: \Dropbox\SharePolimi\Documentation\Sequence Diagram\Combined_Fragment\Modular_Semantics\[CF_Break].docx
 	private CF_Break mades_cf_break;
-	
-	public SCF_Break(CF_Break cfbreak, Config config) {
-		super((CombinedFragment)cfbreak, config);
+	public SCF_Break(CF_Break cfbreak) {
+		super(cfbreak);
 		this.mades_cf_break = cfbreak;
 	}
-	
 
 	@Override
 	public ArrayList<BooleanFormulae> getSemantics() {
@@ -33,15 +32,15 @@ public class SCF_Break extends SCombinedFragment implements SCombinedFragmentItf
 			Predicate SD_Stop = getSDPredicate().getStopPredicate();
 			int n = getLifelines().size();
 			// // borders(CF_Break, SD_Stop)
-			// // link_Pre_Post(CF_Break, config)////####before break
+			// // link_Pre_Post(CF_Break, config)////####before breakCF
 			f.add(new SBorders(getPredicate(), SD_Stop).getFun());
-			f.addAll(new SLink_Pre_Post(this, config.combine).getFormulae()); ////####before break
+			f.addAll(new SLink_Pre_Post(this, config.combine).getFormulae()); ////####before breakCF
 			// // order(CF_Break_Start, CF_Break_End, True, SD_Stop, True)
 			f.add(new SOrder(getPredicate().getStartPredicate(), getPredicate().getEndPredicate(), SD_Stop, true).getFun());
 			
 			/*
 //			//<Link_Pre_Post> //special version of Link is used for CF_Break, instead of main Link.
-//			if (config.combine == “ws”){
+//			if (config.combine == ws){
 			if(config.combine == ConfigCombine.WS){
 //			for (i = 0; i<n; i++){
 				for (int i = 0; i < n; i++){
@@ -68,7 +67,7 @@ public class SCF_Break extends SCombinedFragment implements SCombinedFragmentItf
 //			}
 			}
 			
-//			if (config.combine == “sync”){
+//			if (config.combine == ï¿½syncï¿½){
 			if(config.combine == ConfigCombine.SYNC){
 //			for (i = 0; i<n; i++){
 				for (int i = 0; i < n; i++){
@@ -95,7 +94,7 @@ public class SCF_Break extends SCombinedFragment implements SCombinedFragmentItf
 			*/
 
 			
-			// // if (config.combine == “ws”){
+			// // if (config.combine == ï¿½wsï¿½){
 			if(config.combine == ConfigCombine.WS){
 				// // ||i=1 to n(CF_Break_Li_Start) => CF_Break
 				f.add(new Implies(new Or(getLifelinesStartPredicates()), getPredicate()));
@@ -183,10 +182,10 @@ public class SCF_Break extends SCombinedFragment implements SCombinedFragmentItf
 				}
 // </Skip semantics>
 				
-//			}//end of “ws”
+//			}//end of ï¿½wsï¿½
 			}
 //
-//			if (config.combine == “sync”){
+//			if (config.combine == ï¿½syncï¿½){
 			else if (config.combine == ConfigCombine.SYNC){
 //				(CF_Break_Start && !! CF_Break_Guard) => CF_Break_End
 				if (getGuards().get(0) == null) {
@@ -252,11 +251,11 @@ public class SCF_Break extends SCombinedFragment implements SCombinedFragmentItf
 			}
 //</Skip semantics>
 			
-//			}// end of “sync”
+//			}// end of ï¿½syncï¿½
 			}
 //			call by lifeline name
 //			combine(CF_Break_Op, config)
-			f.addAll(new SCombine(mades_combinedfragment.getOperands().get(0), config).getFormulae());
+			f.addAll(new SCombine(mades_combinedfragment.getOperands().get(0)).getFormulae());
 		
 				
 			return f;
@@ -284,7 +283,7 @@ public class SCF_Break extends SCombinedFragment implements SCombinedFragmentItf
 			if (e instanceof org.eclipse.uml2.uml.Interaction)
 				metaPredicates.add(new MetaPredicate(new SSequenceDiagram(new SequenceDiagram((Interaction)e)).getPredicate(), PredicateType.SD));
 			else if (e instanceof org.eclipse.uml2.uml.CombinedFragment) {
-				SCombinedFragment scf  = (SCombinedFragment)SCombinedFragmentFactory.getInstance((CombinedFragment)CombinedFragmentFactory.getInstance((org.eclipse.uml2.uml.CombinedFragment)e), config);
+				SCombinedFragment scf  = (SCombinedFragment)SCombinedFragmentFactory.getInstance((CombinedFragment)CombinedFragmentFactory.getInstance((org.eclipse.uml2.uml.CombinedFragment)e));
 				if (scf instanceof SCF_Loop)
 					metaPredicates.add(new MetaPredicate(scf.getPredicate(), PredicateType.CF));
 			}

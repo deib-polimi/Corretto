@@ -11,10 +11,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.correttouml.grammars.assignments.Model#getAssignment <em>Assignment</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.correttouml.grammars.assignments.AssignmentsPackage#getModel()
  * @model

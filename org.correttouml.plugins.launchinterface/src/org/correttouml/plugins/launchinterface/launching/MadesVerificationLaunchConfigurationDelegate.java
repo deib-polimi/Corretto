@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 
 import org.correttouml.uml2zot.UML2Zot;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
@@ -68,7 +68,7 @@ public class MadesVerificationLaunchConfigurationDelegate implements
 
 		try {
 			String line;
-			String[] command = { zot_location+Path.SEPARATOR+"zot", zot_model_file };
+			String[] command = { zot_location+IPath.SEPARATOR+"zot", zot_model_file };
 			Process p = Runtime.getRuntime().exec(command);
 			BufferedReader bri = new BufferedReader(new InputStreamReader(
 					p.getInputStream()));

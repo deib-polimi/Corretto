@@ -4,7 +4,7 @@ package org.correttouml.grammars.booleanExpressions.impl;
 
 import org.correttouml.grammars.booleanExpressions.BooleanExpressionsPackage;
 import org.correttouml.grammars.booleanExpressions.Model;
-import org.correttouml.grammars.booleanExpressions.booleanExpression;
+import org.correttouml.grammars.booleanExpressions.OrExpression;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -21,10 +21,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.correttouml.grammars.booleanExpressions.impl.ModelImpl#getExpression <em>Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -38,7 +38,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    * @ordered
    */
-  protected booleanExpression expression;
+  protected OrExpression expression;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,7 +66,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public booleanExpression getExpression()
+  public OrExpression getExpression()
   {
     return expression;
   }
@@ -76,9 +76,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(booleanExpression newExpression, NotificationChain msgs)
+  public NotificationChain basicSetExpression(OrExpression newExpression, NotificationChain msgs)
   {
-    booleanExpression oldExpression = expression;
+    OrExpression oldExpression = expression;
     expression = newExpression;
     if (eNotificationRequired())
     {
@@ -93,7 +93,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpression(booleanExpression newExpression)
+  public void setExpression(OrExpression newExpression)
   {
     if (newExpression != expression)
     {
@@ -152,7 +152,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case BooleanExpressionsPackage.MODEL__EXPRESSION:
-        setExpression((booleanExpression)newValue);
+        setExpression((OrExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,7 +169,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case BooleanExpressionsPackage.MODEL__EXPRESSION:
-        setExpression((booleanExpression)null);
+        setExpression((OrExpression)null);
         return;
     }
     super.eUnset(featureID);

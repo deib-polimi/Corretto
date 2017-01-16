@@ -50,7 +50,7 @@ public class BooleanExpressionsSwitch<T> extends Switch<T>
    * Checks whether this is a switch for the given package.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @parameter ePackage the package in question.
+   * @param ePackage the package in question.
    * @return whether this is a switch for the given package.
    * @generated
    */
@@ -79,10 +79,24 @@ public class BooleanExpressionsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BooleanExpressionsPackage.BOOLEAN_EXPRESSION:
+      case BooleanExpressionsPackage.OR_EXPRESSION:
       {
-        booleanExpression booleanExpression = (booleanExpression)theEObject;
-        T result = casebooleanExpression(booleanExpression);
+        OrExpression orExpression = (OrExpression)theEObject;
+        T result = caseOrExpression(orExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BooleanExpressionsPackage.AND_EXPRESSION:
+      {
+        AndExpression andExpression = (AndExpression)theEObject;
+        T result = caseAndExpression(andExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BooleanExpressionsPackage.BASE_EXPRESSION:
+      {
+        BaseExpression baseExpression = (BaseExpression)theEObject;
+        T result = caseBaseExpression(baseExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -97,7 +111,6 @@ public class BooleanExpressionsSwitch<T> extends Switch<T>
       {
         TimeConstraint timeConstraint = (TimeConstraint)theEObject;
         T result = caseTimeConstraint(timeConstraint);
-        if (result == null) result = casebooleanTerm(timeConstraint);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -105,7 +118,6 @@ public class BooleanExpressionsSwitch<T> extends Switch<T>
       {
         BooleanVariable booleanVariable = (BooleanVariable)theEObject;
         T result = caseBooleanVariable(booleanVariable);
-        if (result == null) result = casebooleanTerm(booleanVariable);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -113,7 +125,20 @@ public class BooleanExpressionsSwitch<T> extends Switch<T>
       {
         VariableCondition variableCondition = (VariableCondition)theEObject;
         T result = caseVariableCondition(variableCondition);
-        if (result == null) result = casebooleanTerm(variableCondition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BooleanExpressionsPackage.EXPRESSION:
+      {
+        EXPRESSION expression = (EXPRESSION)theEObject;
+        T result = caseEXPRESSION(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BooleanExpressionsPackage.TERM:
+      {
+        TERM term = (TERM)theEObject;
+        T result = caseTERM(term);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -145,17 +170,49 @@ public class BooleanExpressionsSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>boolean Expression</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Or Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>boolean Expression</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Or Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casebooleanExpression(booleanExpression object)
+  public T caseOrExpression(OrExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>And Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>And Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAndExpression(AndExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Base Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Base Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBaseExpression(BaseExpression object)
   {
     return null;
   }
@@ -220,6 +277,38 @@ public class BooleanExpressionsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseVariableCondition(VariableCondition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>EXPRESSION</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>EXPRESSION</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEXPRESSION(EXPRESSION object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>TERM</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>TERM</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTERM(TERM object)
   {
     return null;
   }

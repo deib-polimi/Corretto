@@ -21,12 +21,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.correttouml.grammars.stateMachineTriggers.impl.RightImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link org.correttouml.grammars.stateMachineTriggers.impl.RightImpl#getOp <em>Op</em>}</li>
  *   <li>{@link org.correttouml.grammars.stateMachineTriggers.impl.RightImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

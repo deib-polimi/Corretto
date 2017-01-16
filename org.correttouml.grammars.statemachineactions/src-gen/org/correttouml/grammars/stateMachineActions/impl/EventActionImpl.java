@@ -2,8 +2,9 @@
  */
 package org.correttouml.grammars.stateMachineActions.impl;
 
+import org.correttouml.grammars.stateMachineActions.Event;
 import org.correttouml.grammars.stateMachineActions.EventAction;
-import org.correttouml.grammars.stateMachineActions.Parameters;
+import org.correttouml.grammars.stateMachineActions.Link;
 import org.correttouml.grammars.stateMachineActions.StateMachineActionsPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -21,66 +22,35 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- *   <li>{@link org.correttouml.grammars.stateMachineActions.impl.EventActionImpl#getEventName <em>Event Name</em>}</li>
- *   <li>{@link org.correttouml.grammars.stateMachineActions.impl.EventActionImpl#getParameters <em>Parameters</em>}</li>
- *   <li>{@link org.correttouml.grammars.stateMachineActions.impl.EventActionImpl#getEventExtension <em>Event Extension</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.correttouml.grammars.stateMachineActions.impl.EventActionImpl#getLink <em>Link</em>}</li>
+ *   <li>{@link org.correttouml.grammars.stateMachineActions.impl.EventActionImpl#getEvent <em>Event</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class EventActionImpl extends MinimalEObjectImpl.Container implements EventAction
 {
   /**
-   * The default value of the '{@link #getEventName() <em>Event Name</em>}' attribute.
+   * The cached value of the '{@link #getLink() <em>Link</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEventName()
+   * @see #getLink()
    * @generated
    * @ordered
    */
-  protected static final String EVENT_NAME_EDEFAULT = null;
+  protected Link link;
 
   /**
-   * The cached value of the '{@link #getEventName() <em>Event Name</em>}' attribute.
+   * The cached value of the '{@link #getEvent() <em>Event</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEventName()
+   * @see #getEvent()
    * @generated
    * @ordered
    */
-  protected String eventName = EVENT_NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParameters()
-   * @generated
-   * @ordered
-   */
-  protected Parameters parameters;
-
-  /**
-   * The default value of the '{@link #getEventExtension() <em>Event Extension</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEventExtension()
-   * @generated
-   * @ordered
-   */
-  protected static final String EVENT_EXTENSION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getEventExtension() <em>Event Extension</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEventExtension()
-   * @generated
-   * @ordered
-   */
-  protected String eventExtension = EVENT_EXTENSION_EDEFAULT;
+  protected Event event;
 
   /**
    * <!-- begin-user-doc -->
@@ -108,9 +78,9 @@ public class EventActionImpl extends MinimalEObjectImpl.Container implements Eve
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getEventName()
+  public Link getLink()
   {
-    return eventName;
+    return link;
   }
 
   /**
@@ -118,36 +88,13 @@ public class EventActionImpl extends MinimalEObjectImpl.Container implements Eve
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setEventName(String newEventName)
+  public NotificationChain basicSetLink(Link newLink, NotificationChain msgs)
   {
-    String oldEventName = eventName;
-    eventName = newEventName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, StateMachineActionsPackage.EVENT_ACTION__EVENT_NAME, oldEventName, eventName));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parameters getParameters()
-  {
-    return parameters;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetParameters(Parameters newParameters, NotificationChain msgs)
-  {
-    Parameters oldParameters = parameters;
-    parameters = newParameters;
+    Link oldLink = link;
+    link = newLink;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StateMachineActionsPackage.EVENT_ACTION__PARAMETERS, oldParameters, newParameters);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StateMachineActionsPackage.EVENT_ACTION__LINK, oldLink, newLink);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -158,20 +105,20 @@ public class EventActionImpl extends MinimalEObjectImpl.Container implements Eve
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setParameters(Parameters newParameters)
+  public void setLink(Link newLink)
   {
-    if (newParameters != parameters)
+    if (newLink != link)
     {
       NotificationChain msgs = null;
-      if (parameters != null)
-        msgs = ((InternalEObject)parameters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StateMachineActionsPackage.EVENT_ACTION__PARAMETERS, null, msgs);
-      if (newParameters != null)
-        msgs = ((InternalEObject)newParameters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StateMachineActionsPackage.EVENT_ACTION__PARAMETERS, null, msgs);
-      msgs = basicSetParameters(newParameters, msgs);
+      if (link != null)
+        msgs = ((InternalEObject)link).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StateMachineActionsPackage.EVENT_ACTION__LINK, null, msgs);
+      if (newLink != null)
+        msgs = ((InternalEObject)newLink).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StateMachineActionsPackage.EVENT_ACTION__LINK, null, msgs);
+      msgs = basicSetLink(newLink, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, StateMachineActionsPackage.EVENT_ACTION__PARAMETERS, newParameters, newParameters));
+      eNotify(new ENotificationImpl(this, Notification.SET, StateMachineActionsPackage.EVENT_ACTION__LINK, newLink, newLink));
   }
 
   /**
@@ -179,9 +126,9 @@ public class EventActionImpl extends MinimalEObjectImpl.Container implements Eve
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getEventExtension()
+  public Event getEvent()
   {
-    return eventExtension;
+    return event;
   }
 
   /**
@@ -189,12 +136,37 @@ public class EventActionImpl extends MinimalEObjectImpl.Container implements Eve
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setEventExtension(String newEventExtension)
+  public NotificationChain basicSetEvent(Event newEvent, NotificationChain msgs)
   {
-    String oldEventExtension = eventExtension;
-    eventExtension = newEventExtension;
+    Event oldEvent = event;
+    event = newEvent;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, StateMachineActionsPackage.EVENT_ACTION__EVENT_EXTENSION, oldEventExtension, eventExtension));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StateMachineActionsPackage.EVENT_ACTION__EVENT, oldEvent, newEvent);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEvent(Event newEvent)
+  {
+    if (newEvent != event)
+    {
+      NotificationChain msgs = null;
+      if (event != null)
+        msgs = ((InternalEObject)event).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StateMachineActionsPackage.EVENT_ACTION__EVENT, null, msgs);
+      if (newEvent != null)
+        msgs = ((InternalEObject)newEvent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StateMachineActionsPackage.EVENT_ACTION__EVENT, null, msgs);
+      msgs = basicSetEvent(newEvent, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StateMachineActionsPackage.EVENT_ACTION__EVENT, newEvent, newEvent));
   }
 
   /**
@@ -207,8 +179,10 @@ public class EventActionImpl extends MinimalEObjectImpl.Container implements Eve
   {
     switch (featureID)
     {
-      case StateMachineActionsPackage.EVENT_ACTION__PARAMETERS:
-        return basicSetParameters(null, msgs);
+      case StateMachineActionsPackage.EVENT_ACTION__LINK:
+        return basicSetLink(null, msgs);
+      case StateMachineActionsPackage.EVENT_ACTION__EVENT:
+        return basicSetEvent(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -223,12 +197,10 @@ public class EventActionImpl extends MinimalEObjectImpl.Container implements Eve
   {
     switch (featureID)
     {
-      case StateMachineActionsPackage.EVENT_ACTION__EVENT_NAME:
-        return getEventName();
-      case StateMachineActionsPackage.EVENT_ACTION__PARAMETERS:
-        return getParameters();
-      case StateMachineActionsPackage.EVENT_ACTION__EVENT_EXTENSION:
-        return getEventExtension();
+      case StateMachineActionsPackage.EVENT_ACTION__LINK:
+        return getLink();
+      case StateMachineActionsPackage.EVENT_ACTION__EVENT:
+        return getEvent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -243,14 +215,11 @@ public class EventActionImpl extends MinimalEObjectImpl.Container implements Eve
   {
     switch (featureID)
     {
-      case StateMachineActionsPackage.EVENT_ACTION__EVENT_NAME:
-        setEventName((String)newValue);
+      case StateMachineActionsPackage.EVENT_ACTION__LINK:
+        setLink((Link)newValue);
         return;
-      case StateMachineActionsPackage.EVENT_ACTION__PARAMETERS:
-        setParameters((Parameters)newValue);
-        return;
-      case StateMachineActionsPackage.EVENT_ACTION__EVENT_EXTENSION:
-        setEventExtension((String)newValue);
+      case StateMachineActionsPackage.EVENT_ACTION__EVENT:
+        setEvent((Event)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -266,14 +235,11 @@ public class EventActionImpl extends MinimalEObjectImpl.Container implements Eve
   {
     switch (featureID)
     {
-      case StateMachineActionsPackage.EVENT_ACTION__EVENT_NAME:
-        setEventName(EVENT_NAME_EDEFAULT);
+      case StateMachineActionsPackage.EVENT_ACTION__LINK:
+        setLink((Link)null);
         return;
-      case StateMachineActionsPackage.EVENT_ACTION__PARAMETERS:
-        setParameters((Parameters)null);
-        return;
-      case StateMachineActionsPackage.EVENT_ACTION__EVENT_EXTENSION:
-        setEventExtension(EVENT_EXTENSION_EDEFAULT);
+      case StateMachineActionsPackage.EVENT_ACTION__EVENT:
+        setEvent((Event)null);
         return;
     }
     super.eUnset(featureID);
@@ -289,33 +255,12 @@ public class EventActionImpl extends MinimalEObjectImpl.Container implements Eve
   {
     switch (featureID)
     {
-      case StateMachineActionsPackage.EVENT_ACTION__EVENT_NAME:
-        return EVENT_NAME_EDEFAULT == null ? eventName != null : !EVENT_NAME_EDEFAULT.equals(eventName);
-      case StateMachineActionsPackage.EVENT_ACTION__PARAMETERS:
-        return parameters != null;
-      case StateMachineActionsPackage.EVENT_ACTION__EVENT_EXTENSION:
-        return EVENT_EXTENSION_EDEFAULT == null ? eventExtension != null : !EVENT_EXTENSION_EDEFAULT.equals(eventExtension);
+      case StateMachineActionsPackage.EVENT_ACTION__LINK:
+        return link != null;
+      case StateMachineActionsPackage.EVENT_ACTION__EVENT:
+        return event != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (eventName: ");
-    result.append(eventName);
-    result.append(", eventExtension: ");
-    result.append(eventExtension);
-    result.append(')');
-    return result.toString();
   }
 
 } //EventActionImpl

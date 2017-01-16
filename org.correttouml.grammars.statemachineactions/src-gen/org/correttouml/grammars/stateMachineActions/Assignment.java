@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.correttouml.grammars.stateMachineActions.Assignment#getLeftvar <em>Leftvar</em>}</li>
  *   <li>{@link org.correttouml.grammars.stateMachineActions.Assignment#getExpression <em>Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.correttouml.grammars.stateMachineActions.StateMachineActionsPackage#getAssignment()
  * @model

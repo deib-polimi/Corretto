@@ -1,14 +1,17 @@
 package org.correttouml.uml2zot.semantics.statediagram;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.correttouml.uml.diagrams.classdiagram.Object;
 import org.correttouml.uml.diagrams.statediagram.Transition;
+import org.correttouml.uml.diagrams.statediagram.actions.Action;
 import org.correttouml.uml2zot.semantics.SMadesModel;
 import org.correttouml.uml2zot.semantics.expressions.SBooleanExpression;
 import org.correttouml.uml2zot.semantics.statediagram.actions.SAction;
 import org.correttouml.uml2zot.semantics.statediagram.actions.SActionFactory;
-import org.correttouml.uml2zot.semantics.statediagram.actions.SAssignmentAction;
 import org.correttouml.uml2zot.semantics.statediagram.triggers.STimeCondition;
 import org.correttouml.uml2zot.semantics.statediagram.triggers.STriggerEvent;
 import org.correttouml.uml2zot.semantics.statediagram.triggers.STriggerEventFactory;
@@ -20,6 +23,7 @@ import org.correttouml.uml2zot.semantics.util.bool.Not;
 import org.correttouml.uml2zot.semantics.util.bool.Or;
 import org.correttouml.uml2zot.semantics.util.trio.Next;
 import org.correttouml.uml2zot.semantics.util.trio.Predicate;
+import org.correttouml.uml2zot.semantics.util.trio.Yesterday;
 
 public class STransition {
 
@@ -32,8 +36,8 @@ public class STransition {
 
 	public Predicate getPredicate(Object object) {
         Predicate predicate=new Predicate();
-//        predicate.setPredicateName("OBJ"+object.getName()+"_STD"+this.mades_transition.getStateDiagram().getName()+"_TRANSITION"+this.mades_transition.getUMLId());
-        predicate.setPredicateName("hhavij");
+        // MR: modified to avoid "-"
+        predicate.setPredicateName("$OBJ"+object.getName()+"_STD"+this.mades_transition.getStateDiagram().getName()+"_TRANSITION"+this.mades_transition.getUMLId());
         return predicate;
 	}
 	
@@ -50,8 +54,12 @@ public class STransition {
         Predicate guard=null;
         if(this.mades_transition.hasGuard()) guard=new SGuard(this.mades_transition.getGuard()).getPredicate(object);
         
-        SAction action=null;
-        if(this.mades_transition.hasAction()) action=SActionFactory.getInstance(this.mades_transition.getAction());
+        List<SAction> actions=new ArrayList<SAction>();
+        if(this.mades_transition.hasActions()){
+        	for(Action act: this.mades_transition.getActions(object)){
+        		actions.add(SActionFactory.getInstance(act));
+        	}
+        }
         Predicate transition = this.getPredicate(object);
         
         //Collect all the transitions going out from the same source state of this one
@@ -72,13 +80,13 @@ public class STransition {
         
         //definition of transition
         if (this.mades_transition.hasTrigger() && !this.mades_transition.hasGuard()) {
-            sem = sem + new Implies(trigger, orTransitions) + "\n";
+            sem = sem + new Implies(new And(sourcestate, trigger), orTransitions) + "\n";
             sem = sem + new Implies(transition, new And(sourcestate, trigger)) + "\n";
         } else if (this.mades_transition.hasTrigger() && this.mades_transition.hasGuard()) {
-            sem = sem + new Implies(new And(trigger,guard), orTransitions) + "\n";
+            sem = sem + new Implies(new And(sourcestate, trigger,guard), orTransitions) + "\n";
             sem = sem + new Implies(transition, new And(sourcestate, trigger, guard)) + "\n";
         } else if (!this.mades_transition.hasTrigger() && this.mades_transition.hasGuard()) {
-        	//sem = sem + new Implies(guard, orTransitions) + "\n";
+        	sem = sem + new Implies(new And(sourcestate, guard), orTransitions) + "\n";
             sem = sem + new Implies(transition, new And(sourcestate, guard)) + "\n";
         } else if (!this.mades_transition.hasTrigger() && !this.mades_transition.hasGuard()){
         	sem = sem + new Implies(transition, sourcestate) + "\n";
@@ -98,9 +106,11 @@ public class STransition {
             
             if(s_triggerEvent instanceof STimeCondition) sem=sem+new Iff(triggerEvent,((STimeCondition)s_triggerEvent).getSemantics(object))+"\n";
         }
-        if (this.mades_transition.hasAction()){
-            sem = sem + new Iff(new And(sourcestate, transition), action.getPredicate(object)) + "\n"; 
-            if(action.getSemantics(this.mades_transition.getStateDiagram(), object)!=null) sem=sem+action.getSemantics(this.mades_transition.getStateDiagram(), object)+"\n";
+        if (this.mades_transition.hasActions()){
+            for(SAction act: actions){
+            	sem += new Iff(new Yesterday(new And(sourcestate, transition)), act.getPredicate(object)) + "\n";
+                if(act.getSemantics(this.mades_transition.getStateDiagram(), object)!=null) sem=sem+act.getSemantics(this.mades_transition.getStateDiagram(), object)+"\n";
+            }
         }
         
         //Transitions are mutually exclusive

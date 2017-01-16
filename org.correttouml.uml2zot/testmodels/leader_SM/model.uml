@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CorrettoUML="http:///schemas/CorrettoUML/_-4rfIJULEea1kdccITC-yQ/12" xmlns:CorrettoUML.Properties="http:///CorrettoUML/Properties.ecore" xmlns:CorrettoUML.Time="http:///CorrettoUML/Time.ecore" xmlns:CorrettoUML.VerificationTags="http:///CorrettoUML/VerificationTags.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/CorrettoUML/_-4rfIJULEea1kdccITC-yQ/12 platform:/org.correttouml.profiles/resources/model.profile.uml#_-4stQJULEea1kdccITC-yQ http:///CorrettoUML/Properties.ecore pathmap://resources/model.profile.uml#_YfVc6YvzEeKLvcTv2F9FYg http:///CorrettoUML/Time.ecore platform:/org.correttouml.profiles/resources/model.profile.uml#_-4stRZULEea1kdccITC-yQ http:///CorrettoUML/VerificationTags.ecore platform:/org.correttouml.profiles/resources/model.profile.uml#_-4stW5ULEea1kdccITC-yQ">
+  <uml:Model xmi:id="_x9J08AN9EeKTXbQztILh3g" name="Model">
+    <packagedElement xmi:type="uml:Package" xmi:id="_GdyncAN-EeKTXbQztILh3g" name="CCAS">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_Tx3uQJIcEea87e8STc3geQ" name="Property">
+        <specification xmi:type="uml:LiteralString" xmi:id="_Tx6xkJIcEea87e8STc3geQ" name="propertySpec" value="smallDistance = sendSensorDistance.getParameter(distance) &lt; 2&#xA;brakingState = brakeS.getState(brakingSM, braking)&#xA;inBraking = brakeS.in(brakingState)&#xA;brakingInTime1 = Time.lasted(smallDistance &amp;&amp; !(failure), 52) => Time.withinP(inBraking, 52)&#xA;property1 = Time.alwaysTrue(brakingInTime1)&#xA;brakingInTime2 = Time.lasted(smallDistance &amp;&amp; !(failure), 45) => Time.withinP(inBraking, 45)&#xA;property2 = Time.alwaysTrue(brakingInTime2)&#xA;//Corretto.verify(property1)&#xA;Corretto.verify(property2)&#xA;//Corretto.execute()"/>
+      </ownedRule>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Z5iOcAN-EeKTXbQztILh3g" name="Radar" classifierBehavior="_KZBcYHpeEeaR4ezXoKL4ew">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_iLJfUAN-EeKTXbQztILh3g" name="bus" type="_c6casAN-EeKTXbQztILh3g" association="_iLKtcAN-EeKTXbQztILh3g">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iLJfUQN-EeKTXbQztILh3g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iLJfUgN-EeKTXbQztILh3g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_O2ecwH8MEea02b1gNNvQ5w" name="readValue" visibility="public" type="_rMeRoF2REeaZq_6Zf2bIUA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PLBwcH8MEea02b1gNNvQ5w" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PLCXgH8MEea02b1gNNvQ5w" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_bhHAQISGEeah-pkLUtOMoA" name="failureC" visibility="public" type="_rMeRoF2REeaZq_6Zf2bIUA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_b_NRgISGEeah-pkLUtOMoA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_b_NRgYSGEeah-pkLUtOMoA" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_b_N4kISGEeah-pkLUtOMoA">
+            <value xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_KZBcYHpeEeaR4ezXoKL4ew" name="adRadar" node="_khRroIDVEeaGHOYwzM7oOw _OFMNsISGEeah-pkLUtOMoA _To-mYISGEeah-pkLUtOMoA _21NDkISGEeah-pkLUtOMoA _733FIISGEeah-pkLUtOMoA _pceqwISNEeah-pkLUtOMoA _5JHiwISNEeah-pkLUtOMoA _LQv2gISOEeah-pkLUtOMoA _3b6xkITDEeah-pkLUtOMoA _MGPtQIYREeaMiq1KEvWkRw">
+          <edge xmi:type="uml:ObjectFlow" xmi:id="_P44_AIPNEeaKIqd2DOEbQg" name="ObjectFlow" source="_khVWAIDVEeaGHOYwzM7oOw" target="_Nvh_QIYREeaMiq1KEvWkRw">
+            <guard xmi:type="uml:LiteralBoolean" xmi:id="_P5hRIIPNEeaKIqd2DOEbQg" value="true"/>
+            <weight xmi:type="uml:LiteralInteger" xmi:id="_P5jGUIPNEeaKIqd2DOEbQg" value="1"/>
+          </edge>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_3uNvMISGEeah-pkLUtOMoA" name="ControlFlow1" source="_OFMNsISGEeah-pkLUtOMoA" target="_21NDkISGEeah-pkLUtOMoA"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_41LXQISGEeah-pkLUtOMoA" name="valid" source="_21NDkISGEeah-pkLUtOMoA" target="_pceqwISNEeah-pkLUtOMoA"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_8rPp4ISGEeah-pkLUtOMoA" name="invalid" source="_21NDkISGEeah-pkLUtOMoA" target="_5JHiwISNEeah-pkLUtOMoA"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_rt8XEISNEeah-pkLUtOMoA" name="ControlFlow2" source="_pceqwISNEeah-pkLUtOMoA" target="_To-mYISGEeah-pkLUtOMoA"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_AqaJ8ISOEeah-pkLUtOMoA" name="[{failureC > 1}]" source="_5JHiwISNEeah-pkLUtOMoA" target="_3b6xkITDEeah-pkLUtOMoA"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_R41k0ISOEeah-pkLUtOMoA" name="[{failureC &lt; 2}]" source="_5JHiwISNEeah-pkLUtOMoA" target="_LQv2gISOEeah-pkLUtOMoA"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_S6xi8ISOEeah-pkLUtOMoA" name="ControlFlow6" source="_LQv2gISOEeah-pkLUtOMoA" target="_733FIISGEeah-pkLUtOMoA"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_VYydgISOEeah-pkLUtOMoA" name="ControlFlow8" source="_To-mYISGEeah-pkLUtOMoA" target="_733FIISGEeah-pkLUtOMoA"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_bvqjMISSEeah-pkLUtOMoA" name="ControlFlow10" source="_pceqwISNEeah-pkLUtOMoA" target="_MGPtQIYREeaMiq1KEvWkRw"/>
+          <edge xmi:type="uml:ControlFlow" xmi:id="_kykHEISSEeah-pkLUtOMoA" name="ControlFlow11" source="_MGPtQIYREeaMiq1KEvWkRw" target="_733FIISGEeah-pkLUtOMoA"/>
+          <node xmi:type="uml:ReadVariableAction" xmi:id="_khRroIDVEeaGHOYwzM7oOw" name="readValue">
+            <result xmi:type="uml:OutputPin" xmi:id="_khVWAIDVEeaGHOYwzM7oOw" name="" outgoing="_P44_AIPNEeaKIqd2DOEbQg">
+              <upperBound xmi:type="uml:LiteralInteger" xmi:id="_khVWAYDVEeaGHOYwzM7oOw" value="1"/>
+            </result>
+          </node>
+          <node xmi:type="uml:AcceptEventAction" xmi:id="_OFMNsISGEeah-pkLUtOMoA" name="@readValue.call" outgoing="_3uNvMISGEeah-pkLUtOMoA"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="_To-mYISGEeah-pkLUtOMoA" name="failureC = 0" outgoing="_VYydgISOEeah-pkLUtOMoA" incoming="_rt8XEISNEeah-pkLUtOMoA"/>
+          <node xmi:type="uml:DecisionNode" xmi:id="_21NDkISGEeah-pkLUtOMoA" name="DecisionNode" outgoing="_41LXQISGEeah-pkLUtOMoA _8rPp4ISGEeah-pkLUtOMoA" incoming="_3uNvMISGEeah-pkLUtOMoA"/>
+          <node xmi:type="uml:FlowFinalNode" xmi:id="_733FIISGEeah-pkLUtOMoA" name="FlowFinalNode" incoming="_S6xi8ISOEeah-pkLUtOMoA _VYydgISOEeah-pkLUtOMoA _kykHEISSEeah-pkLUtOMoA"/>
+          <node xmi:type="uml:ForkNode" xmi:id="_pceqwISNEeah-pkLUtOMoA" name="ForkNode" outgoing="_rt8XEISNEeah-pkLUtOMoA _bvqjMISSEeah-pkLUtOMoA" incoming="_41LXQISGEeah-pkLUtOMoA"/>
+          <node xmi:type="uml:DecisionNode" xmi:id="_5JHiwISNEeah-pkLUtOMoA" name="DecisionNode1" outgoing="_AqaJ8ISOEeah-pkLUtOMoA _R41k0ISOEeah-pkLUtOMoA" incoming="_8rPp4ISGEeah-pkLUtOMoA"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="_LQv2gISOEeah-pkLUtOMoA" name="failureC = &lt;P>failureC + 1" outgoing="_S6xi8ISOEeah-pkLUtOMoA" incoming="_R41k0ISOEeah-pkLUtOMoA"/>
+          <node xmi:type="uml:SendSignalAction" xmi:id="_3b6xkITDEeah-pkLUtOMoA" name="@failure.sig" incoming="_AqaJ8ISOEeah-pkLUtOMoA" signal="_w0DFsITDEeah-pkLUtOMoA">
+            <target xmi:type="uml:InputPin" xmi:id="_49ZycITDEeah-pkLUtOMoA" name="">
+              <upperBound xmi:type="uml:LiteralInteger" xmi:id="_49ZycYTDEeah-pkLUtOMoA" value="1"/>
+            </target>
+          </node>
+          <node xmi:type="uml:CallBehaviorAction" xmi:id="_MGPtQIYREeaMiq1KEvWkRw" name="sendSensorDistance" outgoing="_kykHEISSEeah-pkLUtOMoA" incoming="_bvqjMISSEeah-pkLUtOMoA" behavior="_uhTHMAN_EeKTXbQztILh3g">
+            <argument xmi:type="uml:InputPin" xmi:id="_Nvh_QIYREeaMiq1KEvWkRw" name="distance" incoming="_P44_AIPNEeaKIqd2DOEbQg" type="_rMeRoF2REeaZq_6Zf2bIUA">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NvimUIYREeaMiq1KEvWkRw" source="PinToParameterLink">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NvimUYYREeaMiq1KEvWkRw" key="PinToParameterLink" value="_C7TtQAOAEeKTXbQztILh3g"/>
+              </eAnnotations>
+              <upperBound xmi:type="uml:LiteralInteger" xmi:id="_Nvh_QYYREeaMiq1KEvWkRw" value="1"/>
+            </argument>
+          </node>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_jZ0rkMOVEeaSUd6PMwc-4Q" name="StateMachine">
+          <region xmi:type="uml:Region" xmi:id="_ndG60MOVEeaSUd6PMwc-4Q" name="Region1">
+            <transition xmi:type="uml:Transition" xmi:id="_YPJGYMOWEeaSUd6PMwc-4Q" name="" source="_o1fqEMOVEeaSUd6PMwc-4Q" target="_o1fqEMOVEeaSUd6PMwc-4Q"/>
+            <transition xmi:type="uml:Transition" xmi:id="_fSaU0MOWEeaSUd6PMwc-4Q" name="" source="_o1fqEMOVEeaSUd6PMwc-4Q" target="_o1fqEMOVEeaSUd6PMwc-4Q"/>
+            <transition xmi:type="uml:Transition" xmi:id="_ngsk4MOWEeaSUd6PMwc-4Q" name="" source="_o1fqEMOVEeaSUd6PMwc-4Q" target="_o1fqEMOVEeaSUd6PMwc-4Q"/>
+            <transition xmi:type="uml:Transition" xmi:id="_Sj7akMOXEeaSUd6PMwc-4Q" name="" source="_o1fqEMOVEeaSUd6PMwc-4Q" target="_o1fqEMOVEeaSUd6PMwc-4Q"/>
+            <transition xmi:type="uml:Transition" xmi:id="_ch3DUMOXEeaSUd6PMwc-4Q" name="" source="_o1fqEMOVEeaSUd6PMwc-4Q" target="_o1fqEMOVEeaSUd6PMwc-4Q"/>
+            <transition xmi:type="uml:Transition" xmi:id="_goIVIMOXEeaSUd6PMwc-4Q" name="" source="_o1fqEMOVEeaSUd6PMwc-4Q" target="_o1fqEMOVEeaSUd6PMwc-4Q"/>
+            <transition xmi:type="uml:Transition" xmi:id="_oBLmUMOXEeaSUd6PMwc-4Q" name="" source="_p5fdsMOVEeaSUd6PMwc-4Q" target="_qo79oMOVEeaSUd6PMwc-4Q"/>
+            <transition xmi:type="uml:Transition" xmi:id="_o2y_sMOXEeaSUd6PMwc-4Q" name="" source="_qo79oMOVEeaSUd6PMwc-4Q" target="_o1fqEMOVEeaSUd6PMwc-4Q"/>
+            <transition xmi:type="uml:Transition" xmi:id="_dqiGIMOYEeaSUd6PMwc-4Q" name="" source="_o1fqEMOVEeaSUd6PMwc-4Q" target="_7SMkAMOXEeaSUd6PMwc-4Q"/>
+            <transition xmi:type="uml:Transition" xmi:id="_fMBHAMOYEeaSUd6PMwc-4Q" name="" source="_o1fqEMOVEeaSUd6PMwc-4Q" target="_5-6XMMOXEeaSUd6PMwc-4Q"/>
+            <subvertex xmi:type="uml:State" xmi:id="_o1fqEMOVEeaSUd6PMwc-4Q" name="Main"/>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_p5fdsMOVEeaSUd6PMwc-4Q" name=""/>
+            <subvertex xmi:type="uml:State" xmi:id="_qo79oMOVEeaSUd6PMwc-4Q" name="Init"/>
+            <subvertex xmi:type="uml:State" xmi:id="_5-6XMMOXEeaSUd6PMwc-4Q" name="Won"/>
+            <subvertex xmi:type="uml:State" xmi:id="_7SMkAMOXEeaSUd6PMwc-4Q" name="Lost"/>
+          </region>
+        </ownedBehavior>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_mcEF0HpdEeaR4ezXoKL4ew" name="readValue"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_ajZq0AN-EeKTXbQztILh3g" name="RadarClock"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_c6casAN-EeKTXbQztILh3g" name="Bus">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_iykEoAN-EeKTXbQztILh3g" name="controller" type="_en9scAN-EeKTXbQztILh3g" association="_iykrsAN-EeKTXbQztILh3g">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iykEoQN-EeKTXbQztILh3g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iykEogN-EeKTXbQztILh3g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jMMFkAN-EeKTXbQztILh3g" name="brakingSystem" type="_fm6A8AN-EeKTXbQztILh3g" association="_jMMsoAN-EeKTXbQztILh3g">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jMMFkQN-EeKTXbQztILh3g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jMMFkgN-EeKTXbQztILh3g" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_iLKtcQN-EeKTXbQztILh3g" name="radar" type="_Z5iOcAN-EeKTXbQztILh3g" association="_iLKtcAN-EeKTXbQztILh3g">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iLKtcgN-EeKTXbQztILh3g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iLKtcwN-EeKTXbQztILh3g" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_3ooUkAN-EeKTXbQztILh3g" name="sendSensorDistance">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_iEGDAIZxEeaF6pBrrcPfsw" name="receivedDistance" type="_rMeRoF2REeaZq_6Zf2bIUA"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_9PDxkAN-EeKTXbQztILh3g" name="sendBrakeCommand"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_en9scAN-EeKTXbQztILh3g" name="Controller" classifierBehavior="_KbjrQAODEeKTXbQztILh3g">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_iykrsQN-EeKTXbQztILh3g" name="bus" type="_c6casAN-EeKTXbQztILh3g" association="_iykrsAN-EeKTXbQztILh3g">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iykrsgN-EeKTXbQztILh3g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iykrswN-EeKTXbQztILh3g" value="1"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_KbjrQAODEeKTXbQztILh3g" name="controllerSM">
+          <region xmi:type="uml:Region" xmi:id="_KoAy4AODEeKTXbQztILh3g" name="Region1">
+            <transition xmi:type="uml:Transition" xmi:id="_Uj2J4AODEeKTXbQztILh3g" name="Transition0" source="_LhoigAODEeKTXbQztILh3g" target="_M8hzMAODEeKTXbQztILh3g"/>
+            <transition xmi:type="uml:Transition" xmi:id="_WCvw0AODEeKTXbQztILh3g" name="@notifyDistance.call [ { receivedDistance >= 2 } ]" source="_M8hzMAODEeKTXbQztILh3g" target="_M8hzMAODEeKTXbQztILh3g"/>
+            <transition xmi:type="uml:Transition" xmi:id="_bR9nsAODEeKTXbQztILh3g" name="@notifyDistance.call [ { receivedDistance &lt; 2 } ]" source="_M8hzMAODEeKTXbQztILh3g" target="_OrHb8AODEeKTXbQztILh3g"/>
+            <transition xmi:type="uml:Transition" xmi:id="_ouuu0AODEeKTXbQztILh3g" name="@notifyDistance.call [ { receivedDistance >= 2 } ]" source="_OrHb8AODEeKTXbQztILh3g" target="_M8hzMAODEeKTXbQztILh3g"/>
+            <transition xmi:type="uml:Transition" xmi:id="_qgxUMAODEeKTXbQztILh3g" name="@notifyDistance.call [ { receivedDistance &lt; 2 } &amp;&amp; @now - @warning.enter > 20 ] / @brakeInterrupt.sig" source="_OrHb8AODEeKTXbQztILh3g" target="_QrIy8AODEeKTXbQztILh3g"/>
+            <transition xmi:type="uml:Transition" xmi:id="_vYX8UAODEeKTXbQztILh3g" name="@now - @braking.enter == 1" source="_QrIy8AODEeKTXbQztILh3g" target="_M8hzMAODEeKTXbQztILh3g"/>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_LhoigAODEeKTXbQztILh3g" name="Initial0"/>
+            <subvertex xmi:type="uml:State" xmi:id="_M8hzMAODEeKTXbQztILh3g" name="noAction"/>
+            <subvertex xmi:type="uml:State" xmi:id="_OrHb8AODEeKTXbQztILh3g" name="warning"/>
+            <subvertex xmi:type="uml:State" xmi:id="_QrIy8AODEeKTXbQztILh3g" name="braking"/>
+          </region>
+        </ownedBehavior>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_tPSiMAN-EeKTXbQztILh3g" name="notifyDistance" visibility="public">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_f18wcIZxEeaF6pBrrcPfsw" name="receivedDistance" type="_rMeRoF2REeaZq_6Zf2bIUA"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_fm6A8AN-EeKTXbQztILh3g" name="BrakingSystem" classifierBehavior="_4N_uoAOCEeKTXbQztILh3g">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jMMsoQN-EeKTXbQztILh3g" name="bus" type="_c6casAN-EeKTXbQztILh3g" association="_jMMsoAN-EeKTXbQztILh3g">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jMMsogN-EeKTXbQztILh3g" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jMMsowN-EeKTXbQztILh3g" value="1"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_4N_uoAOCEeKTXbQztILh3g" name="brakingSM">
+          <region xmi:type="uml:Region" xmi:id="_4vNlUAOCEeKTXbQztILh3g" name="Region1">
+            <transition xmi:type="uml:Transition" xmi:id="_9sXb0AOCEeKTXbQztILh3g" name="Transition0" source="_5VHuwAOCEeKTXbQztILh3g" target="_6IhhoAOCEeKTXbQztILh3g"/>
+            <transition xmi:type="uml:Transition" xmi:id="__APegAOCEeKTXbQztILh3g" name="  @notifyBrake.call  " source="_6IhhoAOCEeKTXbQztILh3g" target="_63an8AOCEeKTXbQztILh3g"/>
+            <transition xmi:type="uml:Transition" xmi:id="_FDsOsAODEeKTXbQztILh3g" name="@now - @braking.enter == 10     " source="_63an8AOCEeKTXbQztILh3g" target="_6IhhoAOCEeKTXbQztILh3g"/>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_5VHuwAOCEeKTXbQztILh3g" name=""/>
+            <subvertex xmi:type="uml:State" xmi:id="_6IhhoAOCEeKTXbQztILh3g" name="idle"/>
+            <subvertex xmi:type="uml:State" xmi:id="_63an8AOCEeKTXbQztILh3g" name="braking  "/>
+          </region>
+        </ownedBehavior>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_EuVmkAN_EeKTXbQztILh3g" name="notifyBrake"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_iLKtcAN-EeKTXbQztILh3g" name="radar_bus_1" memberEnd="_iLKtcQN-EeKTXbQztILh3g _iLJfUAN-EeKTXbQztILh3g"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_iykrsAN-EeKTXbQztILh3g" name="bus_controller_1" memberEnd="_iykrsQN-EeKTXbQztILh3g _iykEoAN-EeKTXbQztILh3g"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_jMMsoAN-EeKTXbQztILh3g" name="bus_brakingSystem_1" memberEnd="_jMMsoQN-EeKTXbQztILh3g _jMMFkAN-EeKTXbQztILh3g"/>
+      <packagedElement xmi:type="uml:Signal" xmi:id="_lZXHwAN-EeKTXbQztILh3g" name="brakeInterrupt"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_QoOlsAN_EeKTXbQztILh3g" name="radar" classifier="_Z5iOcAN-EeKTXbQztILh3g">
+        <slot xmi:type="uml:Slot" xmi:id="_jJkZ8AN_EeKTXbQztILh3g" definingFeature="_iLJfUAN-EeKTXbQztILh3g">
+          <value xmi:type="uml:InstanceValue" xmi:id="_jJkZ8QN_EeKTXbQztILh3g" name="InstanceValue0" type="_c6casAN-EeKTXbQztILh3g" instance="_TFEbkAN_EeKTXbQztILh3g"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_Sfd8sH8MEea02b1gNNvQ5w" definingFeature="_O2ecwH8MEea02b1gNNvQ5w"/>
+        <slot xmi:type="uml:Slot" xmi:id="_e4OGAISGEeah-pkLUtOMoA" definingFeature="_bhHAQISGEeah-pkLUtOMoA">
+          <value xmi:type="uml:LiteralInteger" xmi:id="_iwBeAISGEeah-pkLUtOMoA"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_RaYbYAN_EeKTXbQztILh3g" name="ctrl" classifier="_en9scAN-EeKTXbQztILh3g"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_SULxMAN_EeKTXbQztILh3g" name="brakeS" classifier="_fm6A8AN-EeKTXbQztILh3g"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_TFEbkAN_EeKTXbQztILh3g" name="bus" classifier="_c6casAN-EeKTXbQztILh3g">
+        <slot xmi:type="uml:Slot" xmi:id="_kAyV0gN_EeKTXbQztILh3g" definingFeature="_iykEoAN-EeKTXbQztILh3g">
+          <value xmi:type="uml:InstanceValue" xmi:id="_kAyV0wN_EeKTXbQztILh3g" name="InstanceValue0" type="_en9scAN-EeKTXbQztILh3g" instance="_RaYbYAN_EeKTXbQztILh3g"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_ksPtogN_EeKTXbQztILh3g" definingFeature="_jMMFkAN-EeKTXbQztILh3g">
+          <value xmi:type="uml:InstanceValue" xmi:id="_ksPtowN_EeKTXbQztILh3g" name="InstanceValue0" type="_fm6A8AN-EeKTXbQztILh3g" instance="_SULxMAN_EeKTXbQztILh3g"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_WORoMAN_EeKTXbQztILh3g" name="radarClock" classifier="_ajZq0AN-EeKTXbQztILh3g"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_jJQQ4AN_EeKTXbQztILh3g" name="InstanceSpecification0" classifier="_iLKtcAN-EeKTXbQztILh3g">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jJjL0AN_EeKTXbQztILh3g" source="InstanceEnd" references="_QoOlsAN_EeKTXbQztILh3g _TFEbkAN_EeKTXbQztILh3g"/>
+        <slot xmi:type="uml:Slot" xmi:id="_jJjy4AN_EeKTXbQztILh3g" definingFeature="_iLKtcQN-EeKTXbQztILh3g">
+          <value xmi:type="uml:InstanceValue" xmi:id="_jJjy4QN_EeKTXbQztILh3g" name="InstanceValue0" type="_Z5iOcAN-EeKTXbQztILh3g" instance="_QoOlsAN_EeKTXbQztILh3g"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_kAxHsAN_EeKTXbQztILh3g" name="InstanceSpecification1" classifier="_iykrsAN-EeKTXbQztILh3g">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kAxuwAN_EeKTXbQztILh3g" source="InstanceEnd" references="_TFEbkAN_EeKTXbQztILh3g _RaYbYAN_EeKTXbQztILh3g"/>
+        <slot xmi:type="uml:Slot" xmi:id="_kAyV0AN_EeKTXbQztILh3g" definingFeature="_iykrsQN-EeKTXbQztILh3g">
+          <value xmi:type="uml:InstanceValue" xmi:id="_kAyV0QN_EeKTXbQztILh3g" name="InstanceValue0" type="_c6casAN-EeKTXbQztILh3g" instance="_TFEbkAN_EeKTXbQztILh3g"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_ksOfgAN_EeKTXbQztILh3g" name="InstanceSpecification2" classifier="_jMMsoAN-EeKTXbQztILh3g">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ksPGkAN_EeKTXbQztILh3g" source="InstanceEnd" references="_TFEbkAN_EeKTXbQztILh3g _SULxMAN_EeKTXbQztILh3g"/>
+        <slot xmi:type="uml:Slot" xmi:id="_ksPtoAN_EeKTXbQztILh3g" definingFeature="_jMMsoQN-EeKTXbQztILh3g">
+          <value xmi:type="uml:InstanceValue" xmi:id="_ksPtoQN_EeKTXbQztILh3g" name="InstanceValue0" type="_c6casAN-EeKTXbQztILh3g" instance="_TFEbkAN_EeKTXbQztILh3g"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Activity" xmi:id="_pNsfkAN_EeKTXbQztILh3g" name="IOD" node="_qPukUAN_EeKTXbQztILh3g _rC5tsAN_EeKTXbQztILh3g _ZFdJUAOCEeKTXbQztILh3g _igYysAOCEeKTXbQztILh3g _q_IgoAOCEeKTXbQztILh3g _txhIsAOCEeKTXbQztILh3g">
+        <edge xmi:type="uml:ControlFlow" xmi:id="_sKwGkAN_EeKTXbQztILh3g" name="ControlFlow1" source="_qPukUAN_EeKTXbQztILh3g" target="_rC5tsAN_EeKTXbQztILh3g">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_sKxUsAN_EeKTXbQztILh3g" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_sKx7wAN_EeKTXbQztILh3g"/>
+        </edge>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_fqqiwAOCEeKTXbQztILh3g" name="ControlFlow2" source="_rC5tsAN_EeKTXbQztILh3g" target="_ZFdJUAOCEeKTXbQztILh3g">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_fqrw4AOCEeKTXbQztILh3g" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_fqrw4QOCEeKTXbQztILh3g"/>
+        </edge>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_g4rOAAOCEeKTXbQztILh3g" name="ControlFlow3" source="_ZFdJUAOCEeKTXbQztILh3g" target="_rC5tsAN_EeKTXbQztILh3g">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_g4r1EAOCEeKTXbQztILh3g" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_g4scIAOCEeKTXbQztILh3g"/>
+        </edge>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_u5e2UAOCEeKTXbQztILh3g" name="ControlFlow4" source="_igYysAOCEeKTXbQztILh3g" target="_q_IgoAOCEeKTXbQztILh3g">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_u5fdYAOCEeKTXbQztILh3g" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_u5gEcAOCEeKTXbQztILh3g"/>
+        </edge>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_wFyRYAOCEeKTXbQztILh3g" name="ControlFlow5" source="_q_IgoAOCEeKTXbQztILh3g" target="_txhIsAOCEeKTXbQztILh3g">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_wFy4cAOCEeKTXbQztILh3g" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_wFy4cQOCEeKTXbQztILh3g"/>
+        </edge>
+        <node xmi:type="uml:InitialNode" xmi:id="_qPukUAN_EeKTXbQztILh3g" name="InitialNode1" outgoing="_sKwGkAN_EeKTXbQztILh3g"/>
+        <node xmi:type="uml:MergeNode" xmi:id="_rC5tsAN_EeKTXbQztILh3g" name="MergeNode1" outgoing="_fqqiwAOCEeKTXbQztILh3g" incoming="_sKwGkAN_EeKTXbQztILh3g _g4rOAAOCEeKTXbQztILh3g"/>
+        <node xmi:type="uml:CallBehaviorAction" xmi:id="_ZFdJUAOCEeKTXbQztILh3g" name="readValue" outgoing="_g4rOAAOCEeKTXbQztILh3g" incoming="_fqqiwAOCEeKTXbQztILh3g" behavior="_Fs_HUIYgEeaMiq1KEvWkRw"/>
+        <node xmi:type="uml:AcceptEventAction" xmi:id="_igYysAOCEeKTXbQztILh3g" name="@brakeInterrupt.sig" outgoing="_u5e2UAOCEeKTXbQztILh3g"/>
+        <node xmi:type="uml:CallBehaviorAction" xmi:id="_q_IgoAOCEeKTXbQztILh3g" name="SD" outgoing="_wFyRYAOCEeKTXbQztILh3g" incoming="_u5e2UAOCEeKTXbQztILh3g" behavior="_4pZGoAOBEeKTXbQztILh3g"/>
+        <node xmi:type="uml:FlowFinalNode" xmi:id="_txhIsAOCEeKTXbQztILh3g" name="FlowFinalNode1" incoming="_wFyRYAOCEeKTXbQztILh3g"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_uhTHMAN_EeKTXbQztILh3g" name="sendSensorDistance">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_zqY2AAOBEeKTXbQztILh3g">
+          <body>  @sendSensorDistance.end - @sendSensorDistance.start == 1</body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_C7TtQAOAEeKTXbQztILh3g" name="distance" type="_rMeRoF2REeaZq_6Zf2bIUA"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_AERO4IZuEeaMiq1KEvWkRw" name="MessageSend" covered="_vsB08AN_EeKTXbQztILh3g" message="_AEQn0IZuEeaMiq1KEvWkRw"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_kOOywIFLEeWcpJ7mzo9fnw" name="BehaviorExecSpec" covered="_wXKcoAN_EeKTXbQztILh3g" finish="_zFCi4IZuEeaMiq1KEvWkRw" start="_AER18IZuEeaMiq1KEvWkRw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_AER18IZuEeaMiq1KEvWkRw" name="MessageRecv" covered="_wXKcoAN_EeKTXbQztILh3g" message="_AEQn0IZuEeaMiq1KEvWkRw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_zFCi4IZuEeaMiq1KEvWkRw" name="MessageSend0" covered="_wXKcoAN_EeKTXbQztILh3g" message="_zFB70IZuEeaMiq1KEvWkRw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_zFDJ8IZuEeaMiq1KEvWkRw" name="MessageRecv0" covered="_wDkLMAN_EeKTXbQztILh3g" message="_zFB70IZuEeaMiq1KEvWkRw"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_vsB08AN_EeKTXbQztILh3g" name="radar:Radar" coveredBy="_AERO4IZuEeaMiq1KEvWkRw">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_1M1yIAN_EeKTXbQztILh3g" name="radar" instance="_QoOlsAN_EeKTXbQztILh3g"/>
+        </lifeline>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_wDkLMAN_EeKTXbQztILh3g" name="ctrl:Controller" coveredBy="_zFDJ8IZuEeaMiq1KEvWkRw">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_5MamEAN_EeKTXbQztILh3g" name="ctrl" instance="_RaYbYAN_EeKTXbQztILh3g"/>
+        </lifeline>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_wXKcoAN_EeKTXbQztILh3g" name="bus:Bus" coveredBy="_kOOywIFLEeWcpJ7mzo9fnw _AER18IZuEeaMiq1KEvWkRw _zFCi4IZuEeaMiq1KEvWkRw">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_-RqBkAN_EeKTXbQztILh3g" name="bus" instance="_TFEbkAN_EeKTXbQztILh3g"/>
+        </lifeline>
+        <message xmi:type="uml:Message" xmi:id="_AEQn0IZuEeaMiq1KEvWkRw" name="sendSensorDistance" messageSort="asynchCall" receiveEvent="_AER18IZuEeaMiq1KEvWkRw" sendEvent="_AERO4IZuEeaMiq1KEvWkRw" signature="_3ooUkAN-EeKTXbQztILh3g">
+          <argument xmi:type="uml:LiteralInteger" xmi:id="_kW5MEIZxEeaF6pBrrcPfsw" name="distance"/>
+        </message>
+        <message xmi:type="uml:Message" xmi:id="_zFB70IZuEeaMiq1KEvWkRw" name="notifyDistance" messageSort="asynchCall" receiveEvent="_zFDJ8IZuEeaMiq1KEvWkRw" sendEvent="_zFCi4IZuEeaMiq1KEvWkRw" signature="_tPSiMAN-EeKTXbQztILh3g">
+          <argument xmi:type="uml:LiteralInteger" xmi:id="_2Cz7kIZuEeaMiq1KEvWkRw" name="distance"/>
+        </message>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_4pZGoAOBEeKTXbQztILh3g" name="sendBrakeCommand">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_OMJdcAOCEeKTXbQztILh3g">
+          <body>@sendBrakeCommand.end - @sendBrakeCommand.start == 2</body>
+        </ownedComment>
+        <fragment xmi:type="uml:InteractionUse" xmi:id="_z5jJkHXGEeaa9eKMzIERoQ" name="InteractionUse_sendBrakeCommand" refersTo="_4pZGoAOBEeKTXbQztILh3g"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_FoW3cAOCEeKTXbQztILh3g" name="MessageSend" covered="_58qFUAOBEeKTXbQztILh3g" message="_FoVpUAOCEeKTXbQztILh3g"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_81Ih8IFJEeWcpJ7mzo9fnw" name="BehaviorExecSpec" covered="_7a_rkAOBEeKTXbQztILh3g" finish="_I37x0AOCEeKTXbQztILh3g" start="_FoYFkAOCEeKTXbQztILh3g"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_FoYFkAOCEeKTXbQztILh3g" name="MessageRecv" covered="_7a_rkAOBEeKTXbQztILh3g" message="_FoVpUAOCEeKTXbQztILh3g"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_I37x0AOCEeKTXbQztILh3g" name="Message0Send" covered="_7a_rkAOBEeKTXbQztILh3g" message="_I36jsAOCEeKTXbQztILh3g"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_I38Y4AOCEeKTXbQztILh3g" name="Message0Recv" covered="_80IBsAOBEeKTXbQztILh3g" message="_I36jsAOCEeKTXbQztILh3g"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_58qFUAOBEeKTXbQztILh3g" name="ctrl:Controller" coveredBy="_FoW3cAOCEeKTXbQztILh3g">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_BzPAAAOCEeKTXbQztILh3g" name="" instance="_RaYbYAN_EeKTXbQztILh3g"/>
+        </lifeline>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_7a_rkAOBEeKTXbQztILh3g" name="bus:Bus" coveredBy="_FoYFkAOCEeKTXbQztILh3g _I37x0AOCEeKTXbQztILh3g _81Ih8IFJEeWcpJ7mzo9fnw">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_DXirYAOCEeKTXbQztILh3g" name="" instance="_TFEbkAN_EeKTXbQztILh3g"/>
+        </lifeline>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_80IBsAOBEeKTXbQztILh3g" name="brakeS:BrakingSystem" coveredBy="_I38Y4AOCEeKTXbQztILh3g">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_E8tSYAOCEeKTXbQztILh3g" name="" instance="_SULxMAN_EeKTXbQztILh3g"/>
+        </lifeline>
+        <message xmi:type="uml:Message" xmi:id="_FoVpUAOCEeKTXbQztILh3g" name="sendBrakeCommand" messageSort="asynchCall" receiveEvent="_FoYFkAOCEeKTXbQztILh3g" sendEvent="_FoW3cAOCEeKTXbQztILh3g" signature="_9PDxkAN-EeKTXbQztILh3g"/>
+        <message xmi:type="uml:Message" xmi:id="_I36jsAOCEeKTXbQztILh3g" name="notifyBrake" messageSort="asynchCall" receiveEvent="_I38Y4AOCEeKTXbQztILh3g" sendEvent="_I37x0AOCEeKTXbQztILh3g" signature="_EuVmkAN_EeKTXbQztILh3g"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_7iFOIF2REeaZq_6Zf2bIUA"/>
+      <packagedElement xmi:type="uml:Signal" xmi:id="_w0DFsITDEeah-pkLUtOMoA" name="failure"/>
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_Fs_HUIYgEeaMiq1KEvWkRw" name="readValue">
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_vUPuQIYgEeaMiq1KEvWkRw" name="MessageSend" covered="_IAUb4IYgEeaMiq1KEvWkRw" message="_vUN5EIYgEeaMiq1KEvWkRw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_vUPuQYYgEeaMiq1KEvWkRw" name="MessageRecv" covered="_IAUb4IYgEeaMiq1KEvWkRw" message="_vUN5EIYgEeaMiq1KEvWkRw"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_IAUb4IYgEeaMiq1KEvWkRw" name="radar:Radar" coveredBy="_vUPuQIYgEeaMiq1KEvWkRw _vUPuQYYgEeaMiq1KEvWkRw">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_oMCVcIYgEeaMiq1KEvWkRw" type="_Z5iOcAN-EeKTXbQztILh3g" instance="_QoOlsAN_EeKTXbQztILh3g"/>
+        </lifeline>
+        <message xmi:type="uml:Message" xmi:id="_vUN5EIYgEeaMiq1KEvWkRw" name="m1" messageSort="asynchCall" receiveEvent="_vUPuQYYgEeaMiq1KEvWkRw" sendEvent="_vUPuQIYgEeaMiq1KEvWkRw" signature="_mcEF0HpdEeaR4ezXoKL4ew"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_rMeRoF2REeaZq_6Zf2bIUA" name="Integer"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_1kNBwGz4EeatHZOvjtomGw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1lGZoGz4EeatHZOvjtomGw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="platform:/org.correttouml.profiles/resources/model.profile.uml#_-4stQJULEea1kdccITC-yQ"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="platform:/org.correttouml.profiles/resources/model.profile.uml#_DCylYIJgEeKaWIAr5_BKMw"/>
+    </profileApplication>
+  </uml:Model>
+  <CorrettoUML.Properties:BooleanFormulae xmi:id="_nQsOEAOEEeKTXbQztILh3g" base_Class="_VnxPkAOEEeKTXbQztILh3g"/>
+  <CorrettoUML.Properties:BooleanFormulae xmi:id="_oMz4EAOEEeKTXbQztILh3g" base_Class="_XSiIQAOEEeKTXbQztILh3g"/>
+  <CorrettoUML.Properties:Alw xmi:id="_uL5ssAOEEeKTXbQztILh3g" base_Class="_VnxPkAOEEeKTXbQztILh3g" formulae="_oMz4EAOEEeKTXbQztILh3g"/>
+  <CorrettoUML.Properties:Implies xmi:id="_vJ60IAOEEeKTXbQztILh3g" base_Class="_XSiIQAOEEeKTXbQztILh3g" left="_UnDkAAOFEeKTXbQztILh3g" right="_2KKHQAOFEeKTXbQztILh3g"/>
+  <CorrettoUML.Properties:Lasted xmi:id="_RxEOUAOFEeKTXbQztILh3g" base_Class="_MyFy4AOFEeKTXbQztILh3g" formulae="_TZ50YAOFEeKTXbQztILh3g" t="_krR1kAOFEeKTXbQztILh3g"/>
+  <CorrettoUML.Properties:BooleanFormulae xmi:id="_TZ50YAOFEeKTXbQztILh3g" base_Class="_OT6K8AOFEeKTXbQztILh3g"/>
+  <CorrettoUML.Properties:BooleanExpression xmi:id="_TaN9cAOFEeKTXbQztILh3g" base_Class="_OT6K8AOFEeKTXbQztILh3g" exp="{ distance &lt; 2 }" context="_uhTHMAN_EeKTXbQztILh3g"/>
+  <CorrettoUML.Properties:BooleanFormulae xmi:id="_UnDkAAOFEeKTXbQztILh3g" base_Class="_MyFy4AOFEeKTXbQztILh3g"/>
+  <CorrettoUML.Properties:constant xmi:id="_krR1kAOFEeKTXbQztILh3g" value="50" base_Class="_PjZc4AOFEeKTXbQztILh3g"/>
+  <CorrettoUML.Properties:BooleanFormulae xmi:id="_2KKHQAOFEeKTXbQztILh3g" base_Class="_uQy-UAOFEeKTXbQztILh3g"/>
+  <CorrettoUML.Properties:BooleanFormulae xmi:id="_3XTP0AOFEeKTXbQztILh3g" base_Class="_xHRcMAOFEeKTXbQztILh3g"/>
+  <CorrettoUML.Properties:Term xmi:id="_3XljsAOFEeKTXbQztILh3g" base_Class="_xHRcMAOFEeKTXbQztILh3g" element="_63an8AOCEeKTXbQztILh3g"/>
+  <CorrettoUML.Properties:constant xmi:id="_4KqmcAOFEeKTXbQztILh3g" value="50" base_Class="_ya7ccAOFEeKTXbQztILh3g"/>
+  <CorrettoUML.Properties:WithinP xmi:id="_E1xnIAOGEeKTXbQztILh3g" base_Class="_uQy-UAOFEeKTXbQztILh3g" formulae="_3XTP0AOFEeKTXbQztILh3g" t="_4KqmcAOFEeKTXbQztILh3g"/>
+  <CorrettoUML.Properties:Property xmi:id="_bV_YgAT2EeK-BP_vUyAIxQ" formulae="_nQsOEAOEEeKTXbQztILh3g" base_Class="_MwdQoAOEEeKTXbQztILh3g"/>
+  <CorrettoUML.Properties:Property xmi:id="_VQZtwGz5EeatHZOvjtomGw" base_Class="_MwdQoAOEEeKTXbQztILh3g"/>
+  <CorrettoUML.Time:ClockType xmi:id="_Eyy3wG05EeatHZOvjtomGw" base_Class="_ajZq0AN-EeKTXbQztILh3g" period="4"/>
+  <CorrettoUML.Time:Clock xmi:id="_0TMm4G06EeatHZOvjtomGw" base_InstanceSpecification="_WORoMAN_EeKTXbQztILh3g"/>
+  <CorrettoUML.Time:TimeConstraint xmi:id="_c1o50G1GEeatHZOvjtomGw" base_Comment="_OMJdcAOCEeKTXbQztILh3g"/>
+  <CorrettoUML.Time:TimeConstraint xmi:id="_eO8PEG1GEeatHZOvjtomGw" base_Comment="_zqY2AAOBEeKTXbQztILh3g"/>
+  <CorrettoUML.VerificationTags:System xmi:id="_d9a3wHscEeaPxvG1jU8hPg" base_Package="_GdyncAN-EeKTXbQztILh3g"/>
+  <CorrettoUML.Time:TimedEvent xmi:id="_KxMLkIYhEeaMiq1KEvWkRw" base_Message="_vUN5EIYgEeaMiq1KEvWkRw" on="_0TMm4G06EeatHZOvjtomGw"/>
+  <CorrettoUML.VerificationTags:Property xmi:id="_IseJ4JULEea1kdccITC-yQ" base_Constraint="_Tx3uQJIcEea87e8STc3geQ"/>
+  <CorrettoUML:Free xmi:id="_FCadgJUMEea1kdccITC-yQ" base_Property="_O2ecwH8MEea02b1gNNvQ5w"/>
+</xmi:XMI>

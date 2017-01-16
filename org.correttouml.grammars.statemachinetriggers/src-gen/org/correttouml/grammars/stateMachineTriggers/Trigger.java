@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.correttouml.grammars.stateMachineTriggers.Trigger#getLeft <em>Left</em>}</li>
  *   <li>{@link org.correttouml.grammars.stateMachineTriggers.Trigger#getRight <em>Right</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.correttouml.grammars.stateMachineTriggers.StateMachineTriggersPackage#getTrigger()
  * @model

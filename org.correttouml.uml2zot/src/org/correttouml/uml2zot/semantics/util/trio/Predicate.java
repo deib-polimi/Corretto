@@ -78,14 +78,16 @@ public class Predicate implements Atom{
     	return "(-P- " +predicatename+ ")";
     }
     
-    public boolean equals(Object o){
+    @Override
+	public boolean equals(Object o){
         if(o instanceof Predicate){
             return ((Predicate)o).predicatename.toUpperCase().equals(predicatename.toUpperCase());
         }
         return false;
     }    
 
-    public int hashCode(){
+    @Override
+	public int hashCode(){
       try {
 		return this.predicatename.toUpperCase().hashCode();
 	} catch (Exception e) {

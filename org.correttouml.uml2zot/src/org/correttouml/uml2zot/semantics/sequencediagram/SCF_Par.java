@@ -1,7 +1,6 @@
 package org.correttouml.uml2zot.semantics.sequencediagram;
 
 import java.util.ArrayList;
-import org.correttouml.uml.diagrams.sequencediagram.CombinedFragment;
 import org.correttouml.uml2zot.semantics.util.bool.*;
 import org.correttouml.uml2zot.semantics.util.trio.Predicate;
 import org.correttouml.uml.diagrams.sequencediagram.*;
@@ -14,8 +13,8 @@ public class SCF_Par extends SCombinedFragment implements SCombinedFragmentItf{
 	//[documentation]: \Dropbox\SharePolimi\Documentation\Sequence Diagram\Combined_Fragment\Modular_Semantics\[CF_Par].docx
 	private CF_Par mades_cf_par;
 	
-	public SCF_Par(CF_Par cfpar, Config config) {
-		super((CombinedFragment)cfpar, config);
+	public SCF_Par(CF_Par cfpar) {
+		super(cfpar);
 		this.mades_cf_par = cfpar;
 	}
 
@@ -34,7 +33,7 @@ public class SCF_Par extends SCombinedFragment implements SCombinedFragmentItf{
 			f.addAll(new SLink_Pre_Post(this, config.combine).getFormulae());
 			// // order(CF_Par_Start, CF_Par_End, True, SD_Stop, True)
 			f.add(new SOrder(getPredicate().getStartPredicate(), getPredicate().getEndPredicate(), SD_Stop, true).getFun());
-// // 			if (config.combine == “ws”){
+// // 			if (config.combine == ï¿½wsï¿½){
 			if(config.combine == ConfigCombine.WS){
 				// // ||i=1 to n(CF_Par_Li_Start) => CF_Par
 				f.add(new Implies(new Or(getLifelinesStartPredicates()), getPredicate()));
@@ -93,7 +92,7 @@ public class SCF_Par extends SCombinedFragment implements SCombinedFragmentItf{
 				tempf1.add(new SSomPIn_i(getLifelinePredicate(i).getEndPredicate(), getPredicate()));
 			f.add(new Implies(getPredicate().getEndPredicate(), new And(new Or(getLifelinesEndPredicates()), new And(tempf1))));
 		}
-// // if (config.combine == “sync”){
+// // if (config.combine == ï¿½syncï¿½){
 			if (config.combine == ConfigCombine.SYNC) {
 			// // 	(CF_Par_Start && !!(||i=1 to n Guardi)) => CF_Par_End
 				f.add(new Implies(new And(getPredicate().getStartPredicate(), new Not(new Or(getGuards()))), getPredicate().getEndPredicate()));
@@ -117,7 +116,7 @@ public class SCF_Par extends SCombinedFragment implements SCombinedFragmentItf{
 			// // for (i = 0; i<m; i++)
 			for (int i = 0; i < m; i++)
 			// //     combine(CF_Alt_Opi, config)
-			f.addAll(new SCombine(mades_combinedfragment.getOperands().get(i), config).getFormulae());
+			f.addAll(new SCombine(mades_combinedfragment.getOperands().get(i)).getFormulae());
 			
 			return f;
 		} catch (Exception e) {

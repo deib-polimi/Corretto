@@ -5,7 +5,6 @@ import org.correttouml.uml.diagrams.expressions.Assignment;
 import org.correttouml.uml.diagrams.expressions.ExpressionContext;
 import org.correttouml.uml.diagrams.expressions.Variable;
 import org.correttouml.uml.diagrams.expressions.VariableFactory;
-import org.correttouml.uml2zot.UML2Zot;
 import org.correttouml.uml2zot.semantics.util.bool.BooleanFormulae;
 import org.correttouml.uml2zot.semantics.util.trio.EQ;
 import org.correttouml.uml2zot.semantics.util.trio.Predicate;
@@ -22,11 +21,11 @@ public class SAssignment {
 	public BooleanFormulae getSemantics(ExpressionContext context, Object... optObj){
 		
 		
-		org.correttouml.grammars.assignments.EXPRESSION right=mades_assignment.getAssignment().getExpression();
+		org.correttouml.grammars.stateMachineActions.EXPRESSION right=mades_assignment.getAssignment().getExpression();
 		SArithmeticExpression s_right=new SArithmeticExpression(right);
 		
 		//First I need to identify the left variable in the model
-		Variable leftVar=VariableFactory.getInstance(mades_assignment.getAssignment().getVariable(), optObj[0], context);
+		Variable leftVar=VariableFactory.getInstance(mades_assignment.getAssignment().getLeftvar(), optObj[0], context);
 		//I build the decorated object for the semantics stuff
 		SVariable s_leftVar=SVariableFactory.getInstance(leftVar);
 		

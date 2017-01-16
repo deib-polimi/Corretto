@@ -13,15 +13,15 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalAssignmentsLexer extends Lexer {
     public static final int RULE_ID=4;
-    public static final int RULE_STRING=7;
-    public static final int T__12=12;
-    public static final int RULE_ANY_OTHER=11;
-    public static final int RULE_INT=6;
-    public static final int RULE_OPERATOR=5;
     public static final int RULE_WS=10;
+    public static final int RULE_STRING=7;
+    public static final int RULE_ANY_OTHER=11;
     public static final int RULE_SL_COMMENT=9;
-    public static final int EOF=-1;
+    public static final int RULE_INT=6;
     public static final int RULE_ML_COMMENT=8;
+    public static final int T__12=12;
+    public static final int EOF=-1;
+    public static final int RULE_OPERATOR=5;
 
     // delegates
     // delegators
@@ -34,15 +34,15 @@ public class InternalAssignmentsLexer extends Lexer {
         super(input,state);
 
     }
-    public String getGrammarFileName() { return "../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g"; }
+    public String getGrammarFileName() { return "InternalAssignments.g"; }
 
     // $ANTLR start "T__12"
     public final void mT__12() throws RecognitionException {
         try {
             int _type = T__12;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:11:7: ( '=' )
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:11:9: '='
+            // InternalAssignments.g:11:7: ( '=' )
+            // InternalAssignments.g:11:9: '='
             {
             match('='); 
 
@@ -61,8 +61,8 @@ public class InternalAssignmentsLexer extends Lexer {
         try {
             int _type = RULE_OPERATOR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:318:15: ( ( '-' | '+' | '*' ) )
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:318:17: ( '-' | '+' | '*' )
+            // InternalAssignments.g:318:15: ( ( '-' | '+' | '*' ) )
+            // InternalAssignments.g:318:17: ( '-' | '+' | '*' )
             {
             if ( (input.LA(1)>='*' && input.LA(1)<='+')||input.LA(1)=='-' ) {
                 input.consume();
@@ -89,10 +89,10 @@ public class InternalAssignmentsLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:320:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:320:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalAssignments.g:320:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalAssignments.g:320:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:320:11: ( '^' )?
+            // InternalAssignments.g:320:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -101,7 +101,7 @@ public class InternalAssignmentsLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:320:11: '^'
+                    // InternalAssignments.g:320:11: '^'
                     {
                     match('^'); 
 
@@ -119,7 +119,7 @@ public class InternalAssignmentsLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:320:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalAssignments.g:320:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -132,7 +132,7 @@ public class InternalAssignmentsLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:
+            	    // InternalAssignments.g:
             	    {
             	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -168,10 +168,10 @@ public class InternalAssignmentsLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:322:10: ( ( '0' .. '9' )+ )
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:322:12: ( '0' .. '9' )+
+            // InternalAssignments.g:322:10: ( ( '0' .. '9' )+ )
+            // InternalAssignments.g:322:12: ( '0' .. '9' )+
             {
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:322:12: ( '0' .. '9' )+
+            // InternalAssignments.g:322:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -185,7 +185,7 @@ public class InternalAssignmentsLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:322:13: '0' .. '9'
+            	    // InternalAssignments.g:322:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -217,10 +217,10 @@ public class InternalAssignmentsLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:324:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:324:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalAssignments.g:324:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalAssignments.g:324:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:324:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalAssignments.g:324:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -238,10 +238,10 @@ public class InternalAssignmentsLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:324:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalAssignments.g:324:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:324:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalAssignments.g:324:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -257,23 +257,15 @@ public class InternalAssignmentsLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:324:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // InternalAssignments.g:324:21: '\\\\' .
                     	    {
                     	    match('\\'); 
-                    	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
-                    	        input.consume();
-
-                    	    }
-                    	    else {
-                    	        MismatchedSetException mse = new MismatchedSetException(null,input);
-                    	        recover(mse);
-                    	        throw mse;}
-
+                    	    matchAny(); 
 
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:324:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalAssignments.g:324:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -298,10 +290,10 @@ public class InternalAssignmentsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:324:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalAssignments.g:324:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:324:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalAssignments.g:324:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -317,23 +309,15 @@ public class InternalAssignmentsLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:324:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // InternalAssignments.g:324:54: '\\\\' .
                     	    {
                     	    match('\\'); 
-                    	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
-                    	        input.consume();
-
-                    	    }
-                    	    else {
-                    	        MismatchedSetException mse = new MismatchedSetException(null,input);
-                    	        recover(mse);
-                    	        throw mse;}
-
+                    	    matchAny(); 
 
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:324:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalAssignments.g:324:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -376,12 +360,12 @@ public class InternalAssignmentsLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:326:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:326:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalAssignments.g:326:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalAssignments.g:326:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:326:24: ( options {greedy=false; } : . )*
+            // InternalAssignments.g:326:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -406,7 +390,7 @@ public class InternalAssignmentsLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:326:52: .
+            	    // InternalAssignments.g:326:52: .
             	    {
             	    matchAny(); 
 
@@ -436,12 +420,12 @@ public class InternalAssignmentsLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:328:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:328:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalAssignments.g:328:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalAssignments.g:328:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:328:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalAssignments.g:328:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -454,7 +438,7 @@ public class InternalAssignmentsLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:328:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalAssignments.g:328:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -474,7 +458,7 @@ public class InternalAssignmentsLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:328:40: ( ( '\\r' )? '\\n' )?
+            // InternalAssignments.g:328:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -483,9 +467,9 @@ public class InternalAssignmentsLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:328:41: ( '\\r' )? '\\n'
+                    // InternalAssignments.g:328:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:328:41: ( '\\r' )?
+                    // InternalAssignments.g:328:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -494,7 +478,7 @@ public class InternalAssignmentsLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:328:41: '\\r'
+                            // InternalAssignments.g:328:41: '\\r'
                             {
                             match('\r'); 
 
@@ -526,10 +510,10 @@ public class InternalAssignmentsLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:330:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:330:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalAssignments.g:330:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalAssignments.g:330:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:330:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalAssignments.g:330:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -543,7 +527,7 @@ public class InternalAssignmentsLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:
+            	    // InternalAssignments.g:
             	    {
             	    if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
             	        input.consume();
@@ -583,8 +567,8 @@ public class InternalAssignmentsLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:332:16: ( . )
-            // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:332:18: .
+            // InternalAssignments.g:332:16: ( . )
+            // InternalAssignments.g:332:18: .
             {
             matchAny(); 
 
@@ -599,68 +583,68 @@ public class InternalAssignmentsLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:1:8: ( T__12 | RULE_OPERATOR | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        // InternalAssignments.g:1:8: ( T__12 | RULE_OPERATOR | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
         int alt12=9;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
-                // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:1:10: T__12
+                // InternalAssignments.g:1:10: T__12
                 {
                 mT__12(); 
 
                 }
                 break;
             case 2 :
-                // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:1:16: RULE_OPERATOR
+                // InternalAssignments.g:1:16: RULE_OPERATOR
                 {
                 mRULE_OPERATOR(); 
 
                 }
                 break;
             case 3 :
-                // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:1:30: RULE_ID
+                // InternalAssignments.g:1:30: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
             case 4 :
-                // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:1:38: RULE_INT
+                // InternalAssignments.g:1:38: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
             case 5 :
-                // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:1:47: RULE_STRING
+                // InternalAssignments.g:1:47: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
             case 6 :
-                // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:1:59: RULE_ML_COMMENT
+                // InternalAssignments.g:1:59: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
             case 7 :
-                // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:1:75: RULE_SL_COMMENT
+                // InternalAssignments.g:1:75: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
             case 8 :
-                // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:1:91: RULE_WS
+                // InternalAssignments.g:1:91: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
             case 9 :
-                // ../org.correttouml.grammars.assignments/src-gen/org/correttouml/grammars/parser/antlr/internal/InternalAssignments.g:1:99: RULE_ANY_OTHER
+                // InternalAssignments.g:1:99: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -682,14 +666,11 @@ public class InternalAssignmentsLexer extends Lexer {
     static final String DFA12_maxS =
         "\1\uffff\2\uffff\1\172\2\uffff\2\uffff\1\57\12\uffff";
     static final String DFA12_acceptS =
-        "\1\uffff\1\1\1\2\1\uffff\1\3\1\4\3\uffff\1\10\1\11\1\1\1\2\1\3"+
-        "\1\4\1\5\1\6\1\7\1\10";
+        "\1\uffff\1\1\1\2\1\uffff\1\3\1\4\3\uffff\1\10\1\11\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10";
     static final String DFA12_specialS =
-        "\1\2\5\uffff\1\0\1\1\13\uffff}>";
+        "\1\0\5\uffff\1\1\1\2\13\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\12\2\11\2\12\1\11\22\12\1\11\1\12\1\6\4\12\1\7\2\12\2\2"+
-            "\1\12\1\2\1\12\1\10\12\5\3\12\1\1\3\12\32\4\3\12\1\3\1\4\1\12"+
-            "\32\4\uff85\12",
+            "\11\12\2\11\2\12\1\11\22\12\1\11\1\12\1\6\4\12\1\7\2\12\2\2\1\12\1\2\1\12\1\10\12\5\3\12\1\1\3\12\32\4\3\12\1\3\1\4\1\12\32\4\uff85\12",
             "",
             "",
             "\32\15\4\uffff\1\15\1\uffff\32\15",
@@ -747,26 +728,6 @@ public class InternalAssignmentsLexer extends Lexer {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA12_6 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA12_6>='\u0000' && LA12_6<='\uFFFF')) ) {s = 15;}
-
-                        else s = 10;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA12_7 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA12_7>='\u0000' && LA12_7<='\uFFFF')) ) {s = 15;}
-
-                        else s = 10;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
                         int LA12_0 = input.LA(1);
 
                         s = -1;
@@ -789,6 +750,26 @@ public class InternalAssignmentsLexer extends Lexer {
                         else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 9;}
 
                         else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='(' && LA12_0<=')')||LA12_0==','||LA12_0=='.'||(LA12_0>=':' && LA12_0<='<')||(LA12_0>='>' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||(LA12_0>='{' && LA12_0<='\uFFFF')) ) {s = 10;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA12_6 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA12_6>='\u0000' && LA12_6<='\uFFFF')) ) {s = 15;}
+
+                        else s = 10;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA12_7 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA12_7>='\u0000' && LA12_7<='\uFFFF')) ) {s = 15;}
+
+                        else s = 10;
 
                         if ( s>=0 ) return s;
                         break;

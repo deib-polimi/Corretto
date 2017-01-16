@@ -13,7 +13,7 @@ public class OperationReturnValue {
 	@Override
 	public boolean equals(java.lang.Object o){
 		OperationReturnValue other_orv=(OperationReturnValue) o;
-		return this.uml_parameter.equals((org.eclipse.uml2.uml.Parameter) other_orv.uml_parameter);
+		return this.uml_parameter.equals(other_orv.uml_parameter);
 	}
 	
 	@Override

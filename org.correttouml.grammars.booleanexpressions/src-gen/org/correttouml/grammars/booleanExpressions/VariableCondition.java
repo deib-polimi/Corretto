@@ -2,6 +2,7 @@
  */
 package org.correttouml.grammars.booleanExpressions;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -10,44 +11,44 @@ package org.correttouml.grammars.booleanExpressions;
  *
  * <p>
  * The following features are supported:
- * <ul>
- *   <li>{@link org.correttouml.grammars.booleanExpressions.VariableCondition#getVariable <em>Variable</em>}</li>
- *   <li>{@link org.correttouml.grammars.booleanExpressions.VariableCondition#getRelation <em>Relation</em>}</li>
- *   <li>{@link org.correttouml.grammars.booleanExpressions.VariableCondition#getValue <em>Value</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.correttouml.grammars.booleanExpressions.VariableCondition#getExpression_left <em>Expression left</em>}</li>
+ *   <li>{@link org.correttouml.grammars.booleanExpressions.VariableCondition#getRelation <em>Relation</em>}</li>
+ *   <li>{@link org.correttouml.grammars.booleanExpressions.VariableCondition#getExpression_right <em>Expression right</em>}</li>
+ * </ul>
  *
  * @see org.correttouml.grammars.booleanExpressions.BooleanExpressionsPackage#getVariableCondition()
  * @model
  * @generated
  */
-public interface VariableCondition extends booleanTerm
+public interface VariableCondition extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Variable</b></em>' attribute.
+   * Returns the value of the '<em><b>Expression left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Variable</em>' attribute isn't clear,
+   * If the meaning of the '<em>Expression left</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Variable</em>' attribute.
-   * @see #setVariable(String)
-   * @see org.correttouml.grammars.booleanExpressions.BooleanExpressionsPackage#getVariableCondition_Variable()
-   * @model
+   * @return the value of the '<em>Expression left</em>' containment reference.
+   * @see #setExpression_left(EXPRESSION)
+   * @see org.correttouml.grammars.booleanExpressions.BooleanExpressionsPackage#getVariableCondition_Expression_left()
+   * @model containment="true"
    * @generated
    */
-  String getVariable();
+  EXPRESSION getExpression_left();
 
   /**
-   * Sets the value of the '{@link org.correttouml.grammars.booleanExpressions.VariableCondition#getVariable <em>Variable</em>}' attribute.
+   * Sets the value of the '{@link org.correttouml.grammars.booleanExpressions.VariableCondition#getExpression_left <em>Expression left</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Variable</em>' attribute.
-   * @see #getVariable()
+   * @param value the new value of the '<em>Expression left</em>' containment reference.
+   * @see #getExpression_left()
    * @generated
    */
-  void setVariable(String value);
+  void setExpression_left(EXPRESSION value);
 
   /**
    * Returns the value of the '<em><b>Relation</b></em>' attribute.
@@ -76,29 +77,29 @@ public interface VariableCondition extends booleanTerm
   void setRelation(String value);
 
   /**
-   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * Returns the value of the '<em><b>Expression right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Value</em>' attribute isn't clear,
+   * If the meaning of the '<em>Expression right</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(int)
-   * @see org.correttouml.grammars.booleanExpressions.BooleanExpressionsPackage#getVariableCondition_Value()
-   * @model
+   * @return the value of the '<em>Expression right</em>' containment reference.
+   * @see #setExpression_right(EXPRESSION)
+   * @see org.correttouml.grammars.booleanExpressions.BooleanExpressionsPackage#getVariableCondition_Expression_right()
+   * @model containment="true"
    * @generated
    */
-  int getValue();
+  EXPRESSION getExpression_right();
 
   /**
-   * Sets the value of the '{@link org.correttouml.grammars.booleanExpressions.VariableCondition#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link org.correttouml.grammars.booleanExpressions.VariableCondition#getExpression_right <em>Expression right</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value</em>' attribute.
-   * @see #getValue()
+   * @param value the new value of the '<em>Expression right</em>' containment reference.
+   * @see #getExpression_right()
    * @generated
    */
-  void setValue(int value);
+  void setExpression_right(EXPRESSION value);
 
 } // VariableCondition

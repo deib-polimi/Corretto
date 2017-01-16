@@ -13,6 +13,7 @@ import org.correttouml.uml2zot.semantics.sequencediagram.SMessage;
 import org.correttouml.uml2zot.semantics.sequencediagram.SSequenceDiagram;
 import org.correttouml.uml2zot.semantics.statediagram.SState;
 import org.correttouml.uml2zot.semantics.util.bool.BooleanFormulae;
+import org.correttouml.uml2zot.semantics.util.bool.Or;
 
 
 public class SPTerm {
@@ -26,8 +27,12 @@ public class SPTerm {
 	public BooleanFormulae getSemantics(){
 		if(mades_pterm.getElement() instanceof State){
 			//TODO: When selecting a term the user must specify what object he is referring to
-			Object obj=((State)mades_pterm.getElement()).getStateDiagram().getOwningClass().getObjects().iterator().next();
-			return new SState((State)mades_pterm.getElement()).getPredicate(obj);
+			//If not a big OR is built with all the possibilities
+			Or orPTerm=new Or();
+			for(Object obj: ((State)mades_pterm.getElement()).getStateDiagram().getOwningClass().getObjects() ){
+				orPTerm.addFormulae(new SState((State)mades_pterm.getElement()).getPredicate(obj));
+			}
+			return orPTerm;
 		}
 		if(mades_pterm.getElement() instanceof Message){
 			return new SMessage((Message) mades_pterm.getElement()).getPredicate();
@@ -40,8 +45,13 @@ public class SPTerm {
 		}
 		if(mades_pterm.getElement() instanceof Operation){
 			//TODO: When selecting an operation the user must specify what object he is referring to
-			Object obj=((Operation)mades_pterm.getElement()).getOwningClass().getObjects().iterator().next();
-			return new SOperation((Operation) mades_pterm.getElement()).getPredicate(obj);
+			//If not a big OR is built with all the possibilities
+			Or orPTerm=new Or();
+			for(Object obj: ((Operation)mades_pterm.getElement()).getOwningClass().getObjects() ){
+//				orPTerm.addFormulae(new SState((State)mades_pterm.getElement()).getPredicate(obj));
+				orPTerm.addFormulae(new SOperation((Operation)mades_pterm.getElement()).getPredicate(obj));
+			}
+			return orPTerm;
 		}
 		
 		try {

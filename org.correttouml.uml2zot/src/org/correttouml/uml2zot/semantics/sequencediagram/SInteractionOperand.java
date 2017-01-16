@@ -27,7 +27,7 @@ public class SInteractionOperand implements SInteractionFragment {
 	}
 	
 	public SCombinedFragment getEnclosingSCF() { ////#### it does not work for nested "ws" loops
-		return new SCombinedFragment(new CombinedFragment((org.eclipse.uml2.uml.CombinedFragment)mades_interactionoperand.uml_interactionoperand.getOwner()), config);
+		return new SCombinedFragment(new CombinedFragment((org.eclipse.uml2.uml.CombinedFragment)mades_interactionoperand.uml_interactionoperand.getOwner()));
 	}
 	
 	public String getName() {
@@ -63,7 +63,7 @@ public class SInteractionOperand implements SInteractionFragment {
 	public ArrayList<Predicate> getLifelinesPredicates() {
 		ArrayList<Predicate> lifelinesPredicates = new ArrayList<Predicate>();
 		for (Lifeline l : mades_interactionoperand.getLifelines()) {
-			lifelinesPredicates.add((Predicate) (getLifelinePredicate(l
+			lifelinesPredicates.add((getLifelinePredicate(l
 					.getName())));
 			l.getEvents();
 		}
@@ -97,8 +97,8 @@ public class SInteractionOperand implements SInteractionFragment {
 				sepliEvjPrd = new SMessageStart((MessageStart)sepliEvj).getPredicate();
 			if(sepliEvj instanceof MessageEnd)
 				sepliEvjPrd = new SMessageEnd((MessageEnd)sepliEvj).getPredicate();
-			if (SInteractionFragmentFactory.getInstance(sepliEvj, config) instanceof SCombinedFragment)
-				sepliCFj = (SCombinedFragment)SInteractionFragmentFactory.getInstance(sepliEvj, config);
+			if (SInteractionFragmentFactory.getInstance(sepliEvj) instanceof SCombinedFragment)
+				sepliCFj = (SCombinedFragment)SInteractionFragmentFactory.getInstance(sepliEvj);
 
 			if (sepliEvjPrd != null) { // if event is M 
 				firstMessages.add(sepliEvjPrd);
@@ -124,8 +124,8 @@ public class SInteractionOperand implements SInteractionFragment {
 				sepliEvjPrd = new SMessageStart((MessageStart)sepliEvj).getPredicate();
 			if(sepliEvj instanceof MessageEnd)
 				sepliEvjPrd = new SMessageEnd((MessageEnd)sepliEvj).getPredicate();
-			if (SInteractionFragmentFactory.getInstance(sepliEvj, config) instanceof SCombinedFragment)
-				sepliCFj = (SCombinedFragment)SInteractionFragmentFactory.getInstance(sepliEvj, config);
+			if (SInteractionFragmentFactory.getInstance(sepliEvj) instanceof SCombinedFragment)
+				sepliCFj = (SCombinedFragment)SInteractionFragmentFactory.getInstance(sepliEvj);
 
 			if (sepliEvjPrd != null) { // if event is M 
 				lastMessages.add(sepliEvjPrd);

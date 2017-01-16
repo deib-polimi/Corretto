@@ -14,6 +14,7 @@ public class SSignalEvent implements SEvent{
 		this.mades_event=signalEvent;
 	}
 
+	@Override
 	public Predicate getPredicate(Object... optObject) {
 		return new SSignal(mades_event.getSignal()).getPredicate();
 	}

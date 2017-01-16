@@ -28,7 +28,7 @@ public class PSBooleanExpression {
 			obj=((StateDiagram)boolean_expression.getExpressionContext()).getOwningClass().getObjects().iterator().next();
 		}
 		
-		BooleanFormulae r=new SBooleanExpression(m.getExpression()).getSemantics(obj, boolean_expression.getExpressionContext());
+		BooleanFormulae r=new SBooleanExpression(m).getSemantics(obj, boolean_expression.getExpressionContext());
 		return r;
 	}
 

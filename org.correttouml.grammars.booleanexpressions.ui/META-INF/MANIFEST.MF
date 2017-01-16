@@ -17,9 +17,10 @@ Require-Bundle: org.correttouml.grammars.booleanexpressions;visibility:=reexport
  org.eclipse.xtext.ui.codetemplates.ui,
  org.eclipse.compare
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.correttouml.grammars.ui.contentassist,
  org.correttouml.grammars.ui.contentassist.antlr,
  org.correttouml.grammars.ui.internal,
- org.correttouml.grammars.ui.quickfix
+ org.correttouml.grammars.ui.quickfix,
+ org.correttouml.grammars.ui.contentassist.antlr.internal
 Bundle-Activator: org.correttouml.grammars.ui.internal.BooleanExpressionsActivator

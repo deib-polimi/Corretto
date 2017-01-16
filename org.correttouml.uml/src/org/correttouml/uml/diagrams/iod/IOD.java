@@ -4,67 +4,44 @@ package org.correttouml.uml.diagrams.iod;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.correttouml.uml.MadesModel;
+import org.correttouml.uml.diagrams.activity.InterruptibleRegion;
 import org.correttouml.uml.diagrams.expressions.ExpressionContext;
-import org.correttouml.uml2zot.UML2Zot;
-import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.correttouml.uml.diagrams.timeconstraints.TimeConstraint;
+import org.correttouml.uml.helpers.BooleanExpressionsParser;
+import org.correttouml.uml.helpers.UML2ModelHelper;
 import org.eclipse.uml2.uml.Activity;
 import org.eclipse.uml2.uml.ActivityGroup;
+import org.eclipse.uml2.uml.Comment;
 import org.eclipse.uml2.uml.InterruptibleActivityRegion;
 
-public class IOD implements ExpressionContext{
+/**
+ * @author Mohammad Mehdi Pourhashem Kallehbasti
+ */
+public class IOD extends org.correttouml.uml.diagrams.activity.Activity implements ExpressionContext{
 
-	private Activity uml_activity;
+	public IOD(Activity uml_activity) {
+		super(uml_activity, null);
+	}
 
-	public IOD(org.eclipse.uml2.uml.Activity uml_activity){
-		this.uml_activity=uml_activity;
-	}
-	
-	public String getName(){
-		return uml_activity.getName();
-	}
-	
-	public Set<Node> getNodes(){
-		Set<Node> nodes=new HashSet<Node>();
-		for(org.eclipse.uml2.uml.ActivityNode n: uml_activity.getNodes()){
-			nodes.add(NodeFactory.getInstance(n));
+	public Set<TimeConstraint> getTimeConstraints() {
+		Set<TimeConstraint> tcs=new HashSet<TimeConstraint>();
+		
+		for(Comment c: uml_activity.getOwnedComments()){
+			if(UML2ModelHelper.hasStereotype(c, "TimeConstraint")){
+				org.correttouml.grammars.booleanExpressions.Model m = BooleanExpressionsParser.parse(c.getBody());
+				org.correttouml.grammars.booleanExpressions.TimeConstraint tc = m.getExpression().getLeftExpression().getLeftExpression().getBooleanTerm().getTimeConstraint();
+				tcs.add(new TimeConstraint(tc, new org.correttouml.uml.Comment(c, this)));
+			}
 		}
-		return nodes;
+		return tcs;
 	}
-	
-	public Set<ControlFlow> getControlFlows(){
-		Set<ControlFlow> cfs=new HashSet<ControlFlow>();
-		for(org.eclipse.uml2.uml.ActivityEdge uml_cf: uml_activity.getEdges()){
-			cfs.add(new ControlFlow(uml_cf));
+
+	public Set<InterruptibleRegion> getInterruptibleRegions(){
+		Set<InterruptibleRegion> regions=new HashSet<InterruptibleRegion>();
+		for(ActivityGroup ag:this.uml_activity.getGroups()){
+			if(ag instanceof InterruptibleActivityRegion) regions.add(new InterruptibleRegion((InterruptibleActivityRegion)ag, this));
 		}
-		return cfs;
-	}
-	
-    public ControlFlow findControlFlow(Node source, Node destination) {
-        for (ControlFlow c : this.getControlFlows()) {
-            if (c.getSource().equals(source) && c.getDestination().equals(destination)) {
-                return c;
-            }
-        }
-        return null;
-    }
-    
-    public Set<InterruptibleRegion> getInterruptibleRegions(){
-    	Set<InterruptibleRegion> regions=new HashSet<InterruptibleRegion>();
-    	for(ActivityGroup ag:this.uml_activity.getGroups()){
-    		if(ag instanceof InterruptibleActivityRegion) regions.add(new InterruptibleRegion((InterruptibleActivityRegion)ag));
-    	}
-    	return regions;
-    }
-
-	public String getUMLId() {
-		String id=((XMLResource) this.uml_activity.eResource()).getID(uml_activity);
-		return UML2Zot.Utility.umlIDtoPrdID(id);
-	}
-
-	@Override
-	public MadesModel getMadesModel() {
-		return new MadesModel(uml_activity.getModel());
+		return regions;
 	}
 	
 }

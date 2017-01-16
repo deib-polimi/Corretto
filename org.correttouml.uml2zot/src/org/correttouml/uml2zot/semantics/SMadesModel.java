@@ -7,7 +7,6 @@ import org.correttouml.uml.diagrams.iod.IOD;
 import org.correttouml.uml.diagrams.sequencediagram.SequenceDiagram;
 import org.correttouml.uml2zot.semantics.classdiagram.SClassDiagram;
 import org.correttouml.uml2zot.semantics.iod.SIOD;
-import org.correttouml.uml2zot.semantics.property.SProperty;
 import org.correttouml.uml2zot.semantics.sequencediagram.*;
 import org.correttouml.uml2zot.semantics.util.bool.And;
 import org.correttouml.uml2zot.semantics.util.bool.BooleanFormulae;
@@ -17,14 +16,15 @@ import org.correttouml.uml2zot.semantics.util.trio.AlwF_e;
 import org.correttouml.uml2zot.semantics.util.trio.Predicate;
 import org.correttouml.uml2zot.semantics.util.trio.TrioConstant;
 import org.correttouml.uml2zot.semantics.util.trio.Yesterday;
-import org.correttouml.uml2zot.semantics.sequencediagram.Config;
 
 
 public class SMadesModel {
 
 	public static final Predicate SYSTEMSTART = new Predicate("BigBang");
-	// set configuration
-	public static Config staticConfig = new Config(ConfigCombine.WS, ConfigCombine.WS, ConfigWhat.NONDETERMINISTICALLY);
+//	// Set the default configuration that is Combine:SYNC Loop:SYNC Choice:ND
+//	// Details can be found in the paper entitled "Flexible Modular Formalization of UML Sequence Diagrams" http://dl.acm.org/citation.cfm?id=2593492
+//	
+//	public static Config staticConfig = new Config(ConfigCombine.SYNC, ConfigCombine.SYNC, ConfigWhat.NONDETERMINISTICALLY);
 	/** The semantic decorators */
 	private MadesModel mm;
 	
@@ -41,10 +41,9 @@ public class SMadesModel {
         
         //Sequence Diagram semantics
         s=s+printSeparator("SEQUENCE DIAGRAMS");
-        Config config = staticConfig;
         for(SequenceDiagram sd: this.mm.getSequenceDiagrams()){
         	s=s+printSeparator("SD " + sd.getName());
-        	s=s+new SSequenceDiagram(sd, staticConfig).getSemantics();
+        	s=s+new SSequenceDiagram(sd).getSemantics();
         }
         
         //IODs semantics
@@ -141,12 +140,12 @@ public class SMadesModel {
 		return s;
 	}
 	
-	public boolean hasProperty() {
+	public boolean hasProperty() throws Exception {
 		return this.mm.hasProperty();
 	}
 
-	public BooleanFormulae getProperty() {
-		return new SProperty(this.mm.getProperty()).getSemantics();
+	public BooleanFormulae getProperty() throws Exception {
+		return mm.getProperty();
 	}    
 	
 }

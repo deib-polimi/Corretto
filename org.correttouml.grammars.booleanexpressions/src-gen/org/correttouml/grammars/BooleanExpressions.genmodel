@@ -4,22 +4,33 @@
     editDirectory="/org.correttouml.grammars.booleanexpressions.edit/src" editorDirectory="/org.correttouml.grammars.booleanexpressions.editor/src"
     modelPluginID="org.correttouml.grammars.booleanexpressions" forceOverwrite="true"
     modelName="BooleanExpressions" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    complianceLevel="5.0" copyrightFields="false" editPluginID="org.correttouml.grammars.booleanexpressions.edit"
-    editorPluginID="org.correttouml.grammars.booleanexpressions.editor" runtimeVersion="2.8">
+    complianceLevel="6.0" copyrightFields="false" editPluginID="org.correttouml.grammars.booleanexpressions.edit"
+    editorPluginID="org.correttouml.grammars.booleanexpressions.editor" runtimeVersion="2.12">
   <genPackages prefix="BooleanExpressions" basePackage="org.correttouml.grammars"
       disposableProviderFactory="true" ecorePackage="BooleanExpressions.ecore#/">
     <genClasses ecoreClass="BooleanExpressions.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//Model/expression"/>
     </genClasses>
-    <genClasses ecoreClass="BooleanExpressions.ecore#//booleanExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//booleanExpression/notExpression"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//booleanExpression/orLeft"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//booleanExpression/orRight"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//booleanExpression/andLeft"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//booleanExpression/andRight"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//booleanExpression/booleanTerm"/>
+    <genClasses ecoreClass="BooleanExpressions.ecore#//OrExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//OrExpression/leftExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BooleanExpressions.ecore#//OrExpression/or"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//OrExpression/rightExpression"/>
     </genClasses>
-    <genClasses ecoreClass="BooleanExpressions.ecore#//booleanTerm"/>
+    <genClasses ecoreClass="BooleanExpressions.ecore#//AndExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//AndExpression/leftExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BooleanExpressions.ecore#//AndExpression/and"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//AndExpression/rightExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="BooleanExpressions.ecore#//BaseExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BooleanExpressions.ecore#//BaseExpression/not"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//BaseExpression/booleanTerm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//BaseExpression/rootExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="BooleanExpressions.ecore#//booleanTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//booleanTerm/timeConstraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//booleanTerm/booleanVariable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//booleanTerm/variableCondition"/>
+    </genClasses>
     <genClasses ecoreClass="BooleanExpressions.ecore#//TimeConstraint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//TimeConstraint/event2"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//TimeConstraint/event1"/>
@@ -30,11 +41,22 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BooleanExpressions.ecore#//BooleanVariable/variable"/>
     </genClasses>
     <genClasses ecoreClass="BooleanExpressions.ecore#//VariableCondition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BooleanExpressions.ecore#//VariableCondition/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//VariableCondition/expression_left"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BooleanExpressions.ecore#//VariableCondition/relation"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BooleanExpressions.ecore#//VariableCondition/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//VariableCondition/expression_right"/>
+    </genClasses>
+    <genClasses ecoreClass="BooleanExpressions.ecore#//EXPRESSION">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//EXPRESSION/firstTerm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BooleanExpressions.ecore#//EXPRESSION/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//EXPRESSION/secondTerm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BooleanExpressions.ecore#//EXPRESSION/alone"/>
+    </genClasses>
+    <genClasses ecoreClass="BooleanExpressions.ecore#//TERM">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BooleanExpressions.ecore#//TERM/variable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BooleanExpressions.ecore#//TERM/constant"/>
     </genClasses>
     <genClasses ecoreClass="BooleanExpressions.ecore#//Event">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BooleanExpressions.ecore#//Event/objName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BooleanExpressions.ecore#//Event/eventName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BooleanExpressions.ecore#//Event/eventExtension"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BooleanExpressions.ecore#//Event/nowEvent"/>

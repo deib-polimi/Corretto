@@ -1,14 +1,19 @@
 package org.correttouml.uml.diagrams.statediagram;
 
 
-import org.correttouml.uml.diagrams.expressions.AssignmentContext;
+import java.util.List;
+
+import org.correttouml.uml.MadesModel;
+import org.correttouml.uml.diagrams.expressions.ExpressionContext;
 import org.correttouml.uml.diagrams.statediagram.actions.Action;
 import org.correttouml.uml.diagrams.statediagram.actions.ActionFactory;
 import org.correttouml.uml.helpers.StDTransitionsParser;
-import org.correttouml.uml2zot.UML2Zot;
 import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.correttouml.uml.diagrams.classdiagram.Object;
+import org.correttouml.uml2zot.UML2Zot;
 
-public class Transition implements AssignmentContext{
+//public class Transition implements AssignmentContext, ExpressionContext{
+public class Transition implements ExpressionContext{
 	
 	/** the decorated transition */
 	org.eclipse.uml2.uml.Transition uml_transition;
@@ -33,9 +38,11 @@ public class Transition implements AssignmentContext{
 		return new StateDiagram((org.eclipse.uml2.uml.StateMachine) this.uml_transition.getOwner().getOwner());
 	}
 
+	@Override
 	public String getUMLId() {
 		String id=((XMLResource) this.uml_transition.eResource()).getID(uml_transition);
-		return "tttransition"+UML2Zot.Utility.umlIDtoPrdID(id);
+//		return id;
+		return UML2Zot.Utility.umlIDtoPrdID(id);
 	}
 
 	public boolean hasTrigger() {
@@ -70,17 +77,17 @@ public class Transition implements AssignmentContext{
 		//return uml_transition.getTriggers().size()>0;
 	}
 
-	public boolean hasAction() {
+	public boolean hasActions() {
 		StDTransitionsParser p= new StDTransitionsParser();
 		p.parse(uml_transition.getName());
 		return p.hasAction();
 		//return uml_transition.getTriggers().size()>0;
 	}
 	
-	public Action getAction(){		
+	public List<Action> getActions(Object object){		
 		StDTransitionsParser p= new StDTransitionsParser();
 		p.parse(uml_transition.getName());
-		return ActionFactory.getInstance(p.getAction(), this.uml_transition);		
+		return ActionFactory.getInstance(p.getAction(), this, object);		
 		
 		//return ActionFactory.getInstance(uml_transition.getEffect());
 	}
@@ -90,14 +97,24 @@ public class Transition implements AssignmentContext{
 	}
 	
 	@Override
+	public String toString(){
+		return this.uml_transition.getName();
+	}
+	
+	@Override
 	public boolean equals(java.lang.Object o){
 		Transition other_transition=(Transition) o;
-		return this.uml_transition.equals((org.eclipse.uml2.uml.Transition) other_transition.uml_transition);
+		return this.uml_transition.equals(other_transition.uml_transition);
 	}
 	
 	@Override
 	public int hashCode(){
 		return this.uml_transition.hashCode();
+	}
+
+	@Override
+	public MadesModel getMadesModel() {
+		return getStateDiagram().getMadesModel();
 	}
 
 }

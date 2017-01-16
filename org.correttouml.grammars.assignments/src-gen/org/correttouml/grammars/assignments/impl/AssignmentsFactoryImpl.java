@@ -30,7 +30,7 @@ public class AssignmentsFactoryImpl extends EFactoryImpl implements AssignmentsF
   {
     try
     {
-      AssignmentsFactory theAssignmentsFactory = (AssignmentsFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.correttouml.org/grammars/Assignments"); 
+      AssignmentsFactory theAssignmentsFactory = (AssignmentsFactory)EPackage.Registry.INSTANCE.getEFactory(AssignmentsPackage.eNS_URI);
       if (theAssignmentsFactory != null)
       {
         return theAssignmentsFactory;

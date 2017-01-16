@@ -14,15 +14,15 @@ import org.correttouml.grammars.booleanExpressions.*;
 
 public class SBooleanExpression {
 
-	private booleanExpression exp;
+	private Model exp;
 	private Object mades_object;
 	private ExpressionContext context;
 
-	public SBooleanExpression(org.correttouml.grammars.booleanExpressions.booleanExpression exp){
+	public SBooleanExpression(org.correttouml.grammars.booleanExpressions.Model exp){
 		this.exp=exp;
 	}
 	
-	public BooleanFormulae getSemantics( org.correttouml.uml.diagrams.classdiagram.Object mades_object, ExpressionContext context ){
+	public BooleanFormulae getSemantics(org.correttouml.uml.diagrams.classdiagram.Object mades_object, ExpressionContext context ){
 		this.mades_object=mades_object;
 		this.context=context;
 		
@@ -30,53 +30,72 @@ public class SBooleanExpression {
 		return r;
 	}
 	
-	private BooleanFormulae getBooleanFormulae(org.correttouml.grammars.booleanExpressions.booleanExpression exp){
-		BooleanFormulae r=null;
-		if (this.isAnd()) {
-			r=new And(this.getTerm(this.exp.getAndLeft()), this.getTerm(this.exp.getAndRight()));
-		}
-		else if (this.isOr()) {
-			r=new Or(this.getTerm(this.exp.getAndLeft()), this.getTerm(this.exp.getAndRight()));
-		}
-		else if (this.isNot()){
-			r=new Not(this.getBooleanFormulae(this.exp.getNotExpression()));
-		}
-		else{
-			r=this.getTerm(this.exp.getBooleanTerm());
-		}
+	private BooleanFormulae getBooleanFormulae(org.correttouml.grammars.booleanExpressions.Model exp){
+		BooleanFormulae r=getBooleanFormulaeOr(exp.getExpression());
 		return r;
 	}
-
-	private boolean isNot() {
-		if(this.exp.getOrLeft()!=null) return false;
-		if(this.exp.getAndLeft()!=null) return false;
-		if(this.exp.getBooleanTerm()!=null) return false;
-		return true;
+	
+	private BooleanFormulae getBooleanFormulaeOr(org.correttouml.grammars.booleanExpressions.OrExpression exp){
+		BooleanFormulae r=null;
+		
+		//there is an OR
+		if(exp.getOr()!=null){
+			r=new Or(this.getBooleanFormulaeAnd(exp.getLeftExpression()), this.getBooleanFormulaeOr(exp.getRightExpression()));
+		}else{
+			r=this.getBooleanFormulaeAnd(exp.getLeftExpression());
+		}
+		
+		return r;
+		
 	}
-
-	private boolean isOr() {
-		if(this.exp.getNotExpression()!=null) return false;
-		if(this.exp.getAndLeft()!=null) return false;
-		if(this.exp.getBooleanTerm()!=null) return false;
-		return true;
+	
+	private BooleanFormulae getBooleanFormulaeAnd(org.correttouml.grammars.booleanExpressions.AndExpression exp){
+		BooleanFormulae r=null;
+		
+		//there is an AND
+		if(exp.getAnd()!=null){
+			r=new And(this.getBooleanFormulaeBaseExpression(exp.getLeftExpression()), this.getBooleanFormulaeAnd(exp.getRightExpression()));
+		}else{
+			r=this.getBooleanFormulaeBaseExpression(exp.getLeftExpression());
+		}
+		
+		return r;
 	}
-
-	private boolean isAnd(){
-		if(this.exp.getNotExpression()!=null) return false;
-		if(this.exp.getOrLeft()!=null) return false;
-		if(this.exp.getBooleanTerm()!=null) return false;
-		return true;
+	
+	private BooleanFormulae getBooleanFormulaeBaseExpression(org.correttouml.grammars.booleanExpressions.BaseExpression exp){
+		BooleanFormulae r=null;
+		
+		//there is a NOT
+		if(exp.getNot()!=null){
+			if(exp.getRootExpression()!=null){
+				//we found parenthesis
+				r=new Not(this.getBooleanFormulaeOr(exp.getRootExpression()));
+			}else{
+				//it is a term
+				r=new Not(this.getTerm(exp.getBooleanTerm()));
+			}
+		}else{
+			if(exp.getRootExpression()!=null){
+				//we found parenthesis
+				r=this.getBooleanFormulaeOr(exp.getRootExpression());
+			}else{
+				//it is a term
+				r=this.getTerm(exp.getBooleanTerm());
+			}
+		}
+		
+		return r;
 	}
 	
 	private BooleanFormulae getTerm(org.correttouml.grammars.booleanExpressions.booleanTerm term){
-		if (term instanceof org.correttouml.grammars.booleanExpressions.TimeConstraint) {
-			return new STimeConstraint(new TimeConstraint((org.correttouml.grammars.booleanExpressions.TimeConstraint)term, context)).getSemantics(this.mades_object);
+		if (term.getTimeConstraint()!=null) {
+			return new STimeConstraint(new TimeConstraint(term.getTimeConstraint(), context)).getSemantics(this.mades_object);
 		}
-		if (term instanceof org.correttouml.grammars.booleanExpressions.VariableCondition) {
-			return new SVariableCondition((org.correttouml.grammars.booleanExpressions.VariableCondition) term).getSemantics(this.mades_object, this.context);
+		if (term.getVariableCondition()!=null) {
+			return new SVariableCondition(term.getVariableCondition()).getSemantics(this.mades_object, this.context);
 		}
-		if (term instanceof org.correttouml.grammars.booleanExpressions.BooleanVariable) {
-			String varname = ((org.correttouml.grammars.booleanExpressions.BooleanVariable) term).getVariable();
+		if (term.getBooleanVariable()!=null) {
+			String varname = (term.getBooleanVariable()).getVariable();
 			return SVariableFactory.getInstance(
 					VariableFactory.getInstance(varname, this.mades_object,
 							this.context)).getPredicate(this.mades_object);

@@ -11,5 +11,5 @@ import org.correttouml.uml.MadesModel;
  */
 public interface ExpressionContext {
 	public MadesModel getMadesModel();
-	
+	public String getUMLId();
 }

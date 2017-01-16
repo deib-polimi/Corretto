@@ -1,7 +1,6 @@
 package org.correttouml.uml2zot.semantics.util.trio;
 
 
-import java.util.HashSet;
 import org.correttouml.uml2zot.semantics.util.bool.Atom;
 
 /**

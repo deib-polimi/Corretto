@@ -77,6 +77,24 @@ public interface StateMachineActionsFactory extends EFactory
   EventAction createEventAction();
 
   /**
+   * Returns a new object of class '<em>Link</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Link</em>'.
+   * @generated
+   */
+  Link createLink();
+
+  /**
+   * Returns a new object of class '<em>Event</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Event</em>'.
+   * @generated
+   */
+  Event createEvent();
+
+  /**
    * Returns a new object of class '<em>Parameters</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

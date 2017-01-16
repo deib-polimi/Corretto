@@ -15,24 +15,24 @@ public class TimeConstraint{
 		this.context=context;
 	}
 	
-		
 	public ExpressionContext getContext(){
 		return this.context;
 	}
- 
 
 	public Event getEvent2() {
 		String eventName=this.time_constraint.getEvent2().getEventName();
 		String eventExtension=this.time_constraint.getEvent2().getEventExtension();
-        return EventFactory.getInstance(this.context, eventName, eventExtension);
+		String objcetName = time_constraint.getEvent2().getObjName();
+        return EventFactory.getInstance(this.context, objcetName, eventName, eventExtension);
     }
 
     public Event getEvent1() {
 		String eventName=this.time_constraint.getEvent1().getEventName();
 		String eventExtension=this.time_constraint.getEvent1().getEventExtension();
-        return EventFactory.getInstance(this.context, eventName, eventExtension);
+		String objcetName = time_constraint.getEvent1().getObjName();
+        return EventFactory.getInstance(this.context, objcetName, eventName, eventExtension);
     }
-
+    
     public int getTimeUnits() {
     	return time_constraint.getValue();
     }

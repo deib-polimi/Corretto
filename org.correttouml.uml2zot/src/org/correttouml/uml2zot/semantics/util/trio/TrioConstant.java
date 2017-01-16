@@ -32,12 +32,14 @@ public class TrioConstant implements Atom{
         return constantname;
     }
 
+	@Override
 	public boolean equals(Object object){
 		if(!(object instanceof TrioConstant))return false;
 		TrioConstant other=(TrioConstant)object;
 		return this.getConstantName().equals(other.getConstantName());	
 	}
 
+	@Override
 	public int hashCode(){
 		return this.getConstantName().hashCode();
 	}

@@ -22,11 +22,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.correttouml.grammars.stateMachineActions.impl.ActionImpl#getAssignment <em>Assignment</em>}</li>
  *   <li>{@link org.correttouml.grammars.stateMachineActions.impl.ActionImpl#getEventAction <em>Event Action</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

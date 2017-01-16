@@ -14,6 +14,7 @@ public class CallEvent implements Event {
 		return this.mades_operation;
 	}
 	
+	@Override
 	public boolean equals(java.lang.Object o){
 		CallEvent other_callevent=(CallEvent) o;
 		return this.mades_operation.equals(other_callevent.mades_operation);

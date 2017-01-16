@@ -16,18 +16,12 @@ public class SMessageStart implements SInteractionFragment, SEvent{
 	
 	@Override
 	public Predicate getPredicate(){
-		//return new Predicate("MESSAGE"+this.mades_messageStartEvent.getMessage().getUMLId().replace("-", "_")+"_Start");
-//		return new Predicate("MESSAGE"+UML2Zot.Utility.umlIDtoPrdID(this.mades_messageStartEvent.getMessage().getUMLId())).getPredicateStart();////####uncomment me
-//		return new Predicate(mades_messageStartEvent.getMessage().getName()+"_Start");
-		return new Predicate("MESSAGE" + mades_messageStartEvent.getMessage().getName() + "$" + this.mades_messageStartEvent.getMessage().getUMLId() + "_Start");
+		return new SMessage(mades_messageStartEvent.getMessage()).getPredicate().getStartPredicate();
 	}
 
 	@Override
 	public Predicate getPredicate(Object... optObject) {
-		//return new Predicate("MESSAGE"+this.mades_messageStartEvent.getMessage().getUMLId().replace("-", "_")+"_Start");
-//		return new Predicate("MESSAGE"+UML2Zot.Utility.umlIDtoPrdID(this.mades_messageStartEvent.getMessage().getUMLId())).getPredicateStart();////####uncomment me
-//		return new Predicate(mades_messageStartEvent.getMessage().getName()+"_Start");
-		return new Predicate("MESSAGE" + mades_messageStartEvent.getMessage().getName() + "$" + this.mades_messageStartEvent.getMessage().getUMLId() + "_Start");
-	}
+		return new SMessage(mades_messageStartEvent.getMessage()).getPredicate().getStartPredicate();
+		}
 
 }

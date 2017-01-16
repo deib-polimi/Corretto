@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.workbench.texteditor.hyperlinkDetectors">
+      <hyperlinkDetector
+            activate="true"
+            class="org.correttouml.plugins.traceability.AbstractHyperlinkDetector1"
+            id="org.correttouml.plugins.traceability.hyperlinkDetector1"
+            name="CorrettoUmlTT"
+            targetId="org.eclipse.ui.DefaultTextEditor">
+      </hyperlinkDetector>
+   </extension>
+
+</plugin>

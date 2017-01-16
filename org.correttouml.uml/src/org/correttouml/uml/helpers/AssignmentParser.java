@@ -22,7 +22,7 @@ public class AssignmentParser {
 		XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
 		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
 		
-		Resource resource = resourceSet.createResource(URI.createURI("file:/example.mades_assignment"));
+		Resource resource = resourceSet.createResource(URI.createURI("file:/example.mydsl"));
 		InputStream in = new ByteArrayInputStream(boolean_expression.getBytes());
 		try {
 			resource.load(in, resourceSet.getLoadOptions());

@@ -21,10 +21,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.correttouml.grammars.stateMachineActions.impl.ModelImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link org.correttouml.grammars.stateMachineActions.impl.ModelImpl#getActions <em>Actions</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -39,6 +40,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected Action action;
+
+  /**
+   * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getActions()
+   * @generated
+   * @ordered
+   */
+  protected Model actions;
 
   /**
    * <!-- begin-user-doc -->
@@ -114,6 +125,54 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
+  public Model getActions()
+  {
+    return actions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetActions(Model newActions, NotificationChain msgs)
+  {
+    Model oldActions = actions;
+    actions = newActions;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StateMachineActionsPackage.MODEL__ACTIONS, oldActions, newActions);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setActions(Model newActions)
+  {
+    if (newActions != actions)
+    {
+      NotificationChain msgs = null;
+      if (actions != null)
+        msgs = ((InternalEObject)actions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StateMachineActionsPackage.MODEL__ACTIONS, null, msgs);
+      if (newActions != null)
+        msgs = ((InternalEObject)newActions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StateMachineActionsPackage.MODEL__ACTIONS, null, msgs);
+      msgs = basicSetActions(newActions, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StateMachineActionsPackage.MODEL__ACTIONS, newActions, newActions));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -121,6 +180,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case StateMachineActionsPackage.MODEL__ACTION:
         return basicSetAction(null, msgs);
+      case StateMachineActionsPackage.MODEL__ACTIONS:
+        return basicSetActions(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -137,6 +198,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case StateMachineActionsPackage.MODEL__ACTION:
         return getAction();
+      case StateMachineActionsPackage.MODEL__ACTIONS:
+        return getActions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -153,6 +216,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case StateMachineActionsPackage.MODEL__ACTION:
         setAction((Action)newValue);
+        return;
+      case StateMachineActionsPackage.MODEL__ACTIONS:
+        setActions((Model)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,6 +237,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case StateMachineActionsPackage.MODEL__ACTION:
         setAction((Action)null);
         return;
+      case StateMachineActionsPackage.MODEL__ACTIONS:
+        setActions((Model)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -187,6 +256,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case StateMachineActionsPackage.MODEL__ACTION:
         return action != null;
+      case StateMachineActionsPackage.MODEL__ACTIONS:
+        return actions != null;
     }
     return super.eIsSet(featureID);
   }

@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.correttouml.grammars.stateMachineActions.EXPRESSION#getFirstTerm <em>First Term</em>}</li>
  *   <li>{@link org.correttouml.grammars.stateMachineActions.EXPRESSION#getOperator <em>Operator</em>}</li>
  *   <li>{@link org.correttouml.grammars.stateMachineActions.EXPRESSION#getSecondTerm <em>Second Term</em>}</li>
  *   <li>{@link org.correttouml.grammars.stateMachineActions.EXPRESSION#getAlone <em>Alone</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.correttouml.grammars.stateMachineActions.StateMachineActionsPackage#getEXPRESSION()
  * @model

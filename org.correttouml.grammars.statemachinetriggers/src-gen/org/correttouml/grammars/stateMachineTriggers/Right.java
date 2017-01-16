@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.correttouml.grammars.stateMachineTriggers.Right#getEvent <em>Event</em>}</li>
  *   <li>{@link org.correttouml.grammars.stateMachineTriggers.Right#getOp <em>Op</em>}</li>
  *   <li>{@link org.correttouml.grammars.stateMachineTriggers.Right#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.correttouml.grammars.stateMachineTriggers.StateMachineTriggersPackage#getRight()
  * @model

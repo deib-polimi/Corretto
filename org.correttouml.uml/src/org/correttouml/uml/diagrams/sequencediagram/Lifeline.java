@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.correttouml.uml.diagrams.classdiagram.Object;
-import org.eclipse.uml2.uml.GeneralOrdering;
 
 public class Lifeline {
 

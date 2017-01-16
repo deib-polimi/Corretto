@@ -12,8 +12,12 @@ public class Guard {
 		this.uml_transition=t;
 	}
 
-	public org.correttouml.grammars.booleanExpressions.booleanExpression getBooleanExpression() {
-		return BooleanExpressionsParser.parse(this.uml_guard).getExpression();
+	public org.correttouml.grammars.booleanExpressions.Model getBooleanExpression() {
+		return BooleanExpressionsParser.parse(this.uml_guard);
+	}
+	
+	public String getUMLGuard(){
+		return uml_guard;
 	}
 
 	public Transition getTransition() {

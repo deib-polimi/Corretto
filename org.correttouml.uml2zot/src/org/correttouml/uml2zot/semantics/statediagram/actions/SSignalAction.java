@@ -3,7 +3,6 @@ package org.correttouml.uml2zot.semantics.statediagram.actions;
 import org.correttouml.uml.diagrams.classdiagram.Object;
 import org.correttouml.uml.diagrams.expressions.ExpressionContext;
 import org.correttouml.uml.diagrams.statediagram.actions.SignalAction;
-import org.correttouml.uml2zot.semantics.classdiagram.SSignal;
 import org.correttouml.uml2zot.semantics.util.trio.Predicate;
 
 
@@ -17,7 +16,7 @@ public class SSignalAction implements SAction {
 	
 	@Override
 	public Predicate getPredicate(Object... objects) {
-		return new SSignal(this.mades_signalAction.getSignal()).getPredicate();
+		return new Predicate(mades_signalAction.getSignal().getName() + mades_signalAction.getContext().getUMLId()+"_CALL");
 	}
 
 	@Override

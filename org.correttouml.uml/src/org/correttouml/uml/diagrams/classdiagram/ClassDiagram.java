@@ -30,6 +30,28 @@ public class ClassDiagram {
 		return classes;
 	}
 	
+	public Set<Association> getAssociations(){
+		HashSet<Association> associations=new HashSet<Association>();
+		for(Element c: this.uml_sys_package.getOwnedElements()){
+			if(c instanceof org.eclipse.uml2.uml.Association){
+				associations.add(new Association((org.eclipse.uml2.uml.Association) c));
+			}
+		}
+		return associations;
+	}
+	
+	public Set<AssociationInstance> getAssociationInstances(){
+		HashSet<AssociationInstance> associationinstances=new HashSet<AssociationInstance>();
+		for(Element c: this.uml_sys_package.getOwnedElements()){
+			if(c instanceof org.eclipse.uml2.uml.InstanceSpecification){
+				if(((org.eclipse.uml2.uml.InstanceSpecification) c).getClassifiers().get(0) instanceof org.eclipse.uml2.uml.Association){
+					associationinstances.add(new AssociationInstance((org.eclipse.uml2.uml.InstanceSpecification) c));
+				}
+			}
+		}
+		return associationinstances;
+	}
+	
 	public Set<Clock> getClocks() {
 		HashSet<Clock> clocks=new HashSet<Clock>();
 		for(Element c: this.uml_sys_package.getOwnedElements()){

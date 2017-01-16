@@ -20,13 +20,11 @@ public class SOperationParameter implements SVariable{
 	@Override
 	public BooleanFormulae getPredicate(Object... obj) {
         if(mades_operationparam.getType() == PrimitiveType.INTEGER || mades_operationparam.getType()==PrimitiveType.REAL)
-            return new TrioVar("OBJ"+obj[0].getName()+"PARAM"+mades_operationparam.getName(), mades_operationparam.getType());
+            return new TrioVar("OBJ"+obj[0].getName()+ "OP" + mades_operationparam.getOperationName() + "PARAM"+mades_operationparam.getName(), mades_operationparam.getType());
         else if(mades_operationparam.getType() == PrimitiveType.BOOLEAN){
-            return new Predicate("OBJ"+obj[0].getName()+"PARAM"+mades_operationparam.getName());
+            return new Predicate("OBJ"+obj[0].getName() + "OP" + mades_operationparam.getOperationName() +"PARAM"+mades_operationparam.getName());
         }
 		return null;
 	}
-	
-	
 	
 }

@@ -1,7 +1,6 @@
 package org.correttouml.uml2zot.semantics.statediagram.actions;
 
 import org.correttouml.uml.diagrams.classdiagram.Object;
-import org.correttouml.uml.diagrams.classdiagram.Operation;
 import org.correttouml.uml.diagrams.expressions.ExpressionContext;
 import org.correttouml.uml.diagrams.statediagram.actions.CallAction;
 import org.correttouml.uml.diagrams.statediagram.actions.CallActionParameter;
@@ -16,25 +15,11 @@ public class SCallAction implements SAction{
 		this.mades_callAction=mades_callAction;
 	}
 	
+	@Override
 	public Predicate getPredicate(Object... optObject){
-		//FIXME: This can be improved, I am just
-		//going to look for the first operation having the specified name
 		
-		//FIXME: Right now the current implementation do not support
-		//operation calls on the same object making the invocation
-		//e.g. a owns opA, and tries to make opA.call
-		//right now I assume that opA belongs to a class connected to me
-		
-		Object obj_to_call=null;
-		for(Object ass_obj: optObject[0].getAssociatedObjects()){
-			for(Operation op: ass_obj.getOwningClass().getOperations()){
-				if(op.getName().equals(mades_callAction.getOperation().getName())){
-					obj_to_call=ass_obj;
-				}
-			}
-		}
-		
-		return new Predicate("OBJ"+obj_to_call.getName()+"OP"+mades_callAction.getOperation().getName()+"_CALL");
+//		return new Predicate("OBJ"+mades_callAction.getObject()+"OP"+mades_callAction.getOperation().getName()+"TR"+mades_callAction.getTransition().getUMLId()+"_CALL");
+		return new Predicate("OBJ"+mades_callAction.getObject()+"OP"+mades_callAction.getOperation().getName() + mades_callAction.getContext().getUMLId()+"_CALL");
 	}
 
 	@Override

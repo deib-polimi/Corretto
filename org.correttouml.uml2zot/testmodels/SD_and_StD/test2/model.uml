@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CorrettoUML="http:///schemas/CorrettoUML/_iXxZQAajEeKtRYEODWfJYQ/19" xmlns:CorrettoUML.Properties="http:///CorrettoUML/Properties.ecore" xmlns:CorrettoUML.Time="http:///CorrettoUML/Time.ecore" xmlns:CorrettoUML.VerificationTags="http:///CorrettoUML/VerificationTags.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///CorrettoUML/Properties.ecore pathmap://resources/model.profile.uml#_e595B4JmEeK0gIgXi94_dg http:///CorrettoUML/Time.ecore pathmap://resources/model.profile.uml#_e5944YJmEeK0gIgXi94_dg http:///CorrettoUML/VerificationTags.ecore pathmap://resources/model.profile.uml#_e5949YJmEeK0gIgXi94_dg">
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CorrettoUML="http:///schemas/CorrettoUML/_iXxZQAajEeKtRYEODWfJYQ/19" xmlns:CorrettoUML.Properties="http:///CorrettoUML/Properties.ecore" xmlns:CorrettoUML.Time="http:///CorrettoUML/Time.ecore" xmlns:CorrettoUML.VerificationTags="http:///CorrettoUML/VerificationTags.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///CorrettoUML/Properties.ecore pathmap://resources/model.profile.uml#_e595B4JmEeK0gIgXi94_dg http:///CorrettoUML/Time.ecore ../../../../org.correttouml.profiles/resources/model.profile.uml#_YfVcwYvzEeKLvcTv2F9FYg http:///CorrettoUML/VerificationTags.ecore ../../../../org.correttouml.profiles/resources/model.profile.uml#_YfVc14vzEeKLvcTv2F9FYg">
   <uml:Model xmi:id="_HxcV8AYWEeKDB5y-CSxkCg" name="Model">
     <ownedComment xmi:type="uml:Comment" xmi:id="_5ciNwBXrEeKU3rHUqZ-LRQ">
       <body>Synchronize op1() &#xD;
@@ -29,29 +29,35 @@ with the sysClock</body>
       <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_NGXMMAYWEeKDB5y-CSxkCg" name="c1" classifier="_IkT9UAYWEeKDB5y-CSxkCg"/>
       <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_Nek34AYWEeKDB5y-CSxkCg" name="c2" classifier="_JfjdkAYWEeKDB5y-CSxkCg"/>
       <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_5w3YoBXjEeKU3rHUqZ-LRQ" name="sysClock" classifier="_xlU6kBXjEeKU3rHUqZ-LRQ"/>
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_dpp2UBXjEeKU3rHUqZ-LRQ" name="Interaction1">
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_pz93EBXjEeKU3rHUqZ-LRQ" name="MessageSend" covered="_e0iVEBXjEeKU3rHUqZ-LRQ" message="_pzkOcBXjEeKU3rHUqZ-LRQ"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_pz-eIBXjEeKU3rHUqZ-LRQ" name="MessageRecv" covered="_ec5RIBXjEeKU3rHUqZ-LRQ" message="_pzkOcBXjEeKU3rHUqZ-LRQ"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_bxBHcBXoEeKU3rHUqZ-LRQ" name="Message0Send" covered="_ec5RIBXjEeKU3rHUqZ-LRQ" message="_bxAgYBXoEeKU3rHUqZ-LRQ"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_bxBugBXoEeKU3rHUqZ-LRQ" name="Message0Recv" covered="_e0iVEBXjEeKU3rHUqZ-LRQ" message="_bxAgYBXoEeKU3rHUqZ-LRQ"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_ec5RIBXjEeKU3rHUqZ-LRQ" name="c1:Class1" coveredBy="_pz-eIBXjEeKU3rHUqZ-LRQ _bxBHcBXoEeKU3rHUqZ-LRQ">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_hakjMBXjEeKU3rHUqZ-LRQ" name="" instance="_NGXMMAYWEeKDB5y-CSxkCg"/>
+        </lifeline>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_e0iVEBXjEeKU3rHUqZ-LRQ" name="c2:Class2" coveredBy="_pz93EBXjEeKU3rHUqZ-LRQ _bxBugBXoEeKU3rHUqZ-LRQ">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_mOOfcBXjEeKU3rHUqZ-LRQ" name="" instance="_Nek34AYWEeKDB5y-CSxkCg"/>
+        </lifeline>
+        <message xmi:type="uml:Message" xmi:id="_pzkOcBXjEeKU3rHUqZ-LRQ" name="Message" messageSort="asynchCall" receiveEvent="_pz-eIBXjEeKU3rHUqZ-LRQ" sendEvent="_pz93EBXjEeKU3rHUqZ-LRQ" signature="_KEbsQAYWEeKDB5y-CSxkCg"/>
+        <message xmi:type="uml:Message" xmi:id="_bxAgYBXoEeKU3rHUqZ-LRQ" name="Message0" messageSort="asynchCall" receiveEvent="_bxBugBXoEeKU3rHUqZ-LRQ" sendEvent="_bxBHcBXoEeKU3rHUqZ-LRQ" signature="_Z9qTcBXoEeKU3rHUqZ-LRQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Activity" xmi:id="_QrLqYG9PEea5etIvuq2v8Q" name="Activity1"/>
+      <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_lSfyIGtpEeaRpvA3HSzZKw">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lS73AGtpEeaRpvA3HSzZKw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <references xmi:type="ecore:EPackage" href="../../../../org.correttouml.profiles/resources/model.profile.uml#_YfVcwIvzEeKLvcTv2F9FYg"/>
+        </eAnnotations>
+        <appliedProfile xmi:type="uml:Profile" href="../../../../org.correttouml.profiles/resources/model.profile.uml#_DCylYIJgEeKaWIAr5_BKMw"/>
+      </profileApplication>
     </packagedElement>
-    <packagedElement xmi:type="uml:Interaction" xmi:id="_dpp2UBXjEeKU3rHUqZ-LRQ" name="Interaction1">
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_pz93EBXjEeKU3rHUqZ-LRQ" name="MessageSend" covered="_e0iVEBXjEeKU3rHUqZ-LRQ" message="_pzkOcBXjEeKU3rHUqZ-LRQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_pz-eIBXjEeKU3rHUqZ-LRQ" name="MessageRecv" covered="_ec5RIBXjEeKU3rHUqZ-LRQ" message="_pzkOcBXjEeKU3rHUqZ-LRQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_bxBHcBXoEeKU3rHUqZ-LRQ" name="Message0Send" covered="_ec5RIBXjEeKU3rHUqZ-LRQ" message="_bxAgYBXoEeKU3rHUqZ-LRQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_bxBugBXoEeKU3rHUqZ-LRQ" name="Message0Recv" covered="_e0iVEBXjEeKU3rHUqZ-LRQ" message="_bxAgYBXoEeKU3rHUqZ-LRQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_ec5RIBXjEeKU3rHUqZ-LRQ" name="c1:Class1" coveredBy="_pz-eIBXjEeKU3rHUqZ-LRQ _bxBHcBXoEeKU3rHUqZ-LRQ">
-        <selector xmi:type="uml:InstanceValue" xmi:id="_hakjMBXjEeKU3rHUqZ-LRQ" name="" instance="_NGXMMAYWEeKDB5y-CSxkCg"/>
-      </lifeline>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_e0iVEBXjEeKU3rHUqZ-LRQ" name="c2:Class2" coveredBy="_pz93EBXjEeKU3rHUqZ-LRQ _bxBugBXoEeKU3rHUqZ-LRQ">
-        <selector xmi:type="uml:InstanceValue" xmi:id="_mOOfcBXjEeKU3rHUqZ-LRQ" name="" instance="_Nek34AYWEeKDB5y-CSxkCg"/>
-      </lifeline>
-      <message xmi:type="uml:Message" xmi:id="_pzkOcBXjEeKU3rHUqZ-LRQ" name="Message" messageSort="asynchCall" receiveEvent="_pz-eIBXjEeKU3rHUqZ-LRQ" sendEvent="_pz93EBXjEeKU3rHUqZ-LRQ" signature="_KEbsQAYWEeKDB5y-CSxkCg"/>
-      <message xmi:type="uml:Message" xmi:id="_bxAgYBXoEeKU3rHUqZ-LRQ" name="Message0" messageSort="asynchCall" receiveEvent="_bxBugBXoEeKU3rHUqZ-LRQ" sendEvent="_bxBHcBXoEeKU3rHUqZ-LRQ" signature="_Z9qTcBXoEeKU3rHUqZ-LRQ"/>
-    </packagedElement>
-    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_aaO2AAYWEeKDB5y-CSxkCg">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_abEjgAYWEeKDB5y-CSxkCg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="../../../../eu.mades.profile/model.profile.uml#_iXz1gAajEeKtRYEODWfJYQ"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_90LNoGtoEeaRpvA3HSzZKw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_90n5kGtoEeaRpvA3HSzZKw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="../../../../org.correttouml.profiles/resources/model.profile.uml#_YfVcwIvzEeKLvcTv2F9FYg"/>
       </eAnnotations>
-      <appliedProfile xmi:type="uml:Profile" href="../../../../eu.mades.profile/model.profile.uml#_jpeHMANtEeKTXbQztILh3g"/>
+      <appliedProfile xmi:type="uml:Profile" href="../../../../org.correttouml.profiles/resources/model.profile.uml#_DCylYIJgEeKaWIAr5_BKMw"/>
     </profileApplication>
   </uml:Model>
-  <CorrettoUML.VerificationTags:System xmi:id="_cDn1sAYWEeKDB5y-CSxkCg" base_Package="_YCrIwAYWEeKDB5y-CSxkCg"/>
   <CorrettoUML.Properties:Property xmi:id="_KkeWQAZuEeKCgqqlDd45Lg" formulae="_RplXwAZuEeKCgqqlDd45Lg" base_Class="_HdohIAZuEeKCgqqlDd45Lg"/>
   <CorrettoUML.Properties:Alw xmi:id="_RpWuQAZuEeKCgqqlDd45Lg" base_Class="_QaixwAZuEeKCgqqlDd45Lg" formulae="_ombuAAZuEeKCgqqlDd45Lg"/>
   <CorrettoUML.Properties:BooleanFormulae xmi:id="_RplXwAZuEeKCgqqlDd45Lg" base_Class="_QaixwAZuEeKCgqqlDd45Lg"/>
@@ -61,7 +67,7 @@ with the sysClock</body>
   <CorrettoUML.Properties:BooleanFormulae xmi:id="_l3vDYAZ_EeKCgqqlDd45Lg" base_Class="_gU6UAAZ_EeKCgqqlDd45Lg"/>
   <CorrettoUML.Properties:BooleanFormulae xmi:id="_vpsFoAZ_EeKCgqqlDd45Lg" base_Class="_r-QVsAZ_EeKCgqqlDd45Lg"/>
   <CorrettoUML.Properties:Term xmi:id="_XXVqIAaBEeKCgqqlDd45Lg" base_Class="_gU6UAAZ_EeKCgqqlDd45Lg" element="_JwPu4AZsEeKCgqqlDd45Lg"/>
-  <CorrettoUML.Time:ClockType xmi:id="_ynydIBXjEeKU3rHUqZ-LRQ" period="5" base_Class="_xlU6kBXjEeKU3rHUqZ-LRQ"/>
+  <CorrettoUML.Time:ClockType xmi:id="_ynydIBXjEeKU3rHUqZ-LRQ" base_Class="_xlU6kBXjEeKU3rHUqZ-LRQ" period="5"/>
   <CorrettoUML:Event xmi:id="_KNVY0BXpEeKU3rHUqZ-LRQ" base_Class="_FtSVEBXpEeKU3rHUqZ-LRQ" event="@op1.call" context="__qxTsAZrEeKCgqqlDd45Lg" object="_NGXMMAYWEeKDB5y-CSxkCg"/>
   <CorrettoUML.Properties:BooleanFormulae xmi:id="_Zi2KQBXpEeKU3rHUqZ-LRQ" base_Class="_V9-8YBXpEeKU3rHUqZ-LRQ"/>
   <CorrettoUML.Properties:And xmi:id="_ZjK6YBXpEeKU3rHUqZ-LRQ" base_Class="_V9-8YBXpEeKU3rHUqZ-LRQ" left="_l3vDYAZ_EeKCgqqlDd45Lg" right="_clGaUBXpEeKU3rHUqZ-LRQ"/>
@@ -72,5 +78,7 @@ with the sysClock</body>
   <CorrettoUML.Properties:constant xmi:id="_12CTEBXpEeKU3rHUqZ-LRQ" value="5" base_Class="_0lM9UBXpEeKU3rHUqZ-LRQ"/>
   <CorrettoUML.Time:TimedEvent xmi:id="__KXlMBXpEeKU3rHUqZ-LRQ" base_Message="_pzkOcBXjEeKU3rHUqZ-LRQ" on="_C2dccBXqEeKU3rHUqZ-LRQ"/>
   <CorrettoUML.Time:Clock xmi:id="_C2dccBXqEeKU3rHUqZ-LRQ" base_InstanceSpecification="_5w3YoBXjEeKU3rHUqZ-LRQ"/>
-  <CorrettoUML.VerificationTags:Property xmi:id="_IpIJMBXrEeKU3rHUqZ-LRQ" base_Package="_EAwxoAZuEeKCgqqlDd45Lg"/>
+  <CorrettoUML.VerificationTags:Property xmi:id="_IpIJMBXrEeKU3rHUqZ-LRQ"/>
+  <CorrettoUML.VerificationTags:System xmi:id="_8m4pMGtqEeaRpvA3HSzZKw" base_Package="_YCrIwAYWEeKDB5y-CSxkCg"/>
+  <CorrettoUML.Time:ClockType xmi:id="_4CSKsGtsEeaRpvA3HSzZKw" base_Class="_xlU6kBXjEeKU3rHUqZ-LRQ" period="2"/>
 </xmi:XMI>

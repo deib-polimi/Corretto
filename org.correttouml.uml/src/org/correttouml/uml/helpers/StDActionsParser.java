@@ -23,7 +23,7 @@ public class StDActionsParser {
 		XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
 		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
 		
-		Resource resource = resourceSet.createResource(URI.createURI("file:/example.mydsl"));
+		Resource resource = resourceSet.createResource(URI.createURI("file:/example.stdactions"));
 		InputStream in = new ByteArrayInputStream(action.getBytes());
 		try {
 			resource.load(in, resourceSet.getLoadOptions());

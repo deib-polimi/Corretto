@@ -3,13 +3,17 @@
 package org.correttouml.grammars.booleanExpressions.impl;
 
 import org.correttouml.grammars.booleanExpressions.BooleanExpressionsPackage;
+import org.correttouml.grammars.booleanExpressions.EXPRESSION;
 import org.correttouml.grammars.booleanExpressions.VariableCondition;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,36 +21,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- *   <li>{@link org.correttouml.grammars.booleanExpressions.impl.VariableConditionImpl#getVariable <em>Variable</em>}</li>
- *   <li>{@link org.correttouml.grammars.booleanExpressions.impl.VariableConditionImpl#getRelation <em>Relation</em>}</li>
- *   <li>{@link org.correttouml.grammars.booleanExpressions.impl.VariableConditionImpl#getValue <em>Value</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.correttouml.grammars.booleanExpressions.impl.VariableConditionImpl#getExpression_left <em>Expression left</em>}</li>
+ *   <li>{@link org.correttouml.grammars.booleanExpressions.impl.VariableConditionImpl#getRelation <em>Relation</em>}</li>
+ *   <li>{@link org.correttouml.grammars.booleanExpressions.impl.VariableConditionImpl#getExpression_right <em>Expression right</em>}</li>
+ * </ul>
  *
  * @generated
  */
-public class VariableConditionImpl extends booleanTermImpl implements VariableCondition
+public class VariableConditionImpl extends MinimalEObjectImpl.Container implements VariableCondition
 {
   /**
-   * The default value of the '{@link #getVariable() <em>Variable</em>}' attribute.
+   * The cached value of the '{@link #getExpression_left() <em>Expression left</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVariable()
+   * @see #getExpression_left()
    * @generated
    * @ordered
    */
-  protected static final String VARIABLE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getVariable() <em>Variable</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVariable()
-   * @generated
-   * @ordered
-   */
-  protected String variable = VARIABLE_EDEFAULT;
+  protected EXPRESSION expression_left;
 
   /**
    * The default value of the '{@link #getRelation() <em>Relation</em>}' attribute.
@@ -69,24 +63,14 @@ public class VariableConditionImpl extends booleanTermImpl implements VariableCo
   protected String relation = RELATION_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getExpression_right() <em>Expression right</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getExpression_right()
    * @generated
    * @ordered
    */
-  protected static final int VALUE_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected int value = VALUE_EDEFAULT;
+  protected EXPRESSION expression_right;
 
   /**
    * <!-- begin-user-doc -->
@@ -114,9 +98,9 @@ public class VariableConditionImpl extends booleanTermImpl implements VariableCo
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getVariable()
+  public EXPRESSION getExpression_left()
   {
-    return variable;
+    return expression_left;
   }
 
   /**
@@ -124,12 +108,37 @@ public class VariableConditionImpl extends booleanTermImpl implements VariableCo
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setVariable(String newVariable)
+  public NotificationChain basicSetExpression_left(EXPRESSION newExpression_left, NotificationChain msgs)
   {
-    String oldVariable = variable;
-    variable = newVariable;
+    EXPRESSION oldExpression_left = expression_left;
+    expression_left = newExpression_left;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BooleanExpressionsPackage.VARIABLE_CONDITION__VARIABLE, oldVariable, variable));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BooleanExpressionsPackage.VARIABLE_CONDITION__EXPRESSION_LEFT, oldExpression_left, newExpression_left);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpression_left(EXPRESSION newExpression_left)
+  {
+    if (newExpression_left != expression_left)
+    {
+      NotificationChain msgs = null;
+      if (expression_left != null)
+        msgs = ((InternalEObject)expression_left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BooleanExpressionsPackage.VARIABLE_CONDITION__EXPRESSION_LEFT, null, msgs);
+      if (newExpression_left != null)
+        msgs = ((InternalEObject)newExpression_left).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BooleanExpressionsPackage.VARIABLE_CONDITION__EXPRESSION_LEFT, null, msgs);
+      msgs = basicSetExpression_left(newExpression_left, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BooleanExpressionsPackage.VARIABLE_CONDITION__EXPRESSION_LEFT, newExpression_left, newExpression_left));
   }
 
   /**
@@ -160,9 +169,9 @@ public class VariableConditionImpl extends booleanTermImpl implements VariableCo
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getValue()
+  public EXPRESSION getExpression_right()
   {
-    return value;
+    return expression_right;
   }
 
   /**
@@ -170,12 +179,55 @@ public class VariableConditionImpl extends booleanTermImpl implements VariableCo
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(int newValue)
+  public NotificationChain basicSetExpression_right(EXPRESSION newExpression_right, NotificationChain msgs)
   {
-    int oldValue = value;
-    value = newValue;
+    EXPRESSION oldExpression_right = expression_right;
+    expression_right = newExpression_right;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BooleanExpressionsPackage.VARIABLE_CONDITION__VALUE, oldValue, value));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BooleanExpressionsPackage.VARIABLE_CONDITION__EXPRESSION_RIGHT, oldExpression_right, newExpression_right);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpression_right(EXPRESSION newExpression_right)
+  {
+    if (newExpression_right != expression_right)
+    {
+      NotificationChain msgs = null;
+      if (expression_right != null)
+        msgs = ((InternalEObject)expression_right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BooleanExpressionsPackage.VARIABLE_CONDITION__EXPRESSION_RIGHT, null, msgs);
+      if (newExpression_right != null)
+        msgs = ((InternalEObject)newExpression_right).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BooleanExpressionsPackage.VARIABLE_CONDITION__EXPRESSION_RIGHT, null, msgs);
+      msgs = basicSetExpression_right(newExpression_right, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BooleanExpressionsPackage.VARIABLE_CONDITION__EXPRESSION_RIGHT, newExpression_right, newExpression_right));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case BooleanExpressionsPackage.VARIABLE_CONDITION__EXPRESSION_LEFT:
+        return basicSetExpression_left(null, msgs);
+      case BooleanExpressionsPackage.VARIABLE_CONDITION__EXPRESSION_RIGHT:
+        return basicSetExpression_right(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -188,12 +240,12 @@ public class VariableConditionImpl extends booleanTermImpl implements VariableCo
   {
     switch (featureID)
     {
-      case BooleanExpressionsPackage.VARIABLE_CONDITION__VARIABLE:
-        return getVariable();
+      case BooleanExpressionsPackage.VARIABLE_CONDITION__EXPRESSION_LEFT:
+        return getExpression_left();
       case BooleanExpressionsPackage.VARIABLE_CONDITION__RELATION:
         return getRelation();
-      case BooleanExpressionsPackage.VARIABLE_CONDITION__VALUE:
-        return getValue();
+      case BooleanExpressionsPackage.VARIABLE_CONDITION__EXPRESSION_RIGHT:
+        return getExpression_right();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -208,14 +260,14 @@ public class VariableConditionImpl extends booleanTermImpl implements VariableCo
   {
     switch (featureID)
     {
-      case BooleanExpressionsPackage.VARIABLE_CONDITION__VARIABLE:
-        setVariable((String)newValue);
+      case BooleanExpressionsPackage.VARIABLE_CONDITION__EXPRESSION_LEFT:
+        setExpression_left((EXPRESSION)newValue);
         return;
       case BooleanExpressionsPackage.VARIABLE_CONDITION__RELATION:
         setRelation((String)newValue);
         return;
-      case BooleanExpressionsPackage.VARIABLE_CONDITION__VALUE:
-        setValue((Integer)newValue);
+      case BooleanExpressionsPackage.VARIABLE_CONDITION__EXPRESSION_RIGHT:
+        setExpression_right((EXPRESSION)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -231,14 +283,14 @@ public class VariableConditionImpl extends booleanTermImpl implements VariableCo
   {
     switch (featureID)
     {
-      case BooleanExpressionsPackage.VARIABLE_CONDITION__VARIABLE:
-        setVariable(VARIABLE_EDEFAULT);
+      case BooleanExpressionsPackage.VARIABLE_CONDITION__EXPRESSION_LEFT:
+        setExpression_left((EXPRESSION)null);
         return;
       case BooleanExpressionsPackage.VARIABLE_CONDITION__RELATION:
         setRelation(RELATION_EDEFAULT);
         return;
-      case BooleanExpressionsPackage.VARIABLE_CONDITION__VALUE:
-        setValue(VALUE_EDEFAULT);
+      case BooleanExpressionsPackage.VARIABLE_CONDITION__EXPRESSION_RIGHT:
+        setExpression_right((EXPRESSION)null);
         return;
     }
     super.eUnset(featureID);
@@ -254,12 +306,12 @@ public class VariableConditionImpl extends booleanTermImpl implements VariableCo
   {
     switch (featureID)
     {
-      case BooleanExpressionsPackage.VARIABLE_CONDITION__VARIABLE:
-        return VARIABLE_EDEFAULT == null ? variable != null : !VARIABLE_EDEFAULT.equals(variable);
+      case BooleanExpressionsPackage.VARIABLE_CONDITION__EXPRESSION_LEFT:
+        return expression_left != null;
       case BooleanExpressionsPackage.VARIABLE_CONDITION__RELATION:
         return RELATION_EDEFAULT == null ? relation != null : !RELATION_EDEFAULT.equals(relation);
-      case BooleanExpressionsPackage.VARIABLE_CONDITION__VALUE:
-        return value != VALUE_EDEFAULT;
+      case BooleanExpressionsPackage.VARIABLE_CONDITION__EXPRESSION_RIGHT:
+        return expression_right != null;
     }
     return super.eIsSet(featureID);
   }
@@ -275,12 +327,8 @@ public class VariableConditionImpl extends booleanTermImpl implements VariableCo
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (variable: ");
-    result.append(variable);
-    result.append(", relation: ");
+    result.append(" (relation: ");
     result.append(relation);
-    result.append(", value: ");
-    result.append(value);
     result.append(')');
     return result.toString();
   }

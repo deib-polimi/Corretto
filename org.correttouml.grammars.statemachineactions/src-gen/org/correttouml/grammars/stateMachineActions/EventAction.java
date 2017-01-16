@@ -11,12 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * <ul>
- *   <li>{@link org.correttouml.grammars.stateMachineActions.EventAction#getEventName <em>Event Name</em>}</li>
- *   <li>{@link org.correttouml.grammars.stateMachineActions.EventAction#getParameters <em>Parameters</em>}</li>
- *   <li>{@link org.correttouml.grammars.stateMachineActions.EventAction#getEventExtension <em>Event Extension</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.correttouml.grammars.stateMachineActions.EventAction#getLink <em>Link</em>}</li>
+ *   <li>{@link org.correttouml.grammars.stateMachineActions.EventAction#getEvent <em>Event</em>}</li>
+ * </ul>
  *
  * @see org.correttouml.grammars.stateMachineActions.StateMachineActionsPackage#getEventAction()
  * @model
@@ -25,81 +24,55 @@ import org.eclipse.emf.ecore.EObject;
 public interface EventAction extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Event Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Link</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Event Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Link</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Event Name</em>' attribute.
-   * @see #setEventName(String)
-   * @see org.correttouml.grammars.stateMachineActions.StateMachineActionsPackage#getEventAction_EventName()
-   * @model
-   * @generated
-   */
-  String getEventName();
-
-  /**
-   * Sets the value of the '{@link org.correttouml.grammars.stateMachineActions.EventAction#getEventName <em>Event Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Event Name</em>' attribute.
-   * @see #getEventName()
-   * @generated
-   */
-  void setEventName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Parameters</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Parameters</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Parameters</em>' containment reference.
-   * @see #setParameters(Parameters)
-   * @see org.correttouml.grammars.stateMachineActions.StateMachineActionsPackage#getEventAction_Parameters()
+   * @return the value of the '<em>Link</em>' containment reference.
+   * @see #setLink(Link)
+   * @see org.correttouml.grammars.stateMachineActions.StateMachineActionsPackage#getEventAction_Link()
    * @model containment="true"
    * @generated
    */
-  Parameters getParameters();
+  Link getLink();
 
   /**
-   * Sets the value of the '{@link org.correttouml.grammars.stateMachineActions.EventAction#getParameters <em>Parameters</em>}' containment reference.
+   * Sets the value of the '{@link org.correttouml.grammars.stateMachineActions.EventAction#getLink <em>Link</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Parameters</em>' containment reference.
-   * @see #getParameters()
+   * @param value the new value of the '<em>Link</em>' containment reference.
+   * @see #getLink()
    * @generated
    */
-  void setParameters(Parameters value);
+  void setLink(Link value);
 
   /**
-   * Returns the value of the '<em><b>Event Extension</b></em>' attribute.
+   * Returns the value of the '<em><b>Event</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Event Extension</em>' attribute isn't clear,
+   * If the meaning of the '<em>Event</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Event Extension</em>' attribute.
-   * @see #setEventExtension(String)
-   * @see org.correttouml.grammars.stateMachineActions.StateMachineActionsPackage#getEventAction_EventExtension()
-   * @model
+   * @return the value of the '<em>Event</em>' containment reference.
+   * @see #setEvent(Event)
+   * @see org.correttouml.grammars.stateMachineActions.StateMachineActionsPackage#getEventAction_Event()
+   * @model containment="true"
    * @generated
    */
-  String getEventExtension();
+  Event getEvent();
 
   /**
-   * Sets the value of the '{@link org.correttouml.grammars.stateMachineActions.EventAction#getEventExtension <em>Event Extension</em>}' attribute.
+   * Sets the value of the '{@link org.correttouml.grammars.stateMachineActions.EventAction#getEvent <em>Event</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Event Extension</em>' attribute.
-   * @see #getEventExtension()
+   * @param value the new value of the '<em>Event</em>' containment reference.
+   * @see #getEvent()
    * @generated
    */
-  void setEventExtension(String value);
+  void setEvent(Event value);
 
 } // EventAction

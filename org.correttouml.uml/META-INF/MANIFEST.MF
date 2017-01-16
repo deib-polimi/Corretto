@@ -1,19 +1,23 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Uml
-Bundle-SymbolicName: org.correttouml.uml;singleton:=true
+Bundle-SymbolicName: org.correttouml.uml
 Bundle-Version: 1.0.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.apache.log4j;bundle-version="1.2.15",
  org.eclipse.emf.common;bundle-version="2.8.0",
  org.eclipse.emf.ecore;bundle-version="2.8.1",
- org.eclipse.xtext;bundle-version="2.0.1",
+ org.eclipse.xtext;bundle-version="2.3.0",
  org.correttouml.grammars.assignments;bundle-version="1.0.0",
  org.correttouml.grammars.booleanexpressions;bundle-version="1.0.0",
  org.correttouml.grammars.statemachineactions;bundle-version="1.0.0",
  org.correttouml.grammars.statemachinetriggers;bundle-version="1.0.0",
+ org.correttouml.grammars.property.tests,
+ org.correttouml.grammars.property,
  org.eclipse.uml2.uml;bundle-version="4.0.0"
 Export-Package: org.correttouml.uml,
+ org.correttouml.uml.diagrams.activity,
+ org.correttouml.uml.diagrams.activitydiagram,
  org.correttouml.uml.diagrams.classdiagram,
  org.correttouml.uml.diagrams.events,
  org.correttouml.uml.diagrams.expressions,
@@ -25,4 +29,8 @@ Export-Package: org.correttouml.uml,
  org.correttouml.uml.diagrams.statediagram.triggers,
  org.correttouml.uml.diagrams.timeconstraints,
  org.correttouml.uml.helpers
-Import-Package: org.correttouml.uml2zot
+Import-Package: org.correttouml.grammars.property,
+ org.correttouml.uml2zot,
+ org.correttouml.uml2zot.semantics.expressions,
+ org.correttouml.uml2zot.semantics.util.bool,
+ org.correttouml.uml2zot.semantics.util.trio

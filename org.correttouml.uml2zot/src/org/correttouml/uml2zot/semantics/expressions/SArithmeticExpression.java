@@ -3,17 +3,19 @@ package org.correttouml.uml2zot.semantics.expressions;
 import org.correttouml.uml.diagrams.classdiagram.Object;
 import org.correttouml.uml.diagrams.expressions.*;
 import org.correttouml.uml2zot.semantics.util.bool.BooleanFormulae;
+import org.correttouml.uml2zot.semantics.util.trio.Constant;
 import org.correttouml.uml2zot.semantics.util.trio.Minus;
 import org.correttouml.uml2zot.semantics.util.trio.Multiply;
+import org.correttouml.uml2zot.semantics.util.trio.Next;
 import org.correttouml.uml2zot.semantics.util.trio.Plus;
+import org.correttouml.uml2zot.semantics.util.trio.Yesterday;
 
 
 
 public class SArithmeticExpression {
 
-	private org.correttouml.grammars.assignments.EXPRESSION mades_expression;
-
-	public SArithmeticExpression(org.correttouml.grammars.assignments.EXPRESSION mades_expression){
+	private org.correttouml.grammars.stateMachineActions.EXPRESSION mades_expression;
+	public SArithmeticExpression(org.correttouml.grammars.stateMachineActions.EXPRESSION mades_expression){
 		this.mades_expression=mades_expression;
 	}
 	
@@ -35,7 +37,7 @@ public class SArithmeticExpression {
 		return r;		
 	}
 	
-	private BooleanFormulae parseTerm(org.correttouml.grammars.assignments.TERM parsed, Object obj, ExpressionContext context){
+	private BooleanFormulae parseTerm(org.correttouml.grammars.stateMachineActions.TERM parsed, Object obj, ExpressionContext context){
 		BooleanFormulae r=null;
 		//What kind of term we are talking about?
 		
@@ -45,10 +47,17 @@ public class SArithmeticExpression {
 			//build the semantic stuff
 			SVariable s_variable=SVariableFactory.getInstance(variable);
 			//get the f*** predicate
-			r=s_variable.getPredicate(obj);
+			if(parsed.getIsFuture()!=null){
+				r=new Next(s_variable.getPredicate(obj));
+			}
+			else if(parsed.getIsPast()!=null){
+				r=new Yesterday(s_variable.getPredicate(obj));
+			}else{
+				r=s_variable.getPredicate(obj);
+			}
 		}
 		else{
-			r=new SConstant(parsed.getConstant());
+			r=new SConstant(new Constant(parsed.getConstant()));
 		}
 		return r;
 	}

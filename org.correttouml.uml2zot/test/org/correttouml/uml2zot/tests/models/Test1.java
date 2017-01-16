@@ -3,45 +3,48 @@ package org.correttouml.uml2zot.tests.models;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
+
 import org.apache.log4j.Logger;
 import org.correttouml.uml2zot.UML2Zot;
-import org.correttouml.uml2zot.tests.TestHelper;
+import org.correttouml.uml2zot.tests.helpers.TestHelper;
 import org.junit.Test;
 
-
 public class Test1 {
+
 	private static final Logger LOGGER = Logger.getLogger(Test1.class); 
-	/** THE CCAS MODEL */
-	private String MODEL_FILE="testmodels/ccas/v0.1/model.uml";
-	//private String MODEL_FILE="testmodels/plugin/model.uml";
 	
-	/** SD_CF */
-//	private String MODEL_FILE="testmodels/SD_CF/ServerL3/model.uml";
-//	private String MODEL_FILE="testmodels/SD_CF/CF_Alt/model.uml";
-//	private String MODEL_FILE="testmodels/SD_CF/SD_IF/model.uml";
-//	private String MODEL_FILE="testmodels/SD_CF/CF_Opt/model.uml";
-//	private String MODEL_FILE="testmodels/SD_CF/CF_Par/model.uml";
-//	private String MODEL_FILE="testmodels/SD_CF/CF_Loop/model.uml";
-//	private String MODEL_FILE="testmodels/SD_CF/Ex1/model.uml";
-//	private String MODEL_FILE="testmodels/SD_CF/CF_Break/model.uml";
-//	private String MODEL_FILE="testmodels/SD_CF/CF_Loop/model.uml";
-//	private String MODEL_FILE="testmodels/SD_CF/Server/model.uml";
-//	private String MODEL_FILE="testmodels/SD_CF/Scal_Server/model.uml";
+	/** THE CCAS MODEL */
+//	private String MODEL_FILE="testmodels/ccas/v0.1/model.uml";
+	private String MODEL_FILE="testmodels/ccas/v0.2/model.uml";
+//	private String MODEL_FILE="testmodels/ccas/v0.2Test/model.uml";
+	//private String MODEL_FILE="testmodels/plugin/model.uml";
 	
 	/** SEQUENCE DIAGRAM TESTING */
 	//private String MODEL_FILE="testmodels/sequencediagram/test1/model.uml";
 	//private String MODEL_FILE="testmodels/sequencediagram/test2/model.uml";
 	//private String MODEL_FILE="testmodels/sequencediagram/test3/model.uml";
 	//private String MODEL_FILE="testmodels/sequencediagram/test4/model.uml";
+//	private String MODEL_FILE="testmodels/sequencediagram/SynchMessage/model.uml";
 	
 	/** STATE DIAGRAM TESTING */
 //	private String MODEL_FILE="testmodels/statediagram/test1/model.uml";
+//	private String MODEL_FILE="testmodels/testSTD/test1/model.uml";
+//	private String MODEL_FILE="testmodels/testSTD2/model.uml";
 	
 	/** IOD TESTING */
-	//private String MODEL_FILE="testmodels/iod/test1/model.uml";
+//	private String MODEL_FILE="testmodels/iod/test1/model.uml";
+//	private String MODEL_FILE="testmodels/iod/InterruptibleRegions/model.uml";
+	
+	/** Activity Diagram Testing*/
+//	private String MODEL_FILE="testmodels/AD/DecNode/model.uml";
+//	private String MODEL_FILE="testmodels/AD/AccNode/model.uml";
+//	private String MODEL_FILE="testmodels/AD/Fork/model.uml";
+//	private String MODEL_FILE="testmodels/AD/Assignment/model.uml";
+//	private String MODEL_FILE="testmodels/AD/OPObjectFlow/model.uml";
+//	private String MODEL_FILE="testmodels/AD/ccasDraft/model.uml";
 	
 	/** TXT RADAR MODEL */
-	//private String MODEL_FILE="testmodels/txt/v0.1/model.uml";
+//	private String MODEL_FILE="testmodels/txt/v0.1/model.uml";
 	
 	/** CASSIDIAN RADAR MODEL */
 	//private String MODEL_FILE="testmodels/cassidian/model.uml";
@@ -50,7 +53,9 @@ public class Test1 {
 //	private String MODEL_FILE="testmodels/atm_omega/v0.1/model.uml";
 	
 	/** SD and StD **/
+//	private String MODEL_FILE="testmodels/SD_and_StD/test1/model.uml";
 //	private String MODEL_FILE="testmodels/SD_and_StD/test2/model.uml";
+//	private String MODEL_FILE="testmodels/SD_CF/ServerIOD/model.uml";
 	
 	/** ASSIGNMENTS IN TRANSACTIONS */
 	//private String MODEL_FILE="testmodels/variables/assignments_in_transactions/model.uml";
@@ -77,7 +82,7 @@ public class Test1 {
 		LOGGER.info("Generate the Mappings File");
 		t.generateMappingsFile(new File("tmp/model.mappings"));
 		
-		assertTrue("The ZOT file contains errors ",testHelper.isZOTFileValid());
+		assertTrue("Il file di ZOT contiene degli errori",testHelper.isZOTFileValid());
 		
 		testHelper.cleanUp();
 	}

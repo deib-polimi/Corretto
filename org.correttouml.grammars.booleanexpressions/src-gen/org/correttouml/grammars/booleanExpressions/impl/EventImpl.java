@@ -18,17 +18,38 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
+ *   <li>{@link org.correttouml.grammars.booleanExpressions.impl.EventImpl#getObjName <em>Obj Name</em>}</li>
  *   <li>{@link org.correttouml.grammars.booleanExpressions.impl.EventImpl#getEventName <em>Event Name</em>}</li>
  *   <li>{@link org.correttouml.grammars.booleanExpressions.impl.EventImpl#getEventExtension <em>Event Extension</em>}</li>
  *   <li>{@link org.correttouml.grammars.booleanExpressions.impl.EventImpl#isNowEvent <em>Now Event</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class EventImpl extends MinimalEObjectImpl.Container implements Event
 {
+  /**
+   * The default value of the '{@link #getObjName() <em>Obj Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getObjName()
+   * @generated
+   * @ordered
+   */
+  protected static final String OBJ_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getObjName() <em>Obj Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getObjName()
+   * @generated
+   * @ordered
+   */
+  protected String objName = OBJ_NAME_EDEFAULT;
+
   /**
    * The default value of the '{@link #getEventName() <em>Event Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -115,6 +136,29 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getObjName()
+  {
+    return objName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setObjName(String newObjName)
+  {
+    String oldObjName = objName;
+    objName = newObjName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BooleanExpressionsPackage.EVENT__OBJ_NAME, oldObjName, objName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getEventName()
   {
     return eventName;
@@ -189,6 +233,8 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
   {
     switch (featureID)
     {
+      case BooleanExpressionsPackage.EVENT__OBJ_NAME:
+        return getObjName();
       case BooleanExpressionsPackage.EVENT__EVENT_NAME:
         return getEventName();
       case BooleanExpressionsPackage.EVENT__EVENT_EXTENSION:
@@ -209,6 +255,9 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
   {
     switch (featureID)
     {
+      case BooleanExpressionsPackage.EVENT__OBJ_NAME:
+        setObjName((String)newValue);
+        return;
       case BooleanExpressionsPackage.EVENT__EVENT_NAME:
         setEventName((String)newValue);
         return;
@@ -232,6 +281,9 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
   {
     switch (featureID)
     {
+      case BooleanExpressionsPackage.EVENT__OBJ_NAME:
+        setObjName(OBJ_NAME_EDEFAULT);
+        return;
       case BooleanExpressionsPackage.EVENT__EVENT_NAME:
         setEventName(EVENT_NAME_EDEFAULT);
         return;
@@ -255,6 +307,8 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
   {
     switch (featureID)
     {
+      case BooleanExpressionsPackage.EVENT__OBJ_NAME:
+        return OBJ_NAME_EDEFAULT == null ? objName != null : !OBJ_NAME_EDEFAULT.equals(objName);
       case BooleanExpressionsPackage.EVENT__EVENT_NAME:
         return EVENT_NAME_EDEFAULT == null ? eventName != null : !EVENT_NAME_EDEFAULT.equals(eventName);
       case BooleanExpressionsPackage.EVENT__EVENT_EXTENSION:
@@ -276,7 +330,9 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (eventName: ");
+    result.append(" (objName: ");
+    result.append(objName);
+    result.append(", eventName: ");
     result.append(eventName);
     result.append(", eventExtension: ");
     result.append(eventExtension);

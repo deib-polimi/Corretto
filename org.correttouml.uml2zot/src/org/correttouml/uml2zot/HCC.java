@@ -1,7 +1,5 @@
 package org.correttouml.uml2zot;
 
-import static org.junit.Assert.assertTrue;
-
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -10,10 +8,7 @@ import javax.swing.JTextField;
 import javax.swing.BoxLayout;
 import javax.swing.JLayeredPane;
 
-import org.junit.Test;
-import org.correttouml.uml2zot.*;
 import org.correttouml.uml2zot.semantics.util.bool.And;
-import org.correttouml.uml2zot.semantics.util.bool.BooleanFormulae;
 import org.correttouml.uml2zot.semantics.util.trio.Futr;
 import org.correttouml.uml2zot.semantics.util.trio.Predicate;
 
@@ -21,7 +16,6 @@ import java.awt.Label;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -53,6 +47,7 @@ public class HCC extends JFrame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 	
+@Override
 public void run() {
 				try {
 					HCC frame = new HCC();
@@ -88,6 +83,7 @@ public void run() {
 		
 		Choice ch1 = new Choice();
 		ch1.addItemListener(new ItemListener() {
+			@Override
 			public void itemStateChanged(ItemEvent arg0) {
 				tx1.setText(tx1.getText() + " " + arg0.getItem().toString());
 			}
@@ -122,6 +118,7 @@ public void run() {
 		
 		Choice ch2 = new Choice();
 		ch2.addItemListener(new ItemListener() {
+			@Override
 			public void itemStateChanged(ItemEvent e) {
 				tx2.setText(tx2.getText() + " " + e.getItem().toString());
 			}
@@ -135,11 +132,13 @@ public void run() {
 		
 		Choice ch3 = new Choice();
 		ch3.addItemListener(new ItemListener() {
+			@Override
 			public void itemStateChanged(ItemEvent e) {
 				tx3.setText(tx3.getText() + " " + e.getItem().toString());
 			}
 		});
 		ch4.addItemListener(new ItemListener() {
+			@Override
 			public void itemStateChanged(ItemEvent e) {
 				tx4.setText(tx4.getText() + " " + e.getItem().toString());
 			}
@@ -284,6 +283,7 @@ public void run() {
 		tx.add(tx12);
 		JButton btnNewButton = new JButton("Generate Spec");
 		btnNewButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					FileWriter msgsfile = new FileWriter(new File("D:/education/project back up/CorrettoUML/CorrettoUML/org.correttouml.uml2zot/tmp/Spec.txt"));
@@ -331,41 +331,49 @@ public void run() {
 		line = reader.readLine();
 		}while(line!=null);
 		ch5.addItemListener(new ItemListener() {
+			@Override
 			public void itemStateChanged(ItemEvent e) {
 				tx5.setText(tx5.getText() + " " + e.getItem().toString());
 			}
 		});
 		ch6.addItemListener(new ItemListener() {
+			@Override
 			public void itemStateChanged(ItemEvent e) {
 				tx6.setText(tx6.getText() + " " + e.getItem().toString());
 			}
 		});
 		ch7.addItemListener(new ItemListener() {
+			@Override
 			public void itemStateChanged(ItemEvent e) {
 				tx7.setText(tx7.getText() + " " + e.getItem().toString());
 			}
 		});
 		ch8.addItemListener(new ItemListener() {
+			@Override
 			public void itemStateChanged(ItemEvent e) {
 				tx8.setText(tx8.getText() + " " + e.getItem().toString());
 			}
 		});
 		ch9.addItemListener(new ItemListener() {
+			@Override
 			public void itemStateChanged(ItemEvent e) {
 				tx9.setText(tx9.getText() + " " + e.getItem().toString());
 			}
 		});
 		ch10.addItemListener(new ItemListener() {
+			@Override
 			public void itemStateChanged(ItemEvent e) {
 				tx10.setText(tx10.getText() + " " + e.getItem().toString());
 			}
 		});
 		ch11.addItemListener(new ItemListener() {
+			@Override
 			public void itemStateChanged(ItemEvent e) {
 				tx11.setText(tx11.getText() + " " + e.getItem().toString());
 			}
 		});
 		ch12.addItemListener(new ItemListener() {
+			@Override
 			public void itemStateChanged(ItemEvent e) {
 				tx12.setText(tx12.getText() + " " + e.getItem().toString());
 			}

@@ -1,18 +1,13 @@
 package org.correttouml.uml2zot.semantics.sequencediagram;
 
-import java.awt.List;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Set;
+
 import org.correttouml.uml.diagrams.classdiagram.Object;
 import org.correttouml.uml.diagrams.iod.IOD;
-import org.correttouml.uml.diagrams.iod.InterruptibleRegion;
-import org.correttouml.uml.diagrams.iod.Node;
-import org.correttouml.uml.diagrams.iod.SequenceDiagramNode;
+import org.correttouml.uml.diagrams.activity.*;
+import org.correttouml.uml.diagrams.activitydiagram.AD;
 import org.correttouml.uml.diagrams.sequencediagram.CombinedFragment;
 import org.correttouml.uml.diagrams.sequencediagram.ExecutionOccurrence;
 import org.correttouml.uml.diagrams.sequencediagram.Lifeline;
@@ -26,7 +21,7 @@ import org.correttouml.uml.diagrams.statediagram.actions.Action;
 import org.correttouml.uml.diagrams.statediagram.actions.SequenceDiagramAction;
 import org.correttouml.uml.diagrams.timeconstraints.TimeConstraint;
 import org.correttouml.uml2zot.semantics.SMadesModel;
-import org.correttouml.uml2zot.semantics.iod.SSequenceDiagramNode;
+import org.correttouml.uml2zot.semantics.activity.SSequenceDiagramNode;
 import org.correttouml.uml2zot.semantics.statediagram.STransition;
 import org.correttouml.uml2zot.semantics.timeconstraints.STimeConstraint;
 import org.correttouml.uml2zot.semantics.util.bool.And;
@@ -37,26 +32,23 @@ import org.correttouml.uml2zot.semantics.util.bool.Not;
 import org.correttouml.uml2zot.semantics.util.bool.Or;
 import org.correttouml.uml2zot.semantics.util.trio.Predicate;
 import org.correttouml.uml2zot.semantics.util.trio.Since_ei;
-import org.correttouml.uml2zot.semantics.util.trio.Until_ei;
-import org.eclipse.xtext.util.internal.Log;
+import org.correttouml.uml2zot.semantics.util.trio.Yesterday;
 
 public class SSequenceDiagram {
 
-	public Config config;
+	private Config config;
 	private SequenceDiagram mades_sd;
-
-	public SSequenceDiagram(SequenceDiagram mades_sd, Config config) {
+	// Set the default configuration that is Combine:SYNC Loop:SYNC Choice:ND
+	// Details can be found in the paper entitled "Flexible Modular Formalization of UML Sequence Diagrams" http://dl.acm.org/citation.cfm?id=2593492
+	
+	public Config defaultConfig = new Config(ConfigCombine.SYNC, ConfigCombine.SYNC, ConfigWhat.NONDETERMINISTICALLY);
+	public SSequenceDiagram(SequenceDiagram mades_sd) {
 		this.mades_sd = mades_sd;
-		this.config = config;
 		setConfig();
 	}
 
-	public SSequenceDiagram(SequenceDiagram mades_sd) {
-		this.mades_sd = mades_sd;
-	}
-
-	public Predicate getPredicate() {
-		return new Predicate(mades_sd.getName());
+	public Predicate getPredicate(){
+		return new Predicate("$SD_" + mades_sd.getName());
 	}
 
 	public Predicate getLifelinePredicate(int index) {
@@ -81,7 +73,7 @@ public class SSequenceDiagram {
 			lifelinesnames.add(l.getName().replace(":", ""));
 		return lifelinesnames;
 	}
-
+	
 	public ArrayList<Predicate> getLifelinesPredicateStarts() {
 		ArrayList<Predicate> lifelinesPredicateStarts = new ArrayList<Predicate>();
 		for (Predicate p : getLifelinesPredicates())
@@ -100,7 +92,7 @@ public class SSequenceDiagram {
 		ArrayList<CombinedFragment> cfs = mades_sd.getCombinedFragments();
 		ArrayList<SCombinedFragment> scfs = new ArrayList<SCombinedFragment>();
 		for (CombinedFragment cf : cfs) {
-			scfs.add(new SCombinedFragment(cf, config));
+			scfs.add(new SCombinedFragment(cf));
 		}
 
 		return scfs;
@@ -114,29 +106,35 @@ public class SSequenceDiagram {
 		Predicate sd_stop = new Predicate(this.mades_sd.getName()).getStopPredicate();
 		Predicate sd = new Predicate(this.mades_sd.getName());
 
-		/*
-		 * <before CF> // Inside sequence diagram definition sem = sem + new
-		 * Iff(sd, new Or(sd_start, new Since_ei(new And(new Not(sd_stop), new
-		 * Not(sd_end)), sd_start))) + "\n"; </before CF>
-		 */
+//		We already have the following semantics as (Borders SD SD_Start SD_End SD_Stop)
+//		sem = sem + new Iff(sd, new Or(sd_start, new Since_ei(new And(new Not(sd_stop), new Not(sd_end)), sd_start))) + "\n";
+		 
 		// Close world assumption semantics
 		sem = sem + SMadesModel.printSeparatorSmall("SD CONNECTIONS SEMANTICS");
 		sem = sem + this.getConnectionsSemantics(sd_start, sd_end);
 
-		// Multiple sequence diagram semantics
-		sem = sem + SMadesModel.printSeparatorSmall("MULTI SEQUENCE DIAGRAM INSTANCE SEMANTICS");
-		sem = sem + new Implies(sd_start, new Until_ei(new Not(sd_start), new Or(sd_stop, sd_end))) + "\n";
+//		We already have the following semantics as (Borders SD SD_Start SD_End SD_Stop)
+//		// Multiple sequence diagram semantics
+//		sem = sem + SMadesModel.printSeparatorSmall("MULTI SEQUENCE DIAGRAM INSTANCE SEMANTICS");
+//		sem = sem + new Implies(sd_start, new Until_ei(new Not(sd_start), new Or(sd_stop, sd_end))) + "\n";
 
 		// get sequence diagram fragments semantics
 		sem = sem + SMadesModel.printSeparatorSmall("FRAGMENTS SEMANTICS");
-		sem += new SCombine(this.mades_sd, config).toString();
+		sem += new SCombine(this.mades_sd).toString();
 
-		// get messages semantics
-		sem = sem + SMadesModel.printSeparatorSmall("MESSAGES SEMANTICS");
-		/*
-		 * for (Message m : this.mades_sd.getMessages()) { sem = sem + new
-		 * SMessage(m).getSemantics() + "\n"; }
-		 */
+//		// Get lifelines semantics
+//		sem = sem + SMadesModel.printSeparatorSmall("LIFELINES SEMANTICS");
+//		for (Lifeline l : this.mades_sd.getLifelines()) {
+//			sem = sem + new SLifeline(l).getSemantics();
+//		}
+
+//		// get messages semantics
+//		sem = sem + SMadesModel.printSeparatorSmall("MESSAGES SEMANTICS");
+//		/*
+//		 * for (Message m : this.mades_sd.getMessages()) { sem = sem + new
+//		 * SMessage(m).getSemantics() + "\n"; }
+//		 */
+		 
 		String tempfile = "";
 		ArrayList<String> addedMessagesUmlID = new ArrayList<String>();
 		for (String name : RepetitiousMessage.instances.keySet()) {
@@ -177,48 +175,14 @@ public class SSequenceDiagram {
 		}
 
 		// get time constraint semantics
-		// <###test me>
 		sem = sem + SMadesModel.printSeparatorSmall("TIME CONSTRAINTS SEMANTICS");
 		sem += getAllTimeConstraintsSemantics();
-		// </###test me>
-		// <working code for time constrants semantics>
-		// int counter=0;
-		// for (TimeConstraint t : mades_sd.getTimeConstraints()) {
-		// //Give a predicate to the current time constraint
-		// //SD_TIMECONSTRAINT_i <=> something...
-		// //sem=sem+new Iff()
-		//
-		// counter++;
-		// SSequenceDiagram sd = new SSequenceDiagram(mades_sd);
-		// sem = sem + "(<-> (-P- " + mades_sd.getName() + "_TIMECONSTRAINT_" +
-		// Integer.toString(counter) + ") " + new
-		// STimeConstraint(t).getSemantics().toString() + ")\n";
-		// sem = sem + "(-> " + sd.getPredicate().toString() + " (-P- " +
-		// mades_sd.getName() + "_TIMECONSTRAINT_" + Integer.toString(counter) +
-		// "))\n";
-		//// new STimeConstraint(t).getSemantics().toString();
-		// //axiom saying that the time constraint holds
-		// //when we are in the sequence diagram
-		// //
-		// // SD_inside => TIMECONSTRAINT_SDname_i
-		// }
-		// <working code for time constrants semantics>
 
 		// get parameter semantics
 		sem = sem + SMadesModel.printSeparatorSmall("SEQUENCE DIAGRAM PARAMETER SEMANTICS");
 		for (SequenceDiagramParameter sdp : this.mades_sd.getSequenceDiagramParameters()) {
 			sem = sem + new SSequenceDiagramParameter(sdp).getSemantics();
 		}
-
-		// TODO: Assignment semantics
-		// // get assignment semantics
-		// sem = sem + MadesModel.printSeparatorSmall("ASSIGNMENT SEMANTICS");
-		// for (sequencediagram.Assignment a : this.getAssignments()) {
-		// sem = sem + a.getSemantics();
-		// }
-		// sem += "(-> (-P- BigBang) (next "+ sd_start + "))\n(->
-		// "+sd_start+"(yesterday (-P- BigBang) ))\n\n\n\n\n\n\n"; ////#### Del
-		// me
 		return sem;
 	}
 
@@ -236,46 +200,19 @@ public class SSequenceDiagram {
 		// Get all the actions
 		Or condStart = new Or();
 		Or condEnd = new Or();
-		for (Object mades_object : this.mades_sd.getMadesModel().getClassdiagram().getObjects()) {
-			for (StateDiagram std : mades_object.getOwningClass().getStateDiagrams()) {
-				for (Transition t : std.getTransitions()) {
-					if (t.hasAction()) {
-						Action act = t.getAction();
-						if (act instanceof SequenceDiagramAction
-								&& ((SequenceDiagramAction) act).getSequenceDiagram().equals(this.mades_sd)) {
-							condStart.addFormulae(new STransition(t).getPredicate(mades_object));
-						}
-					}
-				}
-			}
-		}
-
-		// Get all the IOD nodes
-		for (IOD iod : this.mades_sd.getMadesModel().getIODs()) {
-			for (Node n : iod.getNodes()) {
-				if (n instanceof SequenceDiagramNode) {
-					SequenceDiagramNode sdnode = ((SequenceDiagramNode) n);
-					if (sdnode.getSequenceDiagram().equals(this.mades_sd)) {
-						condStart.addFormulae(new SSequenceDiagramNode((SequenceDiagramNode) n).getStartPredicate());
-						condEnd.addFormulae(new SSequenceDiagramNode((SequenceDiagramNode) n).getEndPredicate());
-					}
-				}
-			}
-		}
-
-		Or condStop = new Or();
-		// The stop is connected to the interruptible regions
-		// TODO: connect to the transitions that use @sd.stop
-		for (IOD iod : this.mades_sd.getMadesModel().getIODs()) {
-			for (InterruptibleRegion ir : iod.getInterruptibleRegions()) {
-				for (SequenceDiagramNode sd_node : ir.getSequenceDiagramNodes()) {
-					if (sd_node.getSequenceDiagram().equals(this.mades_sd)) {
-						condStop.addFormulae(new SSequenceDiagramNode(sd_node).getStopPredicate());
-					}
-				}
-			}
-		}
-
+		addStateMachineInvocations(condStart);
+        
+        //Get all the IOD nodes
+		addIODInvocations(condStart, condEnd);
+		
+        //Get all the AD nodes
+		addADInvocations(condStart, condEnd);
+        
+        Or condStop=new Or();
+        //The stop is connected to the interruptible regions
+        //TODO: connect to the transitions that use @sd.stop, i.e. addSDStopInvocations
+        addIODStopInvocations(condStop);
+		
 		if (condStart.size() > 0) {
 			sem = sem + new Iff(sd_start, condStart) + "\n";
 		}
@@ -294,39 +231,61 @@ public class SSequenceDiagram {
 		return sem;
 	}
 
-	/*
-	 * protected static BooleanFormulae buildOrderingSemanticsLTEAxiom(Predicate
-	 * e_i, Predicate e_j, Predicate sd_stop) { And sem = new And();
-	 * 
-	 * // Axiom Event1
-	 * 
-	 * @AXIOM If the first event occurs now then either the sequence diagram
-	 * stops before the second event, or the second events occurs \begin{align}
-	 * \label{ax:LTEAxiom} prova \end{align}
-	 * 
-	 * sem.addFormulae(new Implies(e_i, new Or(new And(new Until_ei(new And( new
-	 * Not(e_i), new Not(e_j)), sd_stop), new Not(e_j)), new Until_ei(new
-	 * Not(sd_stop), e_j))));
-	 * 
-	 * return sem; }
-	 */
+	private void addIODStopInvocations(Or condStop) {
+        for(IOD iod:this.mades_sd.getMadesModel().getIODs()){
+        	for(InterruptibleRegion ir: iod.getInterruptibleRegions()){
+        		for(SequenceDiagramNode sd_node: ir.getSequenceDiagramNodes()){
+        			if(sd_node.getSequenceDiagram().equals(this.mades_sd)){
+        				condStop.addFormulae(new SSequenceDiagramNode(sd_node, iod).getPredicate().getStopPredicate());
+        			}
+        		}
+        	}
+        }
+	}
 
-	/*
-	 * protected static BooleanFormulae
-	 * buildOrderingSemanticsBackwardAxiom(Predicate e_i, Predicate e_j,
-	 * Predicate sd_stop) { And sem = new And();
-	 * 
-	 * // Axiom Event2
-	 * 
-	 * @AXIOM Given two events in a lifeline this could be separated by an
-	 * arbitrary amount of time\\ The events may happen at the same time instant
-	 * \begin{align} \label{ax:BackwardAxiom} prova \end{align}
-	 * 
-	 * sem.addFormulae(new Implies(e_j, new Since_ei(new And(new Not(sd_stop),
-	 * new Not(e_j)), e_i)));
-	 * 
-	 * return sem; }
-	 */
+	private void addIODInvocations(Or condStart, Or condEnd) {
+        for(IOD iod: this.mades_sd.getMadesModel().getIODs()){
+        	for(Node n: iod.getNodes()){
+        		if(n instanceof SequenceDiagramNode){
+        			SequenceDiagramNode sdnode=((SequenceDiagramNode) n);
+        			if(sdnode.getSequenceDiagram().equals(this.mades_sd)){
+            			condStart.addFormulae(new SSequenceDiagramNode((SequenceDiagramNode) n, iod).getPredicate().getStartPredicate());
+            			condEnd.addFormulae(new SSequenceDiagramNode((SequenceDiagramNode) n, iod).getPredicate().getEndPredicate());
+        			}
+        		}
+        	}
+        }
+	}
+	
+	private void addADInvocations(Or condStart, Or condEnd) {
+        for(AD ad: this.mades_sd.getMadesModel().getADs()){
+        	for(Node n: ad.getNodes()){
+        		if(n instanceof SequenceDiagramNode){
+        			SequenceDiagramNode sdnode=((SequenceDiagramNode) n);
+        			if(sdnode.getSequenceDiagram().equals(this.mades_sd)){
+            			condStart.addFormulae(new SSequenceDiagramNode((SequenceDiagramNode) n, ad).getPredicate().getStartPredicate());
+            			condEnd.addFormulae(new SSequenceDiagramNode((SequenceDiagramNode) n, ad).getPredicate().getEndPredicate());
+        			}
+        		}
+        	}
+        }
+	}
+
+	private void addStateMachineInvocations(Or condStart) {
+        for (Object mades_object : this.mades_sd.getMadesModel().getClassdiagram().getObjects()) {
+            for (StateDiagram std : mades_object.getOwningClass().getStateDiagrams()) {
+                for(Transition t: std.getTransitions()){
+                	if(t.hasActions()){
+                		for(Action act: t.getActions(null)){
+                        	if(act instanceof SequenceDiagramAction && ((SequenceDiagramAction) act).getSequenceDiagram().equals(this.mades_sd)){
+        	                	condStart.addFormulae(new Yesterday(new STransition(t).getPredicate(mades_object)));
+        	                }
+                		}
+                	}
+                }  
+            }
+        }
+	}
 
 	protected static BooleanFormulae buildOrderingSemanticsSDEndAxiom(Predicate e_z, Set<Predicate> lastevents) {
 		And sem = new And();
@@ -370,7 +329,7 @@ public class SSequenceDiagram {
 		int counter = 0;
 		for (TimeConstraint t : mades_sd.getTimeConstraints()) {
 			counter++;
-			SSequenceDiagram sd = new SSequenceDiagram(mades_sd, config);
+			SSequenceDiagram sd = new SSequenceDiagram(mades_sd);
 			sem += new Iff(new Predicate(mades_sd.getName() + "_TIMECONSTRAINT_" + counter),
 					new STimeConstraint(t).getSemantics()) + "\n";
 			sem += new Implies(sd.getPredicate(), new Predicate(mades_sd.getName() + "_TIMECONSTRAINT_" + counter))
@@ -384,35 +343,40 @@ public class SSequenceDiagram {
 			String[] s = null;
 			if (mades_sd.getConfig() != null)
 				s = mades_sd.getConfig();
-			else
+			else{
+				config = defaultConfig;
 				return;
+			}
 
 			if (s[0].equals("SYNC"))
-				SMadesModel.staticConfig.combine = ConfigCombine.SYNC;
+				config.combine = ConfigCombine.SYNC;
 			else if (s[0].equals("WS"))
-				SMadesModel.staticConfig.combine = ConfigCombine.WS;
+				config.combine = ConfigCombine.WS;
 			else
 				throw new Exception(
 						"Error in configuration input for Combine parameter. It must be either Combine:WS or Combine:SYNC.");
 			if (s[1].equals("SYNC"))
-				SMadesModel.staticConfig.loop = ConfigCombine.SYNC;
+				config.loop = ConfigCombine.SYNC;
 			else if (s[1].equals("WS"))
-				SMadesModel.staticConfig.loop = ConfigCombine.WS;
+				config.loop = ConfigCombine.WS;
 			else
 				throw new Exception(
 						"Error in configuration input for Loop parameter. It must me either \"Loop:WS\" or \"Loop:SYNC\".");
 			if (s[2].equals("FFT"))
-				SMadesModel.staticConfig.what = ConfigWhat.FIRSTOP;
+				config.what = ConfigWhat.FIRSTOP;
 			else if (s[2].equals("ND"))
-				SMadesModel.staticConfig.what = ConfigWhat.NONDETERMINISTICALLY;
+				config.what = ConfigWhat.NONDETERMINISTICALLY;
 			else
 				throw new Exception(
 						"Error in configuration input for Loop parameter. It must me either \"Choice:ND\" or \"Choice:FFT\".");
 
-			this.config = SMadesModel.staticConfig;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+
+	public Config getConfig(){
+		return this.config;
+	}
+	
 }

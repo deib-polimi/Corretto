@@ -2,7 +2,6 @@ package org.correttouml.uml2zot.semantics.sequencediagram;
 
 import java.util.ArrayList;
 import org.correttouml.uml.diagrams.sequencediagram.CF_Opt;
-import org.correttouml.uml.diagrams.sequencediagram.CombinedFragment;
 import org.correttouml.uml2zot.semantics.util.bool.*;
 import org.correttouml.uml2zot.semantics.util.trio.Predicate;
 
@@ -14,8 +13,8 @@ public class SCF_Opt extends SCombinedFragment implements SCombinedFragmentItf{
 	//[documentation]: \Dropbox\SharePolimi\Documentation\Sequence Diagram\Combined_Fragment\Modular_Semantics\[CF_Opt].docx
 	private CF_Opt mades_cf_opt;
 	
-	public SCF_Opt(CF_Opt cfopt, Config config) {
-		super((CombinedFragment)cfopt, config);
+	public SCF_Opt(CF_Opt cfopt) {
+		super(cfopt);
 		this.mades_cf_opt = cfopt;
 	}
 	
@@ -32,7 +31,7 @@ public class SCF_Opt extends SCombinedFragment implements SCombinedFragmentItf{
 			f.addAll(new SLink_Pre_Post(this, config.combine).getFormulae());
 			// // order(CF_Opt_Start, CF_Opt_End, True, SD_Stop, True)
 			f.add(new SOrder(getPredicate().getStartPredicate(), getPredicate().getEndPredicate(), SD_Stop, true).getFun());
-			// // if (config.combine == “ws”){
+			// // if (config.combine == ï¿½wsï¿½){
 			if(config.combine == ConfigCombine.WS){
 				// // ||i=1 to n(CF_Opt_Li_Start) => CF_Opt
 				f.add(new Implies(new Or(getLifelinesStartPredicates()), getPredicate()));
@@ -105,7 +104,7 @@ public class SCF_Opt extends SCombinedFragment implements SCombinedFragmentItf{
 				}
 			
 			}//end "ws"
-			// // if (config.combine == “sync”){
+			// // if (config.combine == ï¿½syncï¿½){
 			else if (config.combine == ConfigCombine.SYNC){
 				
 				// // (CF_Opt_Start && !! CF_Opt_Guard) => CF_Opt_End
@@ -135,7 +134,7 @@ public class SCF_Opt extends SCombinedFragment implements SCombinedFragmentItf{
 				f.add(new Implies(getOperandsPredicates().get(0).getEndPredicate(), getPredicate().getEndPredicate()));
 			}
 			// // combine(CF_Opt_Op, config)
-			f.addAll(new SCombine(mades_combinedfragment.getOperands().get(0), config).getFormulae());
+			f.addAll(new SCombine(mades_combinedfragment.getOperands().get(0)).getFormulae());
 			
 			return f;
 		} catch (Exception e) {

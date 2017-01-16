@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.correttouml.grammars.property/src-gen" editDirectory="/org.correttouml.grammars.property.edit/src"
+    editorDirectory="/org.correttouml.grammars.property.editor/src" modelPluginID="org.correttouml.grammars.property"
+    forceOverwrite="true" modelName="Property" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="org.correttouml.grammars.property.edit"
+    editorPluginID="org.correttouml.grammars.property.editor" runtimeVersion="2.12">
+  <genPackages prefix="Property" basePackage="org.correttouml.grammars" disposableProviderFactory="true"
+      fileExtensions="property" ecorePackage="Property.ecore#/">
+    <genClasses ecoreClass="Property.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//Model/declarations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//Model/correttoCommand"/>
+    </genClasses>
+    <genClasses ecoreClass="Property.ecore#//Corretto">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//Corretto/verify"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//Corretto/execute"/>
+    </genClasses>
+    <genClasses ecoreClass="Property.ecore#//Verify">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//Verify/trio"/>
+    </genClasses>
+    <genClasses ecoreClass="Property.ecore#//Declaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//Declaration/stateName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//Declaration/obj"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//Declaration/std"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//Declaration/uMLStateName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//Declaration/trioVar"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//Declaration/trio"/>
+    </genClasses>
+    <genClasses ecoreClass="Property.ecore#//TRIO">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//TRIO/trioL"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//TRIO/trioR"/>
+    </genClasses>
+    <genClasses ecoreClass="Property.ecore#//TRIOL">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//TRIOL/trioVar"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//TRIOL/opName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//TRIOL/arithBool"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//TRIOL/trioNot"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//TRIOL/trioOpF"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//TRIOL/trioOpF1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//TRIOL/trioOpFF"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//TRIOL/trioOpFF1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//TRIOL/trioOpFF2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//TRIOL/trioOpFN"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//TRIOL/trioOpFN1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//TRIOL/int"/>
+    </genClasses>
+    <genClasses ecoreClass="Property.ecore#//TRIOR">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//TRIOR/trioOP2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//TRIOR/trio"/>
+    </genClasses>
+    <genClasses ecoreClass="Property.ecore#//ArithBool">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//ArithBool/arithTerm1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//ArithBool/arithCOP"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//ArithBool/arithTerm2"/>
+    </genClasses>
+    <genClasses ecoreClass="Property.ecore#//ArithTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//ArithTerm/arithTermL"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//ArithTerm/arithTermR"/>
+    </genClasses>
+    <genClasses ecoreClass="Property.ecore#//ArithTermL">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//ArithTermL/trio"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//ArithTermL/constant"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//ArithTermL/arithVar"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//ArithTermL/arithTermF"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//ArithTermL/intF"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//ArithTermL/arithTermP"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//ArithTermL/intP"/>
+    </genClasses>
+    <genClasses ecoreClass="Property.ecore#//ArithTermR">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//ArithTermR/arithOP"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Property.ecore#//ArithTermR/arithTerm"/>
+    </genClasses>
+    <genClasses ecoreClass="Property.ecore#//ArithVar">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//ArithVar/obj"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//ArithVar/atr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//ArithVar/op"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//ArithVar/param"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//ArithVar/sd"/>
+    </genClasses>
+    <genClasses ecoreClass="Property.ecore#//DataType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//DataType/i"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Property.ecore#//DataType/float"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

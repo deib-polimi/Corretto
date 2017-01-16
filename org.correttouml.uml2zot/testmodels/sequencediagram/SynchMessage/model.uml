@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CorrettoUML.VerificationTags="http:///CorrettoUML/VerificationTags.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///CorrettoUML/VerificationTags.ecore ../../../../org.correttouml.profiles/resources/model.profile.uml#_pFp2XdKZEea6e53zfdOTBg">
+  <uml:Model xmi:id="_kSkPIMUOEeaZHZ_KtWZtCQ" name="model">
+    <packagedElement xmi:type="uml:Package" xmi:id="_9Y4zUMUOEeaZHZ_KtWZtCQ" name="Package">
+      <packagedElement xmi:type="uml:Class" xmi:id="_HYOxUMUPEeaZHZ_KtWZtCQ" name="Class1">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_TwFe0MUPEeaZHZ_KtWZtCQ" name="at1" type="_XcCzMMUPEeaZHZ_KtWZtCQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gmfJgMUPEeaZHZ_KtWZtCQ" name="c2" type="_IoXjgMUPEeaZHZ_KtWZtCQ" association="_gmfwkMUPEeaZHZ_KtWZtCQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gmfJgcUPEeaZHZ_KtWZtCQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gmfJgsUPEeaZHZ_KtWZtCQ" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_K5t7EMUPEeaZHZ_KtWZtCQ" name="op1"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_IoXjgMUPEeaZHZ_KtWZtCQ" name="Class2" classifierBehavior="_n_mpEMX0EeaUA_RlIl6zHA">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_cdX_EMUPEeaZHZ_KtWZtCQ" name="at2" visibility="public" type="_XcCzMMUPEeaZHZ_KtWZtCQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_csWPMMUPEeaZHZ_KtWZtCQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_csW2QMUPEeaZHZ_KtWZtCQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_csXdUMUPEeaZHZ_KtWZtCQ">
+            <value xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_gmfwkcUPEeaZHZ_KtWZtCQ" name="c1" type="_HYOxUMUPEeaZHZ_KtWZtCQ" association="_gmfwkMUPEeaZHZ_KtWZtCQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gmfwksUPEeaZHZ_KtWZtCQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gmfwk8UPEeaZHZ_KtWZtCQ" value="1"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_n_mpEMX0EeaUA_RlIl6zHA" name="StateMachine1">
+          <region xmi:type="uml:Region" xmi:id="_pKknYMX0EeaUA_RlIl6zHA" name="Region1">
+            <transition xmi:type="uml:Transition" xmi:id="_rlET4MX0EeaUA_RlIl6zHA" name="op2.reply" source="_qe-OgMX0EeaUA_RlIl6zHA" target="_q_kaIMX0EeaUA_RlIl6zHA"/>
+            <transition xmi:type="uml:Transition" xmi:id="_CyteMMYAEeaUA_RlIl6zHA" name="Transition0" source="_CUIEwMYAEeaUA_RlIl6zHA" target="_qe-OgMX0EeaUA_RlIl6zHA"/>
+            <subvertex xmi:type="uml:State" xmi:id="_qe-OgMX0EeaUA_RlIl6zHA" name="State0"/>
+            <subvertex xmi:type="uml:State" xmi:id="_q_kaIMX0EeaUA_RlIl6zHA" name="State1"/>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_CUIEwMYAEeaUA_RlIl6zHA" name="Initial0"/>
+          </region>
+        </ownedBehavior>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_MF-S0MUPEeaZHZ_KtWZtCQ" name="op2"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_gmfwkMUPEeaZHZ_KtWZtCQ" name="c1_c2" memberEnd="_gmfwkcUPEeaZHZ_KtWZtCQ _gmfJgMUPEeaZHZ_KtWZtCQ"/>
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_wyjvgMUPEeaZHZ_KtWZtCQ" name="SD1">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_8rvUYMYJEeaUA_RlIl6zHA" name="SDParameter1" type="_XcCzMMUPEeaZHZ_KtWZtCQ"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_1i7HMMUPEeaZHZ_KtWZtCQ" name="l1" coveredBy="_3cCdkcUSEeaZHZ_KtWZtCQ _corFANNFEeaH4rxpjHYRLQ">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_g8tbsMUQEeaZHZ_KtWZtCQ" instance="_-nKH0MUPEeaZHZ_KtWZtCQ"/>
+        </lifeline>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_2AE9QMUPEeaZHZ_KtWZtCQ" name="l2" coveredBy="_yGFFgMUSEeaZHZ_KtWZtCQ _3cCdkMUSEeaZHZ_KtWZtCQ _corsENNFEeaH4rxpjHYRLQ">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_tHjn8MUQEeaZHZ_KtWZtCQ" instance="_FzaTIMUQEeaZHZ_KtWZtCQ"/>
+        </lifeline>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_corFANNFEeaH4rxpjHYRLQ" name="MessageSend1" covered="_1i7HMMUPEeaZHZ_KtWZtCQ" message="_coqd8NNFEeaH4rxpjHYRLQ"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_yGFFgMUSEeaZHZ_KtWZtCQ" name="BehaviorExecSpec" covered="_2AE9QMUPEeaZHZ_KtWZtCQ" finish="_3cCdkMUSEeaZHZ_KtWZtCQ" start="_corsENNFEeaH4rxpjHYRLQ"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_corsENNFEeaH4rxpjHYRLQ" name="MessageRecv1" covered="_2AE9QMUPEeaZHZ_KtWZtCQ" message="_coqd8NNFEeaH4rxpjHYRLQ"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_3cCdkMUSEeaZHZ_KtWZtCQ" name="MessageSend0" covered="_2AE9QMUPEeaZHZ_KtWZtCQ" message="_3cB2gMUSEeaZHZ_KtWZtCQ"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_3cCdkcUSEeaZHZ_KtWZtCQ" name="MessageRecv0" covered="_1i7HMMUPEeaZHZ_KtWZtCQ" message="_3cB2gMUSEeaZHZ_KtWZtCQ"/>
+        <message xmi:type="uml:Message" xmi:id="_3cB2gMUSEeaZHZ_KtWZtCQ" name="at1 = &lt;Y> at2" messageSort="reply" receiveEvent="_3cCdkcUSEeaZHZ_KtWZtCQ" sendEvent="_3cCdkMUSEeaZHZ_KtWZtCQ" signature="_MF-S0MUPEeaZHZ_KtWZtCQ"/>
+        <message xmi:type="uml:Message" xmi:id="_coqd8NNFEeaH4rxpjHYRLQ" name="Message" receiveEvent="_corsENNFEeaH4rxpjHYRLQ" sendEvent="_corFANNFEeaH4rxpjHYRLQ" signature="_MF-S0MUPEeaZHZ_KtWZtCQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_-nKH0MUPEeaZHZ_KtWZtCQ" name="obj1" classifier="_HYOxUMUPEeaZHZ_KtWZtCQ">
+        <slot xmi:type="uml:Slot" xmi:id="_JH4UkcUQEeaZHZ_KtWZtCQ" definingFeature="_gmfJgMUPEeaZHZ_KtWZtCQ">
+          <value xmi:type="uml:InstanceValue" xmi:id="_JH4UksUQEeaZHZ_KtWZtCQ" name="InstanceValue0" type="_IoXjgMUPEeaZHZ_KtWZtCQ" instance="_FzaTIMUQEeaZHZ_KtWZtCQ"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_QF858MUQEeaZHZ_KtWZtCQ" definingFeature="_TwFe0MUPEeaZHZ_KtWZtCQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_FzaTIMUQEeaZHZ_KtWZtCQ" name="obj2" classifier="_IoXjgMUPEeaZHZ_KtWZtCQ">
+        <slot xmi:type="uml:Slot" xmi:id="_JH3tgMUQEeaZHZ_KtWZtCQ" definingFeature="_gmfwkcUPEeaZHZ_KtWZtCQ">
+          <value xmi:type="uml:InstanceValue" xmi:id="_JH4UkMUQEeaZHZ_KtWZtCQ" name="InstanceValue0" type="_HYOxUMUPEeaZHZ_KtWZtCQ" instance="_-nKH0MUPEeaZHZ_KtWZtCQ"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_Sqky0MUQEeaZHZ_KtWZtCQ" definingFeature="_cdX_EMUPEeaZHZ_KtWZtCQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_JH1RQMUQEeaZHZ_KtWZtCQ" name="link1" classifier="_gmfwkMUPEeaZHZ_KtWZtCQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JH3GcMUQEeaZHZ_KtWZtCQ" source="InstanceEnd" references="_-nKH0MUPEeaZHZ_KtWZtCQ _FzaTIMUQEeaZHZ_KtWZtCQ"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_XcCzMMUPEeaZHZ_KtWZtCQ" name="Integer"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_AnmLAMUPEeaZHZ_KtWZtCQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YXf1oNNDEeaH4rxpjHYRLQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YXf1odNDEeaH4rxpjHYRLQ" key="Version" value="0.0.14"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YXf1otNDEeaH4rxpjHYRLQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YXf1o9NDEeaH4rxpjHYRLQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YXf1pNNDEeaH4rxpjHYRLQ" key="Date" value="2017-01-04"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YXf1pdNDEeaH4rxpjHYRLQ" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_AnmLAcUPEeaZHZ_KtWZtCQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="../../../../org.correttouml.profiles/resources/model.profile.uml#_pFp2QNKZEea6e53zfdOTBg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="../../../../org.correttouml.profiles/resources/model.profile.uml#_DCylYIJgEeKaWIAr5_BKMw"/>
+    </profileApplication>
+  </uml:Model>
+  <CorrettoUML.VerificationTags:System xmi:id="_B7Mg4MUPEeaZHZ_KtWZtCQ" base_Package="_9Y4zUMUOEeaZHZ_KtWZtCQ"/>
+</xmi:XMI>

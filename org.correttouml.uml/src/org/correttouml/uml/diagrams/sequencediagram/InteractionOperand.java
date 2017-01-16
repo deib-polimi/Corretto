@@ -33,6 +33,10 @@ public class InteractionOperand implements InteractionFragment, PTermElement , S
 			return new CombinedFragment((org.eclipse.uml2.uml.CombinedFragment)uml_interactionoperand.getOwner()).getSDName();
 	}
 
+	public SequenceDiagram getSD(){
+		return new CombinedFragment((org.eclipse.uml2.uml.CombinedFragment)uml_interactionoperand.getOwner()).getSD();
+	}
+	
 	public ArrayList<Lifeline> getLifelines() {
 		ArrayList<Lifeline> lifelines = new ArrayList<Lifeline>();
 		for (int i = 0; i < uml_interactionoperand.getCovereds().size(); i++) {

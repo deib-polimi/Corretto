@@ -32,13 +32,31 @@ public interface BooleanExpressionsFactory extends EFactory
   Model createModel();
 
   /**
-   * Returns a new object of class '<em>boolean Expression</em>'.
+   * Returns a new object of class '<em>Or Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>boolean Expression</em>'.
+   * @return a new object of class '<em>Or Expression</em>'.
    * @generated
    */
-  booleanExpression createbooleanExpression();
+  OrExpression createOrExpression();
+
+  /**
+   * Returns a new object of class '<em>And Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>And Expression</em>'.
+   * @generated
+   */
+  AndExpression createAndExpression();
+
+  /**
+   * Returns a new object of class '<em>Base Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Base Expression</em>'.
+   * @generated
+   */
+  BaseExpression createBaseExpression();
 
   /**
    * Returns a new object of class '<em>boolean Term</em>'.
@@ -75,6 +93,24 @@ public interface BooleanExpressionsFactory extends EFactory
    * @generated
    */
   VariableCondition createVariableCondition();
+
+  /**
+   * Returns a new object of class '<em>EXPRESSION</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>EXPRESSION</em>'.
+   * @generated
+   */
+  EXPRESSION createEXPRESSION();
+
+  /**
+   * Returns a new object of class '<em>TERM</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>TERM</em>'.
+   * @generated
+   */
+  TERM createTERM();
 
   /**
    * Returns a new object of class '<em>Event</em>'.

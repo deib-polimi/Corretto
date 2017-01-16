@@ -2,6 +2,7 @@
  */
 package org.correttouml.grammars.booleanExpressions;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -10,16 +11,16 @@ package org.correttouml.grammars.booleanExpressions;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.correttouml.grammars.booleanExpressions.BooleanVariable#getVariable <em>Variable</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.correttouml.grammars.booleanExpressions.BooleanExpressionsPackage#getBooleanVariable()
  * @model
  * @generated
  */
-public interface BooleanVariable extends booleanTerm
+public interface BooleanVariable extends EObject
 {
   /**
    * Returns the value of the '<em><b>Variable</b></em>' attribute.

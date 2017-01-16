@@ -105,6 +105,16 @@ public class StateMachineActionsAdapterFactory extends AdapterFactoryImpl
         return createEventActionAdapter();
       }
       @Override
+      public Adapter caseLink(Link object)
+      {
+        return createLinkAdapter();
+      }
+      @Override
+      public Adapter caseEvent(Event object)
+      {
+        return createEventAdapter();
+      }
+      @Override
       public Adapter caseParameters(Parameters object)
       {
         return createParametersAdapter();
@@ -217,6 +227,36 @@ public class StateMachineActionsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEventActionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.correttouml.grammars.stateMachineActions.Link <em>Link</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.correttouml.grammars.stateMachineActions.Link
+   * @generated
+   */
+  public Adapter createLinkAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.correttouml.grammars.stateMachineActions.Event <em>Event</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.correttouml.grammars.stateMachineActions.Event
+   * @generated
+   */
+  public Adapter createEventAdapter()
   {
     return null;
   }

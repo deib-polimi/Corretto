@@ -20,7 +20,7 @@ public class Signal implements PTermElement {
 	@Override
 	public boolean equals(java.lang.Object o){
 		Signal other_signal=(Signal) o;
-		return this.dec_signal.equals((org.eclipse.uml2.uml.Signal) other_signal.dec_signal);
+		return this.dec_signal.equals(other_signal.dec_signal);
 	}
 	
 	@Override

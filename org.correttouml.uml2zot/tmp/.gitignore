@@ -1,3 +1,2 @@
-*.lisp
-*.txt
-*.mappings
+*
+!/.gitignore

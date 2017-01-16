@@ -15,6 +15,8 @@ public class SequenceDiagramParameter extends Variable{
 
 	@Override
 	public PrimitiveType getType() {
+		// [corretto-man] Designers must add primitive type at the same level of system and property package, entitled "Integer", "Real", or "Boolean".
+		// Parameters of SD can be modified in Model Explorer. 
 		if(this.uml_parameter.getType() instanceof org.eclipse.uml2.uml.PrimitiveType){
 			org.eclipse.uml2.uml.PrimitiveType pt=(org.eclipse.uml2.uml.PrimitiveType) this.uml_parameter.getType();
 			if(pt.getName().equals("Boolean")) return PrimitiveType.BOOLEAN;

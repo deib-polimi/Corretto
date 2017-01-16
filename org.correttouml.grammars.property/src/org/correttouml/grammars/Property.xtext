@@ -1,0 +1,104 @@
+grammar org.correttouml.grammars.Property with org.eclipse.xtext.common.Terminals
+
+/**
+ * @author Mohammad Mehdi Pourhashem Kallehbasti
+ */
+ 
+generate property "http://www.correttouml.org/grammars/Property"
+
+Model:
+	(declarations+=Declaration)* correttoCommand=Corretto
+;
+
+Corretto:
+	'Corretto.' (verify=Verify | execute=EXECUTE)
+;
+
+terminal EXECUTE:
+	'execute()'
+;
+
+Verify:
+	'verify(' trio=TRIO ')'
+;
+
+Declaration:
+	stateName=ID '=' obj=ID '.getState(' std=ID ',' uMLStateName=ID ')' |
+	trioVar=ID '=' (trio=TRIO | obj=ID '.in(' stateName=ID ')')
+;
+
+TRIO:
+	trioL=TRIOL trioR=TRIOR?
+;
+
+TRIOL:
+	trioVar=ID (opName=ID '()')? | //xtext consumes '^' between two IDs. E.g. if TRIOL=obj1^op1(), then trioVar=obj1, and opName=op1. // If there is no definition for trioVar, it is a <<signal>>. (Time.neverTrue(failure))
+	arithBool=ArithBool |
+	'!(' trioNot=TRIO ')' |
+	'Time.' trioOpF=TRIOOPF '(' trioOpF1=TRIO ')' |
+	'Time.' trioOpFF=TRIOOPFF '(' trioOpFF1=TRIO ',' trioOpFF2=TRIO ')' |
+	'Time.' trioOpFN=TRIOOPFN '(' trioOpFN1=TRIO ',' int=INT ')'
+;
+ 
+TRIOR:
+	trioOP2=TRIOOP2 trio=TRIO
+;
+
+terminal TRIOOP2: //TRIO propositional operators with 2 operands
+	'&&' | '||' | '=>' | '<=>' | '->' | '<->'
+;
+
+terminal TRIOOPF: //TRIO temporal operators with 1 operands
+	'alw' | 'always' | 'alwaysTrue' | 'neverFalse' | 'som' | 'atLeastOnce' | 'alwF' | 'alwaysWillBe' |
+	'somF' | 'eventually' | 'eventuallyWillBe' | 'alwP' | 'historically' | 'alwaysHasBeen' | 'somP' | 'alwaysFalse' | 'neverTrue'
+;
+
+terminal TRIOOPFF: //TRIO temporal operators with 2 formula operands
+	'until' | 'since' | 'release' | 'trigger'
+;
+
+terminal TRIOOPFN: //TRIO temporal operators with 1 formula operand and a number
+	'futr' | 'past' | 'withinF' | 'withinP' | 'lasts' | 'lasted'
+;
+
+ArithBool:
+	arithTerm1=ArithTerm (arithCOP=ARITH_COMPARE_OP arithTerm2=ArithTerm)?
+;
+
+ArithTerm:
+	arithTermL=ArithTermL arithTermR=ArithTermR?
+;
+
+ArithTermL:
+	'('trio=TRIO')' |
+	constant=DataType |
+	arithVar=ArithVar |
+	'Futr(' arithTermF=ArithTerm ',' intF=INT ')' |
+	'Past(' arithTermP=ArithTerm ',' intP=INT ')'
+;
+ 
+ArithTermR:
+	arithOP=ARITH_OP arithTerm=ArithTerm
+;
+
+ArithVar:
+	obj=ID '.' atr=ID |
+	obj=ID '::' op=ID '.' param=ID |
+	sd=ID '.getParameter(' param=ID ')'
+;
+
+DataType:
+	i=INT float=FLOAT?
+;
+
+terminal FLOAT:
+	'.' ('0'..'9')+
+;
+
+terminal ARITH_OP:
+	'+' | '-' | '*' | '/'
+;
+
+terminal ARITH_COMPARE_OP:
+	'>' | '>=' | '<' | '<=' | '==' | '!='
+;

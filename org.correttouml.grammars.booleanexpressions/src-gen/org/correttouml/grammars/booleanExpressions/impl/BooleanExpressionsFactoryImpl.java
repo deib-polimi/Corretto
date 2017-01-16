@@ -30,7 +30,7 @@ public class BooleanExpressionsFactoryImpl extends EFactoryImpl implements Boole
   {
     try
     {
-      BooleanExpressionsFactory theBooleanExpressionsFactory = (BooleanExpressionsFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.correttouml.org/grammars/BooleanExpressions"); 
+      BooleanExpressionsFactory theBooleanExpressionsFactory = (BooleanExpressionsFactory)EPackage.Registry.INSTANCE.getEFactory(BooleanExpressionsPackage.eNS_URI);
       if (theBooleanExpressionsFactory != null)
       {
         return theBooleanExpressionsFactory;
@@ -65,11 +65,15 @@ public class BooleanExpressionsFactoryImpl extends EFactoryImpl implements Boole
     switch (eClass.getClassifierID())
     {
       case BooleanExpressionsPackage.MODEL: return createModel();
-      case BooleanExpressionsPackage.BOOLEAN_EXPRESSION: return createbooleanExpression();
+      case BooleanExpressionsPackage.OR_EXPRESSION: return createOrExpression();
+      case BooleanExpressionsPackage.AND_EXPRESSION: return createAndExpression();
+      case BooleanExpressionsPackage.BASE_EXPRESSION: return createBaseExpression();
       case BooleanExpressionsPackage.BOOLEAN_TERM: return createbooleanTerm();
       case BooleanExpressionsPackage.TIME_CONSTRAINT: return createTimeConstraint();
       case BooleanExpressionsPackage.BOOLEAN_VARIABLE: return createBooleanVariable();
       case BooleanExpressionsPackage.VARIABLE_CONDITION: return createVariableCondition();
+      case BooleanExpressionsPackage.EXPRESSION: return createEXPRESSION();
+      case BooleanExpressionsPackage.TERM: return createTERM();
       case BooleanExpressionsPackage.EVENT: return createEvent();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -92,10 +96,32 @@ public class BooleanExpressionsFactoryImpl extends EFactoryImpl implements Boole
    * <!-- end-user-doc -->
    * @generated
    */
-  public booleanExpression createbooleanExpression()
+  public OrExpression createOrExpression()
   {
-    booleanExpressionImpl booleanExpression = new booleanExpressionImpl();
-    return booleanExpression;
+    OrExpressionImpl orExpression = new OrExpressionImpl();
+    return orExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AndExpression createAndExpression()
+  {
+    AndExpressionImpl andExpression = new AndExpressionImpl();
+    return andExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BaseExpression createBaseExpression()
+  {
+    BaseExpressionImpl baseExpression = new BaseExpressionImpl();
+    return baseExpression;
   }
 
   /**
@@ -140,6 +166,28 @@ public class BooleanExpressionsFactoryImpl extends EFactoryImpl implements Boole
   {
     VariableConditionImpl variableCondition = new VariableConditionImpl();
     return variableCondition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EXPRESSION createEXPRESSION()
+  {
+    EXPRESSIONImpl expression = new EXPRESSIONImpl();
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TERM createTERM()
+  {
+    TERMImpl term = new TERMImpl();
+    return term;
   }
 
   /**

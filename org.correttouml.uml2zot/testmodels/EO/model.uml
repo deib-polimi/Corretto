@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CorrettoUML.VerificationTags="http:///CorrettoUML/VerificationTags.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///CorrettoUML/VerificationTags.ecore ../../../org.correttouml.profiles/resources/model.profile.uml#_YfVc14vzEeKLvcTv2F9FYg">
+  <uml:Model xmi:id="_vEls8HyYEeWjV45zFM47zg" name="model">
+    <packagedElement xmi:type="uml:Package" xmi:id="_55FKQHyYEeWjV45zFM47zg" name="Package1">
+      <packagedElement xmi:type="uml:Class" xmi:id="_BT7LMHyZEeWjV45zFM47zg" name="class1">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_EGc9MHyZEeWjV45zFM47zg" name="c2" type="_C_CCIHyZEeWjV45zFM47zg" association="_EGdkQHyZEeWjV45zFM47zg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EGc9MXyZEeWjV45zFM47zg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EGc9MnyZEeWjV45zFM47zg" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_HY-d4HyZEeWjV45zFM47zg" name="op1"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_C_CCIHyZEeWjV45zFM47zg" name="class2">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_InTSMHyZEeWjV45zFM47zg" name="op2"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_EGdkQHyZEeWjV45zFM47zg" name="c1_c2_1" memberEnd="_EGdkQXyZEeWjV45zFM47zg _EGc9MHyZEeWjV45zFM47zg" navigableOwnedEnd="_EGdkQXyZEeWjV45zFM47zg">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_EGdkQXyZEeWjV45zFM47zg" name="c1" type="_BT7LMHyZEeWjV45zFM47zg" association="_EGdkQHyZEeWjV45zFM47zg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EGdkQnyZEeWjV45zFM47zg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EGdkQ3yZEeWjV45zFM47zg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_LmpYMHyZEeWjV45zFM47zg" name="SD1">
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_pH6AAH7xEeWUH8E5T7tneA" name="MessageSend4" covered="_OCH8IHyZEeWjV45zFM47zg" message="_pH5Y8H7xEeWUH8E5T7tneA"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_pH6nEH7xEeWUH8E5T7tneA" name="MessageRecv4" covered="_NqEBcHyZEeWjV45zFM47zg" message="_pH5Y8H7xEeWUH8E5T7tneA"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_vw0rYHyZEeWjV45zFM47zg" name="MessageSend" covered="_NqEBcHyZEeWjV45zFM47zg" message="_vwxoEHyZEeWjV45zFM47zg"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_vw1ScHyZEeWjV45zFM47zg" name="MessageRecv" covered="_OCH8IHyZEeWjV45zFM47zg" message="_vwxoEHyZEeWjV45zFM47zg"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_bwoc4H7xEeWUH8E5T7tneA" name="MessageSend3" covered="_NqEBcHyZEeWjV45zFM47zg" message="_bwn10H7xEeWUH8E5T7tneA"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_2CbnoH7vEeWUH8E5T7tneA" name="BehaviorExecSpec" covered="_OCH8IHyZEeWjV45zFM47zg" finish="_DftaMH7yEeWUH8E5T7tneA" start="_bwoc4X7xEeWUH8E5T7tneA"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_bwoc4X7xEeWUH8E5T7tneA" name="MessageRecv3" covered="_OCH8IHyZEeWjV45zFM47zg" message="_bwn10H7xEeWUH8E5T7tneA"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_DftaMH7yEeWUH8E5T7tneA" name="BehaviorExecSpecFinish" covered="_OCH8IHyZEeWjV45zFM47zg" execution="_2CbnoH7vEeWUH8E5T7tneA"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_NqEBcHyZEeWjV45zFM47zg" name="l1" coveredBy="_vw0rYHyZEeWjV45zFM47zg _bwoc4H7xEeWUH8E5T7tneA _pH6nEH7xEeWUH8E5T7tneA">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_q0UVIHyZEeWjV45zFM47zg" instance="_RBvH4HyZEeWjV45zFM47zg"/>
+        </lifeline>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_OCH8IHyZEeWjV45zFM47zg" name="l2" coveredBy="_vw1ScHyZEeWjV45zFM47zg _2CbnoH7vEeWUH8E5T7tneA _bwoc4X7xEeWUH8E5T7tneA _pH6AAH7xEeWUH8E5T7tneA _DftaMH7yEeWUH8E5T7tneA">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_tm6YkHyZEeWjV45zFM47zg" instance="_drDY0HyZEeWjV45zFM47zg"/>
+        </lifeline>
+        <message xmi:type="uml:Message" xmi:id="_vwxoEHyZEeWjV45zFM47zg" name="1:m1" messageSort="asynchCall" receiveEvent="_vw1ScHyZEeWjV45zFM47zg" sendEvent="_vw0rYHyZEeWjV45zFM47zg" signature="_InTSMHyZEeWjV45zFM47zg"/>
+        <message xmi:type="uml:Message" xmi:id="_bwn10H7xEeWUH8E5T7tneA" name="4:Message" messageSort="asynchCall" receiveEvent="_bwoc4X7xEeWUH8E5T7tneA" sendEvent="_bwoc4H7xEeWUH8E5T7tneA" signature="_InTSMHyZEeWjV45zFM47zg"/>
+        <message xmi:type="uml:Message" xmi:id="_pH5Y8H7xEeWUH8E5T7tneA" name="5:Message" messageSort="asynchCall" receiveEvent="_pH6nEH7xEeWUH8E5T7tneA" sendEvent="_pH6AAH7xEeWUH8E5T7tneA" signature="_HY-d4HyZEeWjV45zFM47zg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_RBvH4HyZEeWjV45zFM47zg" name="c1" classifier="_BT7LMHyZEeWjV45zFM47zg">
+        <slot xmi:type="uml:Slot" xmi:id="_mNRRgHyZEeWjV45zFM47zg" definingFeature="_EGc9MHyZEeWjV45zFM47zg">
+          <value xmi:type="uml:InstanceValue" xmi:id="_mNRRgXyZEeWjV45zFM47zg" name="InstanceValue0" type="_C_CCIHyZEeWjV45zFM47zg" instance="_drDY0HyZEeWjV45zFM47zg"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_drDY0HyZEeWjV45zFM47zg" name="c2" classifier="_C_CCIHyZEeWjV45zFM47zg"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_mNO1QHyZEeWjV45zFM47zg" name="InstanceSpecification0" classifier="_EGdkQHyZEeWjV45zFM47zg">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mNQqcHyZEeWjV45zFM47zg" source="InstanceEnd" references="_drDY0HyZEeWjV45zFM47zg _RBvH4HyZEeWjV45zFM47zg"/>
+        <slot xmi:type="uml:Slot" xmi:id="_mNQqcXyZEeWjV45zFM47zg" definingFeature="_EGdkQXyZEeWjV45zFM47zg">
+          <value xmi:type="uml:InstanceValue" xmi:id="_mNQqcnyZEeWjV45zFM47zg" name="InstanceValue0" type="_BT7LMHyZEeWjV45zFM47zg" instance="_RBvH4HyZEeWjV45zFM47zg"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_k8Ga4ICGEeWKl-GBq7NEKg" name="sd2">
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_zq2HQICGEeWKl-GBq7NEKg" name="BehaviorExecSpecStart" covered="_qHZbEICGEeWKl-GBq7NEKg" execution="_zq2HQYCGEeWKl-GBq7NEKg"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_zq2HQYCGEeWKl-GBq7NEKg" name="BehaviorExecSpec" covered="_qHZbEICGEeWKl-GBq7NEKg" finish="_zq2uUICGEeWKl-GBq7NEKg" start="_zq2HQICGEeWKl-GBq7NEKg"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_zq2uUICGEeWKl-GBq7NEKg" name="BehaviorExecSpecFinish" covered="_qHZbEICGEeWKl-GBq7NEKg" execution="_zq2HQYCGEeWKl-GBq7NEKg"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_pyHHkICGEeWKl-GBq7NEKg" name="l11">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_sbAccICGEeWKl-GBq7NEKg" instance="_RBvH4HyZEeWjV45zFM47zg"/>
+        </lifeline>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_qHZbEICGEeWKl-GBq7NEKg" name="l22" coveredBy="_zq2HQICGEeWKl-GBq7NEKg _zq2uUICGEeWKl-GBq7NEKg _zq2HQYCGEeWKl-GBq7NEKg">
+          <selector xmi:type="uml:InstanceValue" xmi:id="_vPTwEICGEeWKl-GBq7NEKg" instance="_drDY0HyZEeWjV45zFM47zg"/>
+        </lifeline>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_8pus8HyYEeWjV45zFM47zg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8p324HyYEeWjV45zFM47zg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="../../../org.correttouml.profiles/resources/model.profile.uml#_YfVcwIvzEeKLvcTv2F9FYg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="../../../org.correttouml.profiles/resources/model.profile.uml#_DCylYIJgEeKaWIAr5_BKMw"/>
+    </profileApplication>
+  </uml:Model>
+  <CorrettoUML.VerificationTags:System xmi:id="_9eApkHyYEeWjV45zFM47zg" base_Package="_55FKQHyYEeWjV45zFM47zg"/>
+</xmi:XMI>

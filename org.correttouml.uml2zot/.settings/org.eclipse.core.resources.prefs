@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//src/org/correttouml/uml2zot/semantics/sequencediagram/SCF_Alt.java=UTF-8
+encoding//src/org/correttouml/uml2zot/semantics/sequencediagram/SCF_Break.java=UTF-8
+encoding//src/org/correttouml/uml2zot/semantics/sequencediagram/SCF_Loop.java=UTF-8
+encoding//src/org/correttouml/uml2zot/semantics/sequencediagram/SCF_Opt.java=UTF-8
+encoding//src/org/correttouml/uml2zot/semantics/sequencediagram/SCF_Par.java=UTF-8
+encoding//src/org/correttouml/uml2zot/semantics/sequencediagram/SCombine.java=UTF-8

@@ -11,10 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.correttouml.grammars.stateMachineActions.Model#getAction <em>Action</em>}</li>
+ *   <li>{@link org.correttouml.grammars.stateMachineActions.Model#getActions <em>Actions</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.correttouml.grammars.stateMachineActions.StateMachineActionsPackage#getModel()
  * @model
@@ -47,5 +48,31 @@ public interface Model extends EObject
    * @generated
    */
   void setAction(Action value);
+
+  /**
+   * Returns the value of the '<em><b>Actions</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Actions</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Actions</em>' containment reference.
+   * @see #setActions(Model)
+   * @see org.correttouml.grammars.stateMachineActions.StateMachineActionsPackage#getModel_Actions()
+   * @model containment="true"
+   * @generated
+   */
+  Model getActions();
+
+  /**
+   * Sets the value of the '{@link org.correttouml.grammars.stateMachineActions.Model#getActions <em>Actions</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Actions</em>' containment reference.
+   * @see #getActions()
+   * @generated
+   */
+  void setActions(Model value);
 
 } // Model

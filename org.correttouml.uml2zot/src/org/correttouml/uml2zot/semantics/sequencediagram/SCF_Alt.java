@@ -2,13 +2,11 @@ package org.correttouml.uml2zot.semantics.sequencediagram;
 
 import java.util.ArrayList;
 
-import org.correttouml.grammars.booleanExpressions.booleanExpression;
+//import org.correttouml.grammars.booleanExpressions.booleanExpression;
 import org.correttouml.uml.diagrams.sequencediagram.CF_Alt;
-import org.correttouml.uml.diagrams.sequencediagram.CombinedFragment;
 import org.correttouml.uml.diagrams.sequencediagram.InteractionOperand;
 import org.correttouml.uml2zot.semantics.util.bool.*;
 import org.correttouml.uml2zot.semantics.util.trio.Predicate;
-import org.omg.PortableInterceptor.NON_EXISTENT;
 
 /**
 *@author Mohammad Mehdi Pourhashem Kallehbasti 
@@ -17,8 +15,8 @@ import org.omg.PortableInterceptor.NON_EXISTENT;
 public class SCF_Alt extends SCombinedFragment implements SCombinedFragmentItf{
 	//[documentation]: \Dropbox\SharePolimi\Documentation\Sequence Diagram\Combined_Fragment\Modular_Semantics\[CF_Alt].docx
 	private CF_Alt mades_cf_alt;
-	public SCF_Alt(CF_Alt cfalt, Config config) {
-		super((CombinedFragment)cfalt, config);
+	public SCF_Alt(CF_Alt cfalt) {
+		super(cfalt);
 		this.mades_cf_alt = cfalt;
 	}
 
@@ -30,7 +28,7 @@ public class SCF_Alt extends SCombinedFragment implements SCombinedFragmentItf{
 			f = new ArrayList<BooleanFormulae>();
 			Predicate SD_Stop = getSDPredicate().getStopPredicate();
 			int n = getLifelines().size();
-			int m = getOperandsPredicates().size(); //which is number of operands that have a guard. (E.g. if uml_cf_alt has 3 operands (last one is else), me is 2)
+			int m = getOperandsPredicates().size(); //which is number of operands that have a guard. (E.g. if uml_cf_alt has 3 operands (last one is else), m is 2)
 			ArrayList<BooleanFormulae> tempf1 = new ArrayList<BooleanFormulae>();
 			// // borders(CF_Alt, SD_End || SD_Stop)
 			// // link_Pre_Post(CF_Alt, config)
@@ -38,7 +36,7 @@ public class SCF_Alt extends SCombinedFragment implements SCombinedFragmentItf{
 			f.addAll(new SLink_Pre_Post(this, config.combine).getFormulae());
 			// // order(CF_Alt_Start, CF_Alt_End, True, SD_Stop, True)
 			f.add(new SOrder(getPredicate().getStartPredicate(), getPredicate().getEndPredicate(), SD_Stop, true).getFun());
-// // if (config.combine == “ws”){
+// // if (config.combine == ws){
 			if(config.combine == ConfigCombine.WS){
 				// // ||i=1 to n(CF_Alt_Li_Start) => CF_Alt
 				f.add(new Implies(new Or(getLifelinesStartPredicates()), getPredicate()));
@@ -69,7 +67,7 @@ public class SCF_Alt extends SCombinedFragment implements SCombinedFragmentItf{
 					}
 					// //     CF_Alt_OpElse_Start <=> (!! (||i=1 to n CF_Alt_Guardi) && CF_Alt_Start)
 					f.add(new Iff(getOpElsePredicate().getStartPredicate(), new And(new Not(new Or(getGuards())),getPredicate().getStartPredicate())));
-					// //     if (config.what == “nondeterministically”)
+					// //     if (config.what == ï¿½nondeterministicallyï¿½)
 					if (config.what == ConfigWhat.NONDETERMINISTICALLY) {
 
 						// //         CF_Alt_Start => (||i=1 to m(CF_Alt_Opi_Start && !!(||j=1 to m,j!=iCF_Alt_Opj_Start))) || CF_Alt_OpElse_Start
@@ -108,7 +106,7 @@ public class SCF_Alt extends SCombinedFragment implements SCombinedFragmentItf{
 						tempf1.add(new SSomFIn_i(new And(getLifelinePredicate(j).getStartPredicate(), getLifelinePredicate(j).getEndPredicate()), getPredicate()).getFun());
 					}
 					f.add(new Implies(new And(getPredicate().getStartPredicate(), new Not(new Or(getGuards()))), new And(tempf1)));
-					// //     if (config.what == “nondeterministically”)
+					// //     if (config.what == ï¿½nondeterministicallyï¿½)
 					if (config.what == ConfigWhat.NONDETERMINISTICALLY) {
 						// //         (CF_Alt_Start && (||i=1 to m CF_Alt_Guardi)) => (||j=1 to m(CF_Alt_Opj_Start && !!(||k=1 to m,k!=jCF_Alt_Opk_Start)))
 						tempf1.clear();
@@ -137,12 +135,12 @@ public class SCF_Alt extends SCombinedFragment implements SCombinedFragmentItf{
 
 				// // for (i = 0; i<m; i++){
 					for (int i = 0; i < m; i++) {
-				// //     if (config.what == “nondeterministically”)
+				// //     if (config.what == ï¿½nondeterministicallyï¿½)
 						if (config.what == ConfigWhat.NONDETERMINISTICALLY) {
 				// //         CF_Alt_Opi_Start => (CF_Alt_Start && CF_Alt_Guardi)
 							f.add(new Implies(getOperandsPredicates().get(i).getStartPredicate(), new And(getPredicate().getStartPredicate(), getGuards().get(i))));
 						}
-				// //     if (config.what == “firstOp”)
+				// //     if (config.what == ï¿½firstOpï¿½)
 						if (config.what == ConfigWhat.FIRSTOP) { // check for m= 0 m =1 ...
 				// //         CF_Alt_Opi_Start <=> (CF_Alt_Start && CF_Alt_Guardi && !!(||j=1 to i-1 CF_Alt_Guardj))
 							tempf1.clear();
@@ -161,13 +159,13 @@ public class SCF_Alt extends SCombinedFragment implements SCombinedFragmentItf{
 				// // 	}// end of "ws"
 					}
 				}
-// // if (config.combine == “sync”){
+// // if (config.combine == ï¿½syncï¿½){
 					if (config.combine == ConfigCombine.SYNC) {
 						// // 	if CF_Alt has Else operand {
 						if (getOpElse() != null) {
 							// // 	    CF_Alt_OpElse_Start <=> (!! (||i=1 to m Guardi) && CF_Alt_Start)
 							f.add(new Iff(getOpElsePredicate().getStartPredicate(), new And(new Not(new Or(getGuards())), getPredicate().getStartPredicate())));	
-							// // 	    if (config.what == “nondeterministically”)
+							// // 	    if (config.what == ï¿½nondeterministicallyï¿½)
 							if (config.what == ConfigWhat.NONDETERMINISTICALLY) {
 								// // 	        CF_Alt_Start => (||j=1 to m(CF_Alt_Opj_Start && !!(||k=1 to m,k!=jCF_Alt_Opk_Start))) || CF_Alt_OpElse_Start
 								tempf1.clear();
@@ -222,7 +220,7 @@ public class SCF_Alt extends SCombinedFragment implements SCombinedFragmentItf{
 											new And(getPredicate().getStartPredicate(), new Not(new Or(getGuards()))), 
 											new Or(tempf1)), 
 									getPredicate().getEndPredicate()));
-						// //     if (config.what == “nondeterministically”)
+						// //     if (config.what == ï¿½nondeterministicallyï¿½)
 							if (config.what == ConfigWhat.NONDETERMINISTICALLY) {
 						// //         CF_Alt_Start => ((||j=1 to m(CF_Alt_Opj_Start && !!(||k=1 to m,k!=jCF_Alt_Opk_Start))) || CF_Alt_End)
 								tempf1.clear();
@@ -239,7 +237,7 @@ public class SCF_Alt extends SCombinedFragment implements SCombinedFragmentItf{
 									}//i=j to m(CF_Alt_Opj_Start && !!(||k=1 to m,k!=jCF_Alt_Opk_Start))
 								f.add(new Implies(getPredicate().getStartPredicate(), new Or(new Or(tempf1), getPredicate().getEndPredicate())));
 							}
-						// //     if (config.what == “firstOp”)
+						// //     if (config.what == ï¿½firstOpï¿½)
 							if (config.what == ConfigWhat.FIRSTOP) {
 						// //         CF_Alt_Start => (||i=1 to m(CF_Alt_Opi_Start) || CF_Alt_End )
 								tempf1.clear();
@@ -253,12 +251,12 @@ public class SCF_Alt extends SCombinedFragment implements SCombinedFragmentItf{
 					
 						// // for (i = 0; i<m; i++){
 						for (int i = 0; i < m; i++) {
-						// //     if (config.what == “nondeterministically”)
+						// //     if (config.what == ï¿½nondeterministicallyï¿½)
 							if (config.what == ConfigWhat.NONDETERMINISTICALLY) {
 						// //         CF_Alt_Opi_Start => CF_Alt_Guardi && CF_Alt_Start
 								f.add(new Implies(getOperandsPredicates().get(i).getStartPredicate(), new And(getGuards().get(i), getPredicate().getStartPredicate())));
 							}
-							// //     if (config.what == “firstOp”)
+							// //     if (config.what == ï¿½firstOpï¿½)
 							if (config.what == ConfigWhat.FIRSTOP) {
 								// //         CF_Alt_Opi_Start <=> (CF_Alt_Start && CF_Alt_Guardi && !!(||j=1 to i-1 CF_Alt_Guardj))
 								tempf1.clear();
@@ -292,11 +290,11 @@ public class SCF_Alt extends SCombinedFragment implements SCombinedFragmentItf{
 					// // 	for (i = 0; i<m; i++)
 					for (int i = 0; i < m; i++) 
 						// // 	    combine(CF_Alt_Opi, config)
-						f.addAll(new SCombine(mades_cf_alt.getOperands().get(i), config).getFormulae());
+						f.addAll(new SCombine(mades_cf_alt.getOperands().get(i)).getFormulae());
 					// // 	if CF_Alt has Else operand
 					if (getOpElse() != null)
 						// // 	    combine(CF_Alt_OpElse, config)
-						f.addAll(new SCombine(mades_cf_alt.getElseOperand(), config).getFormulae());
+						f.addAll(new SCombine(mades_cf_alt.getElseOperand()).getFormulae());
 					return f;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

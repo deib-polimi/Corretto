@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.correttouml.grammars.assignments.TERM#getVariable <em>Variable</em>}</li>
  *   <li>{@link org.correttouml.grammars.assignments.TERM#getConstant <em>Constant</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.correttouml.grammars.assignments.AssignmentsPackage#getTERM()
  * @model

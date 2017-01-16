@@ -6,8 +6,6 @@ import java.util.Map;
 
 import org.correttouml.uml.diagrams.expressions.PrimitiveType;
 import org.correttouml.uml.diagrams.sequencediagram.*;
-import org.correttouml.uml2zot.UML2Zot;
-import org.correttouml.uml2zot.semantics.SMadesModel;
 import org.correttouml.uml2zot.semantics.util.bool.*;
 import org.correttouml.uml2zot.semantics.util.fun.SomPIn_i;
 import org.correttouml.uml2zot.semantics.util.trio.*;
@@ -32,22 +30,12 @@ public class SCF_Loop extends SCombinedFragment  implements SCombinedFragmentItf
 	private org.eclipse.uml2.uml.InteractionOperand uml_operand;
 //	private org.eclipse.uml2.uml.InteractionOperand uml_operand_copy;
 	
-	public SCF_Loop(CF_Loop cfloop, Config config) {
-		super((CombinedFragment)cfloop, config);
+	public SCF_Loop(CF_Loop cfloop) {
+		super(cfloop);
 		this.mades_cf_loop = cfloop;
 		this.operndName = mades_cf_loop.getOperands().get(0).getName();
 		uml_operand = mades_cf_loop.getOperands().get(0).uml_interactionoperand;
 		saveMessagesName();
-/*
- * //		uml_operand_copy = uml_operand;
-//		ModelMapper mapper = new ModelMapper();
-//		mapper.map(uml_operand, uml_operand_copy);
-//		uml_operand.setName("test1");
-//		String s = uml_operand.getName();
-//		String ss = uml_operand_copy.getName();
-//		String ssss="dddddd";
- * 
-*/		
 	}
 	
 	private void saveMessagesName() {
@@ -94,7 +82,7 @@ public class SCF_Loop extends SCombinedFragment  implements SCombinedFragmentItf
 					String umlMessageName = mUmlIDName.get(new org.correttouml.uml.diagrams.sequencediagram.Message(tempm).getUMLId());
 					String umlMessageNameInNewOp = mades_cf_loop.getName()+operndName+i+umlMessageName; 
 					tempm.setName(umlMessageNameInNewOp);
-					if (SMadesModel.staticConfig.loop == ConfigCombine.WS)
+					if (config.loop == ConfigCombine.WS)
 						RepetitiousMessage.instances.put(umlMessageNameInNewOp, tempm);
 				}
 			}
@@ -116,7 +104,7 @@ public class SCF_Loop extends SCombinedFragment  implements SCombinedFragmentItf
 			f.addAll(new SLink_Pre_Post(this, config.loop).getFormulae());
 			// // order(CF_Loop_Start, CF_Loop_End, True, SD_Stop, True)
 			f.add(new SOrder(start, end, SD_Stop, true).getFun());
-// // if (config.combine == �ws�){
+// // if (config.combine == ���ws���){
 			if(config.loop == ConfigCombine.WS){
 				int n = getLifelines().size();
 				int min = getMINValue();
@@ -144,7 +132,7 @@ public class SCF_Loop extends SCombinedFragment  implements SCombinedFragmentItf
 				
 				for (int i=1;i<=max;i++) {
 //    combine(CF_Loop_Opi, config)
-					f.addAll(new SCombine(getMadesOperand(i), config).getFormulae());
+					f.addAll(new SCombine(getMadesOperand(i)).getFormulae());
 //					CF_Loop_Opi => CF_Loop
 					f.add(new Implies(getOpi(i).getPredicate(), getPredicate()));
 				}
@@ -237,7 +225,7 @@ public class SCF_Loop extends SCombinedFragment  implements SCombinedFragmentItf
 				
 			}// end of "ws"
 			
-//			if (config.loop == �sync�){
+//			if (config.loop == ���sync���){
 			if (config.loop == ConfigCombine.SYNC) {
 				TrioVar counter = new TrioVar(getPredicate().getPredicateName() + "_Counter", PrimitiveType.INTEGER);
 				TrioVar.instances.add(counter);
@@ -281,13 +269,13 @@ public class SCF_Loop extends SCombinedFragment  implements SCombinedFragmentItf
 				f.add(new Implies(new And(opEnd, new GTE(new Plus(counter, one), min), new Not(getGuard())), end));
 //				(CF_Loop_Op_End && ((CF_Loop_C + 1) >= CF_Loop_Min) && CF_Loop_Guard) => ((next(CF_Loop_Op_Start) && !!CF_Loop_End) || (next(!!CF_Loop_Op_Start) && CF_Loop_End))
 				f.add(new Implies(new And(opEnd, new GTE(new Plus(counter, one), min), getGuard()), new Or(new And(new Next(opStart), new Not(end)), new And(new Next(new Not(opStart)), end))));
-//				If CF_Loop_Max != �*�
+//				If CF_Loop_Max != ���*���
 				if (!getMAXName().equals("*")) {
 //				    (CF_Loop_Op_End && ((CF_Loop_C + 1) = CF_Loop_Max)) => CF_Loop_End
 					f.add(new Implies(new And(opEnd, new EQ(new Plus(counter, one), max)), end));
 				}
 //				combine(CF_Loop_Op, config)
-				f.addAll(new SCombine(mades_cf_loop.getOperands().get(0), config).getFormulae());
+				f.addAll(new SCombine(mades_cf_loop.getOperands().get(0)).getFormulae());
 //				//				}
 			}
 			

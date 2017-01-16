@@ -11,12 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
+ *   <li>{@link org.correttouml.grammars.booleanExpressions.Event#getObjName <em>Obj Name</em>}</li>
  *   <li>{@link org.correttouml.grammars.booleanExpressions.Event#getEventName <em>Event Name</em>}</li>
  *   <li>{@link org.correttouml.grammars.booleanExpressions.Event#getEventExtension <em>Event Extension</em>}</li>
  *   <li>{@link org.correttouml.grammars.booleanExpressions.Event#isNowEvent <em>Now Event</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.correttouml.grammars.booleanExpressions.BooleanExpressionsPackage#getEvent()
  * @model
@@ -24,6 +25,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Event extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Obj Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Obj Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Obj Name</em>' attribute.
+   * @see #setObjName(String)
+   * @see org.correttouml.grammars.booleanExpressions.BooleanExpressionsPackage#getEvent_ObjName()
+   * @model
+   * @generated
+   */
+  String getObjName();
+
+  /**
+   * Sets the value of the '{@link org.correttouml.grammars.booleanExpressions.Event#getObjName <em>Obj Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Obj Name</em>' attribute.
+   * @see #getObjName()
+   * @generated
+   */
+  void setObjName(String value);
+
   /**
    * Returns the value of the '<em><b>Event Name</b></em>' attribute.
    * <!-- begin-user-doc -->

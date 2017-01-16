@@ -68,11 +68,16 @@ public class State implements PTermElement{
 		String id=((XMLResource) this.uml_state.eResource()).getID(uml_state);
 		return UML2Zot.Utility.umlIDtoPrdID(id);
 	}
+	
+	@Override
+	public String toString(){
+		return this.uml_state.getName();
+	}
 		
 	@Override
 	public boolean equals(java.lang.Object o){
 		State other_state=(org.correttouml.uml.diagrams.statediagram.State) o;
-		return this.uml_state.equals((org.eclipse.uml2.uml.State) other_state.uml_state);
+		return this.uml_state.equals(other_state.uml_state);
 	}
 	
 	@Override

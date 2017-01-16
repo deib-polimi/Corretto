@@ -11,6 +11,7 @@ import org.eclipse.xtext.resource.XtextResourceSet;
 
 import com.google.inject.Injector;
 
+//import org.correttouml.grammars.stateMachineActions.Model;
 import org.correttouml.grammars.stateMachineTriggers.*;
 import org.correttouml.grammars.*;
 
@@ -29,7 +30,7 @@ public class StDTriggersParser {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		Model model = (Model) resource.getContents().get(0);
+		Model model = (org.correttouml.grammars.stateMachineTriggers.Model) resource.getContents().get(0);
 		
 		try{
 			if(model==null) throw new Exception(trigger +" not recognized");

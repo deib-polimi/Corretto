@@ -4,8 +4,8 @@
     editDirectory="/org.correttouml.grammars.assignments.edit/src" editorDirectory="/org.correttouml.grammars.assignments.editor/src"
     modelPluginID="org.correttouml.grammars.assignments" forceOverwrite="true" modelName="Assignments"
     updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    complianceLevel="5.0" copyrightFields="false" editPluginID="org.correttouml.grammars.assignments.edit"
-    editorPluginID="org.correttouml.grammars.assignments.editor" runtimeVersion="2.8">
+    complianceLevel="6.0" copyrightFields="false" editPluginID="org.correttouml.grammars.assignments.edit"
+    editorPluginID="org.correttouml.grammars.assignments.editor" runtimeVersion="2.12">
   <genPackages prefix="Assignments" basePackage="org.correttouml.grammars" disposableProviderFactory="true"
       ecorePackage="Assignments.ecore#/">
     <genClasses ecoreClass="Assignments.ecore#//Model">

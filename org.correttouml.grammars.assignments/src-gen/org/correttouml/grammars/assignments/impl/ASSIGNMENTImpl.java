@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.correttouml.grammars.assignments.impl.ASSIGNMENTImpl#getVariable <em>Variable</em>}</li>
  *   <li>{@link org.correttouml.grammars.assignments.impl.ASSIGNMENTImpl#getExpression <em>Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

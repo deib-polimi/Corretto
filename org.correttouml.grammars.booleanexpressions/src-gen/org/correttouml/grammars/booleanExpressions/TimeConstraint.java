@@ -2,6 +2,7 @@
  */
 package org.correttouml.grammars.booleanExpressions;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -10,19 +11,19 @@ package org.correttouml.grammars.booleanExpressions;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.correttouml.grammars.booleanExpressions.TimeConstraint#getEvent2 <em>Event2</em>}</li>
  *   <li>{@link org.correttouml.grammars.booleanExpressions.TimeConstraint#getEvent1 <em>Event1</em>}</li>
  *   <li>{@link org.correttouml.grammars.booleanExpressions.TimeConstraint#getOp <em>Op</em>}</li>
  *   <li>{@link org.correttouml.grammars.booleanExpressions.TimeConstraint#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.correttouml.grammars.booleanExpressions.BooleanExpressionsPackage#getTimeConstraint()
  * @model
  * @generated
  */
-public interface TimeConstraint extends booleanTerm
+public interface TimeConstraint extends EObject
 {
   /**
    * Returns the value of the '<em><b>Event2</b></em>' containment reference.

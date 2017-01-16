@@ -70,6 +70,8 @@ public class StateMachineActionsFactoryImpl extends EFactoryImpl implements Stat
       case StateMachineActionsPackage.EXPRESSION: return createEXPRESSION();
       case StateMachineActionsPackage.TERM: return createTERM();
       case StateMachineActionsPackage.EVENT_ACTION: return createEventAction();
+      case StateMachineActionsPackage.LINK: return createLink();
+      case StateMachineActionsPackage.EVENT: return createEvent();
       case StateMachineActionsPackage.PARAMETERS: return createParameters();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -140,6 +142,28 @@ public class StateMachineActionsFactoryImpl extends EFactoryImpl implements Stat
   {
     EventActionImpl eventAction = new EventActionImpl();
     return eventAction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Link createLink()
+  {
+    LinkImpl link = new LinkImpl();
+    return link;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Event createEvent()
+  {
+    EventImpl event = new EventImpl();
+    return event;
   }
 
   /**

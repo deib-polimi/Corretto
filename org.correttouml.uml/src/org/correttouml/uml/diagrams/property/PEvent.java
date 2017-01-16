@@ -22,7 +22,7 @@ public class PEvent implements PBooleanFormulae {
 		Stereotype s=UML2ModelHelper.getStereotype(uml_element, "Event");
 		String event_exp=(String)uml_element.getValue(s, "event");
 		EventParser parser=new EventParser(event_exp);
-		return EventFactory.getInstance(this.getExpressionContext(), parser.getEventName(), parser.getEventExtension());
+		return EventFactory.getInstance(this.getExpressionContext(), parser.getObjectName(), parser.getEventName(), parser.getEventExtension());
 	}
 	
 	public ExpressionContext getExpressionContext(){

@@ -26,7 +26,7 @@ public class Operation implements PTermElement {
 	public List<OperationParameter> getParameters(){
 		ArrayList<OperationParameter> parameters=new ArrayList<OperationParameter>();
 		for(org.eclipse.uml2.uml.Parameter p: this.uml_operation.getOwnedParameters()){
-			parameters.add(new OperationParameter(p));
+			parameters.add(new OperationParameter(this, p));
 		}
 		return parameters;
 	}
@@ -41,7 +41,7 @@ public class Operation implements PTermElement {
 	
 	public Set<Message> getMessages(){
 		Set<Message> messages=new HashSet<Message>();
-		////#### repetitious messages should be considered <Mehdi>
+		
 		MadesModel mm=new MadesModel(uml_operation.getModel());
 		for(SequenceDiagram sd: mm.getSequenceDiagrams()){
 			for(Message m:sd.getMessages()){
@@ -54,9 +54,14 @@ public class Operation implements PTermElement {
 	}
 	
 	@Override
+	public String toString(){
+		return this.uml_operation.getName();
+	}
+	
+	@Override
 	public boolean equals(java.lang.Object o){
 		Operation other_operation=(Operation) o;
-		return this.uml_operation.equals((org.eclipse.uml2.uml.Operation) other_operation.uml_operation);
+		return this.uml_operation.equals(other_operation.uml_operation);
 	}
 	
 	@Override

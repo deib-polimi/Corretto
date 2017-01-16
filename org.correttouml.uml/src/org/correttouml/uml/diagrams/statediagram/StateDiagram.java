@@ -8,6 +8,8 @@ import org.apache.log4j.Logger;
 import org.correttouml.uml.MadesModel;
 import org.correttouml.uml.diagrams.classdiagram.Class;
 import org.correttouml.uml.diagrams.expressions.ExpressionContext;
+import org.correttouml.uml2zot.UML2Zot;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.uml2.uml.Element;
 
 public class StateDiagram implements ExpressionContext {
@@ -115,12 +117,18 @@ public class StateDiagram implements ExpressionContext {
 	@Override
 	public boolean equals(java.lang.Object o){
 		StateDiagram other_std=(StateDiagram) o;
-		return this.uml_std.equals((org.eclipse.uml2.uml.StateMachine) other_std.uml_std);
+		return this.uml_std.equals(other_std.uml_std);
 	}
 	
 	@Override
 	public int hashCode(){
 		return this.uml_std.hashCode();
+	}
+
+	@Override
+	public String getUMLId() {
+		String id=((XMLResource) this.uml_std.eResource()).getID(uml_std);
+		return UML2Zot.Utility.umlIDtoPrdID(id);
 	}
 
 }

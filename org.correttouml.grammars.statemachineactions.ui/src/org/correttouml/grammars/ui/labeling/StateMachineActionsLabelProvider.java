@@ -3,9 +3,10 @@
 */
 package org.correttouml.grammars.ui.labeling;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider; 
- 
+import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
+
 import com.google.inject.Inject;
 
 /**
@@ -20,6 +21,10 @@ public class StateMachineActionsLabelProvider extends DefaultEObjectLabelProvide
 		super(delegate);
 	}
 
+	public String text(EObject ele){
+		return ele.getClass().getName();
+	}
+	
 /*
 	//Labels and icons can be computed like this:
 	

@@ -206,13 +206,22 @@ public interface StateMachineTriggersPackage extends EPackage
   int EVENT = 4;
 
   /**
+   * The feature id for the '<em><b>Obj Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVENT__OBJ_NAME = 0;
+
+  /**
    * The feature id for the '<em><b>Event Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EVENT__EVENT_NAME = 0;
+  int EVENT__EVENT_NAME = 1;
 
   /**
    * The feature id for the '<em><b>Event Extension</b></em>' attribute.
@@ -221,7 +230,7 @@ public interface StateMachineTriggersPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EVENT__EVENT_EXTENSION = 1;
+  int EVENT__EVENT_EXTENSION = 2;
 
   /**
    * The feature id for the '<em><b>Now Event</b></em>' attribute.
@@ -230,7 +239,7 @@ public interface StateMachineTriggersPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EVENT__NOW_EVENT = 2;
+  int EVENT__NOW_EVENT = 3;
 
   /**
    * The number of structural features of the '<em>Event</em>' class.
@@ -239,7 +248,7 @@ public interface StateMachineTriggersPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EVENT_FEATURE_COUNT = 3;
+  int EVENT_FEATURE_COUNT = 4;
 
 
   /**
@@ -368,6 +377,17 @@ public interface StateMachineTriggersPackage extends EPackage
    * @generated
    */
   EClass getEvent();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.correttouml.grammars.stateMachineTriggers.Event#getObjName <em>Obj Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Obj Name</em>'.
+   * @see org.correttouml.grammars.stateMachineTriggers.Event#getObjName()
+   * @see #getEvent()
+   * @generated
+   */
+  EAttribute getEvent_ObjName();
 
   /**
    * Returns the meta object for the attribute '{@link org.correttouml.grammars.stateMachineTriggers.Event#getEventName <em>Event Name</em>}'.
@@ -530,6 +550,14 @@ public interface StateMachineTriggersPackage extends EPackage
      * @generated
      */
     EClass EVENT = eINSTANCE.getEvent();
+
+    /**
+     * The meta object literal for the '<em><b>Obj Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EVENT__OBJ_NAME = eINSTANCE.getEvent_ObjName();
 
     /**
      * The meta object literal for the '<em><b>Event Name</b></em>' attribute feature.

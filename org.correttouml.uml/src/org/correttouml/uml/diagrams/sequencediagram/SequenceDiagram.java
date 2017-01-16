@@ -3,7 +3,6 @@ package org.correttouml.uml.diagrams.sequencediagram;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.correttouml.uml.MadesModel;
@@ -12,6 +11,8 @@ import org.correttouml.uml.diagrams.property.PTermElement;
 import org.correttouml.uml.diagrams.timeconstraints.TimeConstraint;
 import org.correttouml.uml.helpers.BooleanExpressionsParser;
 import org.correttouml.uml.helpers.UML2ModelHelper;
+import org.correttouml.uml2zot.UML2Zot;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.uml2.uml.Comment;
 import org.eclipse.uml2.uml.ExecutionOccurrenceSpecification;
 import org.eclipse.uml2.uml.Interaction;
@@ -103,7 +104,7 @@ public class SequenceDiagram implements ExpressionContext, PTermElement{
 		for(Comment c: this.uml_interaction.getOwnedComments()){
 			if(UML2ModelHelper.hasStereotype(c, "TimeConstraint")){
 				org.correttouml.grammars.booleanExpressions.Model m=BooleanExpressionsParser.parse(c.getBody());
-				org.correttouml.grammars.booleanExpressions.TimeConstraint tc=(org.correttouml.grammars.booleanExpressions.TimeConstraint)m.getExpression().getBooleanTerm();
+				org.correttouml.grammars.booleanExpressions.TimeConstraint tc=m.getExpression().getLeftExpression().getLeftExpression().getBooleanTerm().getTimeConstraint();
 				tcs.add(new TimeConstraint(tc, this));
 			}
 			
@@ -119,6 +120,8 @@ public class SequenceDiagram implements ExpressionContext, PTermElement{
 				for(String s :cText){
 					s=s.replace(" ", "");
 					String [] cPar = s.split(":");
+					if (cPar.length<=1)
+						return null;
 					cPar[1]=cPar[1].replaceAll("\r", "");
 					if (cPar[0].toLowerCase().equals("combine"))
 						strConfig[0] = cPar[1].toUpperCase();
@@ -152,7 +155,10 @@ public class SequenceDiagram implements ExpressionContext, PTermElement{
 		return this.uml_interaction.hashCode();
 	}
 
+	@Override
+	public String getUMLId() {
+		String id=((XMLResource) this.uml_interaction.eResource()).getID(uml_interaction);
+		return UML2Zot.Utility.umlIDtoPrdID(id);
+	}
 
-
-	
 }

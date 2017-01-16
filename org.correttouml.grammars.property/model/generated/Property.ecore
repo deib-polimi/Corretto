@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="property" nsURI="http://www.correttouml.org/grammars/Property"
+    nsPrefix="property">
+  <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="declarations" upperBound="-1"
+        eType="#//Declaration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="correttoCommand" eType="#//Corretto"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Corretto">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="verify" eType="#//Verify"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="execute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Verify">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trio" eType="#//TRIO" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Declaration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="obj" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="std" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uMLStateName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trioVar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trio" eType="#//TRIO" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TRIO">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trioL" eType="#//TRIOL"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trioR" eType="#//TRIOR"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TRIOL">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trioVar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="opName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arithBool" eType="#//ArithBool"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trioNot" eType="#//TRIO"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trioOpF" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trioOpF1" eType="#//TRIO"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trioOpFF" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trioOpFF1" eType="#//TRIO"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trioOpFF2" eType="#//TRIO"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trioOpFN" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trioOpFN1" eType="#//TRIO"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="int" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TRIOR">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trioOP2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trio" eType="#//TRIO" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArithBool">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arithTerm1" eType="#//ArithTerm"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="arithCOP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arithTerm2" eType="#//ArithTerm"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArithTerm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arithTermL" eType="#//ArithTermL"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arithTermR" eType="#//ArithTermR"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArithTermL">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trio" eType="#//TRIO" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constant" eType="#//DataType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arithVar" eType="#//ArithVar"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arithTermF" eType="#//ArithTerm"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="intF" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arithTermP" eType="#//ArithTerm"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="intP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArithTermR">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="arithOP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arithTerm" eType="#//ArithTerm"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArithVar">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="obj" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="atr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="param" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="i" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="float" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

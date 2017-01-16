@@ -30,7 +30,7 @@ public class StateMachineTriggersFactoryImpl extends EFactoryImpl implements Sta
   {
     try
     {
-      StateMachineTriggersFactory theStateMachineTriggersFactory = (StateMachineTriggersFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.correttouml.org/grammars/StateMachineTriggers"); 
+      StateMachineTriggersFactory theStateMachineTriggersFactory = (StateMachineTriggersFactory)EPackage.Registry.INSTANCE.getEFactory(StateMachineTriggersPackage.eNS_URI);
       if (theStateMachineTriggersFactory != null)
       {
         return theStateMachineTriggersFactory;

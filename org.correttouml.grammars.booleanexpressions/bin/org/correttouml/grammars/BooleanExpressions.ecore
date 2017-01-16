@@ -3,25 +3,39 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="booleanExpressions" nsURI="http://www.correttouml.org/grammars/BooleanExpressions"
     nsPrefix="booleanExpressions">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//booleanExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//OrExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="booleanExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="notExpression" eType="#//booleanExpression"
+  <eClassifiers xsi:type="ecore:EClass" name="OrExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftExpression" eType="#//AndExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="orLeft" eType="#//booleanTerm"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="or" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightExpression" eType="#//OrExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="orRight" eType="#//booleanTerm"
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AndExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftExpression" eType="#//BaseExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="andLeft" eType="#//booleanTerm"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="and" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightExpression" eType="#//AndExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="andRight" eType="#//booleanTerm"
-        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BaseExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="not" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="booleanTerm" eType="#//booleanTerm"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rootExpression" eType="#//OrExpression"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="booleanTerm"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TimeConstraint" eSuperTypes="#//booleanTerm">
+  <eClassifiers xsi:type="ecore:EClass" name="booleanTerm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="timeConstraint" eType="#//TimeConstraint"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="booleanVariable" eType="#//BooleanVariable"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variableCondition" eType="#//VariableCondition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeConstraint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="event2" eType="#//Event"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="event1" eType="#//Event"
@@ -29,15 +43,31 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BooleanVariable" eSuperTypes="#//booleanTerm">
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanVariable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="variable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VariableCondition" eSuperTypes="#//booleanTerm">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableCondition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression_left" eType="#//EXPRESSION"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="relation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression_right" eType="#//EXPRESSION"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EXPRESSION">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="firstTerm" eType="#//TERM"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="secondTerm" eType="#//TERM"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="alone" eType="#//TERM"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TERM">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Event">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="objName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="eventName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="eventExtension" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nowEvent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

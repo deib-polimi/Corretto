@@ -1,13 +1,15 @@
 package org.correttouml.uml2zot.semantics.classdiagram;
 
+import org.correttouml.uml.diagrams.activitydiagram.AD;
 import org.correttouml.uml.diagrams.classdiagram.Attribute;
 import org.correttouml.uml.diagrams.classdiagram.Object;
 import org.correttouml.uml.diagrams.classdiagram.Operation;
+import org.correttouml.uml.diagrams.classdiagram.Slot;
+import org.correttouml.uml.diagrams.expressions.ValueSpecification;
 import org.correttouml.uml.diagrams.statediagram.StateDiagram;
 import org.correttouml.uml2zot.semantics.SMadesModel;
+import org.correttouml.uml2zot.semantics.activitydiagram.SAD;
 import org.correttouml.uml2zot.semantics.statediagram.SStateDiagram;
-import org.correttouml.uml2zot.semantics.util.trio.Constant;
-import org.correttouml.uml2zot.semantics.util.trio.EQ;
 
 
 public class SObject {
@@ -20,13 +22,13 @@ public class SObject {
 	
 	public String getSemantics(){
 		String sem="";
-		////#### uncomment me <Mehdi>
-		SMadesModel.printSeparatorSmall("Object operation definitions", false);
+		
+		sem += SMadesModel.printSeparatorSmall("Object operation definitions", false);
 		for(Operation op: this.mades_obj.getOwningClass().getOperations()){
 			sem=sem+new SOperation(op).getSemantics(mades_obj);
 		}
 		
-		SMadesModel.printSeparatorSmall("Attribute semantics", false);
+		sem += SMadesModel.printSeparatorSmall("Attribute semantics", false);
 		for(Attribute attr: this.mades_obj.getOwningClass().getAttributes()){
 			sem=sem+new SAttribute(attr).getSemantics(mades_obj);
 		}
@@ -35,8 +37,14 @@ public class SObject {
 		
 		//If the object has a state diagram associated to it, return its semantics
 		for(StateDiagram std: mades_obj.getOwningClass().getStateDiagrams()){
-			sem=sem+SMadesModel.printSeparatorSmall(mades_obj.toString() + " STD " + std + " SEMANTICS");
+			sem=sem+SMadesModel.printSeparatorSmall(mades_obj.toString() + " STD " + std.getName() + std + " SEMANTICS");
 			sem=sem+new SStateDiagram(std).getSemantics(this.mades_obj);
+		}
+		
+		//If the object has an activity diagram associated to it, return its semantics
+		for (AD ad : mades_obj.getADs()) {
+			sem += SMadesModel.printSeparatorSmall(mades_obj.toString() + " AD " + ad.getName() + ad + " SEMANTICS");
+			sem += new SAD(ad).getSemantics();
 		}
 		
 		return sem;
@@ -46,7 +54,18 @@ public class SObject {
 		String sem="";
 		
 		for(Attribute att: this.mades_obj.getOwningClass().getAttributes()){
-			sem=sem+new SAttribute(att).getInitializationSemantics(mades_obj);
+			
+			ValueSpecification value=null;
+			Slot s=null;
+			if((s=mades_obj.getSlot(att))!=null){
+				value=s.getValueSpecification();
+			}else{
+				//[TODO]: To initialize an attribute right now you MUST
+				// create a slot at instance level. Going for a default value
+				// here is tricky and must be thought carefully.
+				//value=att.getDefaultValue();
+			}
+			if(value != null) sem=sem+new SAttribute(att).getInitializationSemantics(mades_obj, value);
 		}
 		
 		return sem;

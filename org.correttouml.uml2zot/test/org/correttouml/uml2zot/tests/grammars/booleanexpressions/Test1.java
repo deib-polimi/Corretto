@@ -16,8 +16,8 @@ public class Test1 {
 	@Test
 	public void MyTest1(){
 		Model m=BooleanExpressionsParser.parse("@now-@braking.enter==10");
-		assertNotNull(m.getExpression().getBooleanTerm());
-		TimeConstraint tc=(TimeConstraint) m.getExpression().getBooleanTerm();
+		assertNotNull(m.getExpression().getLeftExpression().getLeftExpression().getBooleanTerm());
+		TimeConstraint tc=m.getExpression().getLeftExpression().getLeftExpression().getBooleanTerm().getTimeConstraint();
 		
 		LOGGER.info(tc.getEvent1());
 		LOGGER.info(tc.getEvent2());
@@ -30,8 +30,8 @@ public class Test1 {
 	@Test
 	public void MyTest2(){
 		Model m=BooleanExpressionsParser.parse("@Interaction1.end-@Interaction1.start==5");
-		assertNotNull(m.getExpression().getBooleanTerm());
-		TimeConstraint tc=(TimeConstraint) m.getExpression().getBooleanTerm();
+		assertNotNull(m.getExpression().getLeftExpression().getLeftExpression().getBooleanTerm());
+		TimeConstraint tc=m.getExpression().getLeftExpression().getLeftExpression().getBooleanTerm().getTimeConstraint();
 		
 		LOGGER.info(tc.getEvent1());
 		LOGGER.info(tc.getEvent2());
@@ -41,15 +41,9 @@ public class Test1 {
 	}
 	
 	@Test 
-	public void MyTest3(){
-		Model m=BooleanExpressionsParser.parse("@Signal1.sig");
-		assertTrue(m.getExpression().getBooleanTerm() instanceof org.correttouml.grammars.booleanExpressions.Event);
-	}
-	
-	@Test 
 	public void MyTest4(){
 		Model m=BooleanExpressionsParser.parse("@Signal1.sig - @sd.start == 4");
-		assertTrue(m.getExpression().getBooleanTerm() instanceof org.correttouml.grammars.booleanExpressions.TimeConstraint);
+		assertTrue(m.getExpression().getLeftExpression().getLeftExpression().getBooleanTerm().getTimeConstraint() instanceof org.correttouml.grammars.booleanExpressions.TimeConstraint);
 	}
 	
 }

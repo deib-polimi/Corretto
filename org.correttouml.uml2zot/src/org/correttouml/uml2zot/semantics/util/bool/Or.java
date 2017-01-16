@@ -27,7 +27,7 @@ public class Or implements BooleanFormulae{
     
     public Or(Collection<Predicate> pList) {
         for(Predicate p : pList)
-        	f.add((BooleanFormulae)p);
+        	f.add(p);
     }
     
     public void addFormulae(BooleanFormulae fIn) {

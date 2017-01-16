@@ -14,6 +14,7 @@ public class SignalEvent implements Event{
 		return mades_signal;
 	}
 
+	@Override
 	public boolean equals(java.lang.Object o){
 		SignalEvent other_signalevent=(SignalEvent) o;
 		return this.mades_signal.equals(other_signalevent.mades_signal);

@@ -5,7 +5,7 @@ import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
 var grammarURI = "classpath:/org/correttouml/grammars/StateMachineActions.xtext"
-var file.extensions = "mydsl"
+var file.extensions = "stdactions"
 var projectName = "org.correttouml.grammars.statemachineactions"
 var runtimeProject = "../${projectName}"
 

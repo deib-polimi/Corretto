@@ -113,6 +113,7 @@ public class SampleTab extends AbstractLaunchConfigurationTab implements ModifyL
 		gd.widthHint = 200;
 		tbText.setLayoutData(gd);
 		tbText.addListener(SWT.Verify, new Listener() {
+			@Override
 			public void handleEvent(Event e) {
 				ZotSetupUtil.InputIsInt(e.text, e);
 			}
@@ -156,10 +157,11 @@ public class SampleTab extends AbstractLaunchConfigurationTab implements ModifyL
 		 * Add contents of solver combo depending on the contents of the plug-
 		 * in combo
 		 */
-		String items[] = { "eezot", "meezot", "smteezot", "smtmeezot", "ae2zot", "bvzot", "ae2bvzot"};
+		String items[] = { "eezot", "meezot", "smteezot", "smtmeezot", "ae2zot", "ae2bvzot", "ae2sbvzot", "bvzot", "sbvzot" };
 		plugin.setItems(items);
 		plugin.setText("plugin...");
 		plugin.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				initializeSolverCombo(plugin, solver);
 			}
@@ -194,6 +196,7 @@ public class SampleTab extends AbstractLaunchConfigurationTab implements ModifyL
 		gd = new GridData(SWT.END);
 		button.setLayoutData(gd);
 		button.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent event) {
 				createDirectoryDialog(parent, location, "Zot Directory Dialog",
 						"Select a directory");
@@ -229,6 +232,7 @@ public class SampleTab extends AbstractLaunchConfigurationTab implements ModifyL
 		gd = new GridData(SWT.END);
 		button.setLayoutData(gd);
 		button.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent event) {
 				createDirectoryDialog(parent, output_location, "Output Directory Dialog",
 						"Select a directory");
@@ -255,7 +259,11 @@ public class SampleTab extends AbstractLaunchConfigurationTab implements ModifyL
 				String newItems[] = { "minisat" };
 				solver.setItems(newItems);
 			} else if (plugin.getText().equals("ae2zot")
-					|| plugin.getText().equals("smteezot") || plugin.getText().equals("ae2bvzot") || plugin.getText().equals("bvzot")) {
+					||plugin.getText().equals("ae2bvzot")
+					||plugin.getText().equals("ae2sbvzot")
+					||plugin.getText().equals("bvzot")
+					||plugin.getText().equals("sbvzot")
+					|| plugin.getText().equals("smteezot")) {
 				String newItems[] = { "yices", "z3" };
 				solver.setItems(newItems);
 			} else {
@@ -320,6 +328,7 @@ public class SampleTab extends AbstractLaunchConfigurationTab implements ModifyL
 	 */
 	private SelectionAdapter getSelectionDialog(){
 		return new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				FileDialog dialog = new FileDialog(shell, SWT.NULL);
 				String path = dialog.open();

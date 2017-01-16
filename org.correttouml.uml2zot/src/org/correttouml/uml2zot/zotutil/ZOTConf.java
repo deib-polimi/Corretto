@@ -6,8 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashSet;
 
-import org.correttouml.uml.MadesModel;
-import org.correttouml.uml2zot.UML2Zot;
 import org.correttouml.uml2zot.semantics.SMadesModel;
 import org.correttouml.uml2zot.semantics.util.bool.BooleanFormulae;
 
@@ -40,9 +38,11 @@ public class ZOTConf {
         //supported plugins
         zotplugins.add("ae2zot");
         zotplugins.add("ae2bvzot");
+        zotplugins.add("ae2sbvzot");
+        zotplugins.add("bvzot");
+        zotplugins.add("sbvzot");
         zotplugins.add("eezot");
         zotplugins.add("meezot");
-        zotplugins.add("bvzot");
         zotplugins.add("smteezot");
         zotplugins.add("smtmeezot");
     }
@@ -57,15 +57,13 @@ public class ZOTConf {
     
     public void writeVerificationZOTFile(String filename, String modelStats) throws IOException, Exception {
         String sem=model.getSemantics();
-    	String loadplugin = "(asdf:operate 'asdf:load-op '" + plugin + ")\n";
+        String loadplugin = "(asdf:operate 'asdf:load-op '" + plugin + ")\n";
         String loadtrioutils = "(use-package :trio-utils)\n";
         String loadsatsolverinterface = "";
         String definetimebound = "(defvar TSPACE " + timebound + ")\n";
         BooleanFormulae property_formulae=null;
         if (model.hasProperty()) property_formulae=model.getProperty();
         String declarations= model.getDeclarations();
-        String defuns= model.getDefun();
-        String ae2zotVariables = model.getVariableDeclarationsForae2zot();
         String definemodel = "(defvar AX1 \n (&& \n" + sem + "\n)) ;;END AX1 \n\n\n";
         String smtsolverparameter = "";
 
@@ -94,7 +92,7 @@ public class ZOTConf {
             property = ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;\n"
                     + ";;; PROPERTIES\n"
                     + ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;\n"
-                    + "(defvar Q1 " + property_formulae + " )\n\n\n";
+                    + "(defvar Q1 " + property_formulae + ")\n\n\n";
         }
         String initaxiom = ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;\n"
                 + ";;; INIT AXIOM\n"
@@ -105,15 +103,12 @@ public class ZOTConf {
                 + ";;; THE SYSTEM\n"
                 + ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;\n";
         if (model.hasProperty()) {
-            thesystem = thesystem + "(defvar the_system  (&& (yesterday (alwf AX1)) (!!(yesterday (alwf Q1))) initAx ))";
+            thesystem = thesystem + "(defvar the_system  (&& (yesterday (alwf AX1)) (!!(yesterday Q1)) initAx))";
         } else {
-            thesystem = thesystem + "(defvar the_system  (&& (yesterday (alwf AX1)) initAx ))";
+            thesystem = thesystem + "(defvar the_system  (&& (yesterday (alwf AX1)) initAx))";
         }
-        thesystem = thesystem + "\n\n\n" + "(" + plugin + ":zot TSPACE (&& the_system) " + smtsolverparameter + " )";
-        int arithVarsN=0;
-        for(org.correttouml.uml2zot.semantics.util.trio.TrioVar t: org.correttouml.uml2zot.semantics.util.trio.TrioVar.instances){
-			arithVarsN++;
-		}
+        thesystem = thesystem + "\n\n\n" + "(" + plugin + ":zot TSPACE (&& the_system) " + smtsolverparameter + ")";
+        int arithVarsN = org.correttouml.uml2zot.semantics.util.trio.TrioVar.instances.size();
         String zot = modelStats + ";  " + Integer.toString(arithVarsN) + "\t:Number of arithmetic variables\n"
                 + ""
                 + loadplugin
@@ -122,7 +117,6 @@ public class ZOTConf {
                 + ""
                 + definetimebound
                 + declarations
-                + ae2zotVariables
                 + ""
                 + definemodel
                 + property
